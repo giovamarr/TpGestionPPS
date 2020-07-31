@@ -58,7 +58,6 @@ class UsuarioModel{
                        '".$this->nombre."',
                        '".$this->apellido."',
                        '".$this->email."',
-
                        '".$this->password."');";
         $vResultado = mysqli_query($cnn, $query);       
         return $vResultado;
