@@ -1,20 +1,18 @@
 <?php
 
 class Conexion{
-    private $host,$user,$pass,$database;
+    
 
-
-    public function __construct()   
-    {
-        $this->host	= "localhost";	   // localhost or IP
-        $this->user	= "root";		  // database username
-        $this->pass	= "root";		     // database password
-        $this->name	= "pps";    // database name
-
+    public static function Conectar(){
+     $dbhost	= "localhost";	   // localhost or IP
+     $dbuser	= "root";		  // database username
+     $dbpass	= "root";		     // database password
+    $dbname	= "pps";    // database name
+    try{
+        return mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
+    }catch (Exception $e){
+        die("El error de Conexión es: ". $e->getMessage());
     }
-
-    public function conectar(){
-        $con = mysqli_connect($host, $user, $pass, $name);
-        return $con;
-}
+        
+    }
 }

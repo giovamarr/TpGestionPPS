@@ -1,3 +1,4 @@
+<?php include 'inc/verificarAlumno.php';?>
 <!doctype html>
 <html lang="es">
   <head>
@@ -9,7 +10,7 @@
 
     <!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous"">
-	<link rel="stylesheet" href="app/views/css/home.css">
+	<link rel="stylesheet" href="css/home.css">
   </head>
 
   <body>
@@ -17,7 +18,7 @@
 			<div class="card">
 				<div class="row">
 				<?php 
-					#include 'partial/header.php';
+					include 'inc/header.php';
 				?>	
 				</div><hr>
 				<div class="row">
@@ -41,7 +42,7 @@
 						</div>
 					</div>
 					<?php 
-							#include 'partial/footer.html';
+							include 'inc/footer.html';
 						?>
 				</div>
 				

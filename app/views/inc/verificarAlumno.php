@@ -1,0 +1,10 @@
+<?php
+session_start();
+if($_SESSION['type']==1){
+}elseif($_SESSION['type']==2){	
+	header('location:HomeDocente.php');
+}elseif($_SESSION['type']==3){
+	header('location:HomeResponsable.php');	
+}else{
+	header('location:../../index.php');}
+?>

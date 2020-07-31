@@ -8,10 +8,11 @@ class UsuarioModel{
     protected $apellido;
     protected $email;
     protected $password;
+    protected $tipo;
      
     public function __construct() {
         $table="usuarios";
-        parent::__construct($table);
+        //parent::__construct($table);
     }
     public function getId() {
         return $this->id;
@@ -43,30 +44,36 @@ class UsuarioModel{
     public function setPassword($password) {
         $this->password = $password;
     }
+    public function getTipo() {
+        return $this->tipo;
+    }
+    public function setTipo($tipo) {
+        $this->tipo = $tipo;
+    }
  
     public function insertarUsuario(){
-        $db = new Conexion();
-        $query="INSERT INTO users (id,nombre,apellido,email,password)
-                VALUES(NULL,
+        $ob = new Conexion();
+        $con=$ob->conectar();
+        $query="INSERT INTO users (nombre,apellido,email,password)
                        '".$this->nombre."',
                        '".$this->apellido."',
                        '".$this->email."',
+
                        '".$this->password."');";
-        $save=$this->db()->query($query);
-        return $save;
+        $vResultado = mysqli_query($cnn, $query);       
+        return $vResultado;
     }
+    
        //Metodos de consulta
-       public function getUsuario($email){
-        $conn = new Conexion();
-        $result = mysqli_query($conn, "SELECT id,email, password, nombre,tipo,apellido,idPPS   
-                                        FROM users left join solicitudes on id=id_user WHERE email = '$email'");
+    public function getUsuario($email){
+        $ob = new Conexion();
+        $con=$ob->conectar();
+        $result = mysqli_query($con, "SELECT id,email, password, nombre,tipo,apellido,idPPS FROM users left join solicitudes on id=id_user WHERE email = '$email'");
         
         // Variable $row hold the result of the query
-		$row = mysqli_fetch_assoc($result);
+        $row = mysqli_fetch_assoc($result);
 			
-		// Variable $hash hold the password hash on database
-		$hash = $row['password'];
-        return $this->db->query($row);
+        return $row;
 }
     }
  
