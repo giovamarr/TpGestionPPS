@@ -1,0 +1,71 @@
+@font-face {
+    font-family: 'Glyphicons Halflings';
+  
+    src: url('../../app/fonts/glyphicons-halflings-regular.eot');
+    src: url('../../app/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../../app/fonts/glyphicons-halflings-regular.woff2') format('woff2'), url('../../app/fonts/glyphicons-halflings-regular.woff') format('woff'), url('../../app/fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../../app/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+  }
+  .glyphicon {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+  
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  .glyphicon-log-out:before {
+    content: "\e163";
+  }
+  .glyphicon-eye-open:before {
+    content: "\e105";
+  }
+  
+.card {           
+    border-radius: 10px;
+    padding: 15px;
+    max-width: 700px;
+    margin:  auto;
+    text-align: center;
+}
+
+.ce{
+    width: 200px;
+    height: 38px;
+}
+.btn{
+        margin:  auto;
+    max-width: 300px;
+}
+body {
+    display: flex;
+    align-items: center;
+    padding-top: 40px;
+    background-color: rgb(148, 167, 187);
+      }
+.cardtable{
+    border-radius: 10px;
+    padding: 15px;
+    margin:  auto;
+    background-color: white;
+    text-align: center;
+      }
+table{margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+    font-size: 15px;
+}
+      
+table,td {
+    border: 0.5px solid black;
+  }
+
+
+
+  
+
+
+
+
