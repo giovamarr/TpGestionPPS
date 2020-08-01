@@ -48,4 +48,7 @@ class SeguimientosController{
         return $seguimientos;
     }
 }
+
+$controlador = new SeguimientosController();
+$controlador->insertarSeguim();
 	?>

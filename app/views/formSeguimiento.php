@@ -54,10 +54,10 @@ include 'inc/verificarAlumno.php';
 							<input type="text" class="form-control" name="desvioCronograma" placeholder="Desvios de Cronograma" required>			
 						</div>
 						<div class="form-group">
-							<input type="number" class="form-control" name="hsTrabajadas" placeholder="Horas Trabajadas" required>			
+							<input type="number" min="0" class="form-control" name="hsTrabajadas" placeholder="Horas Trabajadas" required>			
 						 </div>
 						 <div class="form-group">
-							<input type="number" class="form-control" name="TotalhsTrabajadas" placeholder="Total de horas Trabajadas" required>
+							<input type="number" min="0" class="form-control" name="TotalhsTrabajadas" placeholder="Total de horas Trabajadas" required>
 						</div>
 					</div><!-- col 2 -->
 				</div><!-- row 3 -->

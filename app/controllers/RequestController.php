@@ -1,5 +1,7 @@
 <?php
 
+session_start();	
+
 class RequestController{
 	
 	public function __construct(){
@@ -7,8 +9,6 @@ class RequestController{
 	}
 
     public function insertarPPS(){
-    // Check connection
-    //deberia crear un SolicitudesModel y llamar al metodo insertarSolicitudesPPS() con los parametros que traiga
 	$soli=new SolicitudesModel();
 	$id_user=$_SESSION['id'];
 	$count =$soli->chequearID($id_user);
@@ -23,7 +23,7 @@ class RequestController{
 	$telefono = $_POST['telefono'];
 	$email = $_POST['email'];
     $contacto = $_POST['contacto'];    
-	$insertado->insertarSolicitudPPS($caractPPS, $nombreEntidad,$direccion,$cp,$localidad, $telefono, $email,$contacto,$id_user);
+	$insertado= $soli->insertarSolicitudPPS($caractPPS, $nombreEntidad,$direccion,$cp,$localidad, $telefono, $email,$contacto,$id_user);
 	if ($insertado) {
 		header('location:../views/requestPPS.php?a=1');	
 		} else {
@@ -64,4 +64,7 @@ class RequestController{
 	
 
 }
+$controlador = new RequestController();
+$controlador->insertarPPS();
+
 	?>
