@@ -37,5 +37,13 @@ class ReporteFinalController{
         $reportes =$rf->getReportesFinales($idPPS);
         return $reportes;
     }
+
+    public function getReportesDocente(){
+        
+        $rf=new ReporteFinalModel();
+        $idProf=$_SESSION['id']; 
+        $reportes =$rf->getReportesFinalesDocente($idProf);
+        return $reportes;
+    }
 }
 	?>

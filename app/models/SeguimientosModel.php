@@ -42,6 +42,14 @@ class SeguimientosModel{
         return $vResultado;
     }
 
+    public function getSeguiDocente($idProfe){
+        $ob = new Conexion();
+        $con=$ob->conectar();
+        $vSql = "SELECT * FROM seguimientos se inner join solicitudes s on se.id_PPS=s.idPPS inner join users u on u.id=s.id_user where s.id_Profe='$idProfe'";
+        $vResultado = mysqli_query($con, $vSql);
+        return $vResultado;
+    }
+
 
 
 }

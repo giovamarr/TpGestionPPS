@@ -39,5 +39,13 @@ class SeguimientosController{
         $seguimientos =$segui->getSegui($idPPS);
         return $seguimientos;
     }
+
+    public function getSeguimientosDocente(){
+        
+        $segui=new SeguimientosModel();
+        $idProf=$_SESSION['id']; 
+        $seguimientos =$segui->getSeguiDocente($idProf);
+        return $seguimientos;
+    }
 }
 	?>

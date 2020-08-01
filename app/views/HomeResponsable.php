@@ -25,10 +25,10 @@
 					<div class="col-lg-12">	
 							<h2>MENÚ</h2>		<br>				
 							<div class="page">								
-								<form action="viewPPS.php" method="post">
+								<form action="viewPPSResponsable.php" method="post">
 									<button type="submit" class="btn btn-primary btn-block">Definir Tutores de PPS</button>
 								</form><br>
-								<form action="viewPPSapproved.php" method="post">
+								<form action="viewRegistrarAprobadoPPS.php" method="post">
 									<button type="submit" class="btn btn-primary btn-block">Registrar Aprobacion PPS</button>
 								</form><br>
 							</div>

@@ -42,5 +42,13 @@ class ReporteFinalModel{
         return $vResultado;  
     }
 
+    public function getReportesFinalesDocente($idProfe){
+        $ob = new Conexion();
+        $con=$ob->conectar();
+        $vSql = "SELECT * FROM finalReport f inner join solicitudes s on f.idPPS_FP=s.idPPS inner join users u on u.id=s.id_user where s.id_Profe='$idProfe'";
+        $vResultado = mysqli_query($con, $vSql);
+        return $vResultado;  
+    }
+
 
 }

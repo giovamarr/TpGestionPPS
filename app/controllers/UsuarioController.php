@@ -3,7 +3,8 @@
 class UsuarioController{
 
     public function __construct(){
-		require_once '../models/UsuarioModel.php';		
+        require_once '../models/UsuarioModel.php';
+        session_start();		
 	}
 
     public function verifyLogin($email, $password){

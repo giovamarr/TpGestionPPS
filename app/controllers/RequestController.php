@@ -29,7 +29,39 @@ class RequestController{
 		} else {
 			echo "Error: No se pudo enviar la solicitud de PPS<br>";
 		}	
-	}	
-}
+		}	
+	}
+
+	public function totalPags($Cant_por_Pag){
+        
+        $soli=new SolicitudesModel();
+        $total =$soli->TotaldePPSsinDocente();	
+		return $total_paginas = ceil($total/ $Cant_por_Pag);
+		
+	}
+	
+	public function getPPSPaginadosinProfe($inicio,$Cant_por_Pag){
+		$soli=new SolicitudesModel();
+        $vResultado =$soli->getPPSPaginado($inicio,$Cant_por_Pag);	
+		return $vResultado;
+		
+	}
+
+	public function totalPagsPPSAprobadas($Cant_por_Pag){
+        
+        $soli=new SolicitudesModel();
+        $total =$soli->TotaldePPSAprobadas();	
+		return $total_paginas = ceil($total/ $Cant_por_Pag);
+		
+	}
+	
+	public function getPPSAprobadasPaginado($inicio,$Cant_por_Pag){
+		$soli=new SolicitudesModel();
+        $vResultado =$soli->getPPSAprobadasPaginado($inicio,$Cant_por_Pag);	
+		return $vResultado;
+		
+	}
+	
+
 }
 	?>

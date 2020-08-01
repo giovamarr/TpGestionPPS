@@ -35,5 +35,39 @@ class SolicitudesModel{
         return $count = mysqli_num_rows($result);
     }
 
+    public function TotaldePPSsinDocente(){
+        $ob = new Conexion();
+        $con=$ob->conectar();
+        $vSql = "SELECT * FROM solicitudes where id_Profe IS NULL";
+	    $vResultado = $con-> query($vSql);
+        return $total_registros=mysqli_num_rows($vResultado);
+    }
+
+    public function getPPSPaginado($inicio,$Cant_por_Pag){
+        $ob = new Conexion();
+        $con=$ob->conectar();        
+        $vSql = "SELECT * FROM solicitudes sol inner join users u on u.id=sol.id_user 
+                WHERE sol.id_Profe IS NULL"." limit " . $inicio . "," . $Cant_por_Pag;
+	    $vResultado = $con-> query($vSql);
+        return $vResultado;
+    }
+
+    public function TotaldePPSAprobadas(){
+        $ob = new Conexion();
+        $con=$ob->conectar();
+        $vSql = "SELECT * FROM solicitudes sol INNER join finalreport fr on sol.idPPS=fr.idPPS_FP inner join users u on sol.id_user=u.id inner join users up on sol.id_Profe=up.id where fr.aprobadaFR is not null";
+	    $vResultado = $con-> query($vSql);
+        return $total_registros=mysqli_num_rows($vResultado);
+    }
+
+    public function getPPSAprobadasPaginado($inicio,$Cant_por_Pag){
+        $ob = new Conexion();
+        $con=$ob->conectar();        
+        $vSql = "SELECT u.nombre,u.apellido,sol.*,up.nombre as nombreP,up.apellido as apellidoP FROM solicitudes sol INNER join finalreport fr on sol.idPPS=fr.idPPS_FP inner join users u on sol.id_user=u.id inner join users up on sol.id_Profe=up.id where fr.aprobadaFR is not null"." limit " . $inicio . "," . $Cant_por_Pag;
+	    $vResultado = $con-> query($vSql);
+        return $vResultado;
+    }
+
+
 
 }
