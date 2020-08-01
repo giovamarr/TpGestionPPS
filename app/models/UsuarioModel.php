@@ -1,7 +1,4 @@
 <?php
-
-require '../../system/core/Conexion.php';
-
 class UsuarioModel{
     protected $id;
     protected $nombre;
@@ -12,6 +9,7 @@ class UsuarioModel{
      
     public function __construct() {
         $table="usuarios";
+        require_once '../../system/core/Conexion.php';
         //parent::__construct($table);
     }
     public function getId() {

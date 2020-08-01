@@ -1,12 +1,7 @@
 <?php
-session_start();
-if($_SESSION['type']==1){
-}elseif($_SESSION['type']==2){	
-	header('location:../views/mainDocente.php');
-}elseif($_SESSION['type']==3){
-	header('location:../views/mainResponsable.php');	
-}else{
-	header('location:../views/login.php');}
+    include 'inc/verificarAlumno.php';
+    require_once '../controllers/SeguimientosController.php';    
+    require_once '../controllers/ReporteFinalController.php';
 ?>
 <!doctype html>
 <html lang="es">
@@ -36,16 +31,13 @@ if($_SESSION['type']==1){
 				<div class="row">
 					<div class="col-md-12">	
 							<h2>Seguimientos</h2>		<br>				
-                            <?php /*
-                                include("../../config/conn.php");
-                                                                    
-                                $idP=$_SESSION['idPPS'];
-                                $vSql = "SELECT * FROM seguimientos where id_PPS='$idP'";
-                                $vResultado = mysqli_query($conn, $vSql);
-                                if(mysqli_num_rows($vResultado) == 0) {
+                            <?php                                                                    
+                                $seguimientos=new SeguimientosController();
+                                $result=$seguimientos->getSeguimientos();
+                                if(mysqli_num_rows($result) == 0) {
                                     echo("<p style='text-align: center;'>No hay Seguimientos enviados.<br />");
                                     }
-                                    else{*/
+                                    else{
                             ?>
                             <table class="table ">
                                 <tr class="bg-primary">
@@ -53,8 +45,8 @@ if($_SESSION['type']==1){
                                     <td><b>Condición</b></td>
                                     <td><b>Ver Informe</b></td>
                                 </tr>
-                            <?php /*
-                                while ($fila = mysqli_fetch_array($vResultado))
+                            <?php 
+                                while ($fila = mysqli_fetch_array($result))
                                 {
                             ?>
                                 <tr>
@@ -64,18 +56,18 @@ if($_SESSION['type']==1){
                                                 }elseif($fila['aprobadoSeg']==2){
                                                     echo('<strong><span style="color: #ff0000;">No Aprobado</span></strong>');
                                                 }else{echo('<strong>No corregido</strong>');}                                    
-                                    */ ?></td>
+                                     ?></td>
                                     <td>
                                         <button class="btn btn-warning" >
                                             <strong><a href='viewOneReport.php' style= 'color: black'>Ver</a></strong>
                                          </button>
                                     </td>
                                 </tr>                               
-                                        <?php /*
+                                        <?php 
                                         }
                                         // Liberar conjunto de resultados
-                                        mysqli_free_result($vResultado);}
-                                       */ ?>
+                                        mysqli_free_result($result);}
+                                        ?>
                                    
                             </table>                           
                     </div>
@@ -84,12 +76,10 @@ if($_SESSION['type']==1){
                 <div class="row">
 					<div class="col-md-12">	
                         <h2>Informe Final</h2>		<br>				
-                            <?php   /*                                                        
-                                $idP=$_SESSION['idPPS'];              
-                                $vSql = "SELECT * FROM finalreport where idPPS_FP='$idP'";
-                                $vResultado = mysqli_query($conn, $vSql);
-                                $total_registros=mysqli_num_rows($vResultado);
-                                if(mysqli_num_rows($vResultado) == 0) {
+                            <?php               
+                                 $rf=new ReporteFinalController();
+                                 $result=$rf->getReportes();
+                                if(mysqli_num_rows($result) == 0) {
                                     echo("<p style='text-align: center;'>No hay Informes Finales Enviados.<br />");
                                     }
                                     else{                                                                           
@@ -102,7 +92,7 @@ if($_SESSION['type']==1){
                                     <td><b>Ver Informe</b></td>
                                 </tr>
                             <?php
-                                while ($fila = mysqli_fetch_array($vResultado))
+                                while ($fila = mysqli_fetch_array($result))
                                 {
                             ?>
                                 <tr>
@@ -112,19 +102,19 @@ if($_SESSION['type']==1){
                                                 }elseif($fila['aprobadaFR']==2){
                                                     echo('<strong><span style="color: #ff0000;">No Aprobado</span></strong>');
                                                 }else{echo('<strong>No corregido</strong>');}                                    
-                                    */ ?></td>
+                                     ?></td>
                                     <td>
                                         <button class="btn btn-warning " >
                                            <strong><a href='viewOneReport.php' style= 'color: black'>Ver</a></strong>
                                          </button>
                                     </td>
-                                </tr>          */                     
-                                        <?php /*
+                                </tr>                              
+                                        <?php 
                                         } 
                                         // Liberar conjunto de resultados
-                                        mysqli_free_result($vResultado);
-                                        // Cerrar la conexion
-                                        mysqli_close($conn);}*/
+                                        mysqli_free_result($result);
+                                        // Cerrar la conexion;
+                                    }
                                         ?>
                                    
                             </table>                           

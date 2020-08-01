@@ -1,12 +1,5 @@
 <?php
-session_start();
-if($_SESSION['type']==1){
-}elseif($_SESSION['type']==2){	
-	header('location:../views/mainDocente.php');
-}elseif($_SESSION['type']==3){
-	header('location:../views/mainResponsable.php');	
-}else{
-	header('location:../../index.php');}
+include 'inc/verificarAlumno.php';
 ?>
 <!doctype html>
 <html lang="es">
@@ -38,7 +31,7 @@ if($_SESSION['type']==1){
 							<hr>
 					</div>
 				</div><!-- row 2 -->
-			<form method="post" action="../Logic/create-Seguimiento.php" >
+			<form method="post" action="../controllers/SeguimientosController.php" >
 				<h5>Comentarios / Observaciones</h5>
 				<div class="row">					
 					<div class="col-lg-6">

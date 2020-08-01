@@ -1,12 +1,5 @@
 <?php
-session_start();
-if($_SESSION['type']==1){
-}elseif($_SESSION['type']==2){	
-	header('location:../views/mainDocente.php');
-}elseif($_SESSION['type']==3){
-	header('location:../views/mainResponsable.php');	
-}else{
-	header('location:../views/login.php');}
+include 'inc/verificarAlumno.php'
 ?>
 <!doctype html>
 <html lang="es">
