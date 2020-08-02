@@ -64,7 +64,7 @@ class RequestController{
 	
 
 }
-$controlador = new RequestController();
-$controlador->insertarPPS();
+//$controlador = new RequestController();
+//$controlador->insertarPPS();
 
 	?>

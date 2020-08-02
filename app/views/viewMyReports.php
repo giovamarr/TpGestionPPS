@@ -59,7 +59,7 @@
                                      ?></td>
                                     <td>
                                         <button class="btn btn-warning" >
-                                            <strong><a href='viewOneReport.php' style= 'color: black'>Ver</a></strong>
+                                            <strong><a href='viewOneSeguimiento.php?id=<?php echo $fila['idSeguimientos']; ?>' style= 'color: black'>Ver</a></strong>
                                          </button>
                                     </td>
                                 </tr>                               
@@ -105,7 +105,7 @@
                                      ?></td>
                                     <td>
                                         <button class="btn btn-warning " >
-                                           <strong><a href='viewOneReport.php' style= 'color: black'>Ver</a></strong>
+                                           <strong><a href='viewOneReportFinal.php?id=<?php echo $fila['idFR']; ?>' style= 'color: black'>Ver</a></strong>
                                          </button>
                                     </td>
                                 </tr>                              

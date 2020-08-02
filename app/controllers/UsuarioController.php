@@ -35,7 +35,7 @@ class UsuarioController{
 
 }
 //esto no deberia estar
-$controlador = new UsuarioController();
-$controlador->verifyLogin($_POST['email'], $_POST['password']);
+//$controlador = new UsuarioController();
+//$controlador->verifyLogin($_POST['email'], $_POST['password']);
 
 ?>

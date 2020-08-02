@@ -50,6 +50,14 @@ class SeguimientosModel{
         return $vResultado;
     }
 
+    public function getOne($idPPS,$idSeguimientos){
+        $ob = new Conexion();
+        $con=$ob->conectar();
+        $vSql = "SELECT * FROM seguimientos where id_PPS='$idPPS' and idSeguimientos='$idSeguimientos'";
+        $vResultado = mysqli_query($con, $vSql);
+        return $vResultado;
+    }
+
 
 
 }

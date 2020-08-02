@@ -49,6 +49,14 @@ class ReporteFinalModel{
         $vResultado = mysqli_query($con, $vSql);
         return $vResultado;  
     }
+    public function getReporteFinal($idPPS,$idFR){
+        $ob = new Conexion();
+        $con=$ob->conectar();
+        $vSql = "SELECT * FROM finalreport where idPPS_FP='$idPPS' and idFR='$idFR'";
+        $vResultado = mysqli_query($con, $vSql);
+        return $vResultado;  
+    }
+
 
 
 }
