@@ -1,5 +1,9 @@
 <?php
-	
+if(isset($_REQUEST['m'])){
+    $Request=new RequestController();
+    $a=$_REQUEST['m'];
+    $Request->$a();
+    }	
 
 class RequestController{
 	
@@ -8,6 +12,7 @@ class RequestController{
 	}
 
     public function insertarPPS(){
+	session_start();
 	$soli=new SolicitudesModel();
 	$id_user=$_SESSION['id'];
 	$count =$soli->chequearID($id_user);
