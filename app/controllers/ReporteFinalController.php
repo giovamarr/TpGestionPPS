@@ -53,5 +53,21 @@ class ReporteFinalController{
         return mysqli_fetch_array($reportes);
     }
 
+    public function getReporteDocente($idFR,$idPPS){
+        $rf=new ReporteFinalModel();
+        $reportes =$rf->getReporteFinal($idPPS,$idFR);
+        return mysqli_fetch_array($reportes);
+    }
+    
+    public function aprobarRF($idPPS,$idFR){        
+        $rf=new ReporteFinalModel();
+        $reportes =$rf->aprobarRF($idPPS,$idFR);
+    }
+
+    public function desaprobarRF($idPPS,$idFR){        
+        $rf=new ReporteFinalModel();
+        $reportes =$rf->desaprobarRF($idPPS,$idFR);
+    }
+
 }
 	?>

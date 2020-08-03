@@ -45,7 +45,8 @@ class SeguimientosModel{
     public function getSeguiDocente($idProfe){
         $ob = new Conexion();
         $con=$ob->conectar();
-        $vSql = "SELECT * FROM seguimientos se inner join solicitudes s on se.id_PPS=s.idPPS inner join users u on u.id=s.id_user where s.id_Profe='$idProfe'";
+        $vSql = "SELECT * FROM seguimientos se inner join solicitudes s on se.id_PPS=s.idPPS 
+                inner join users u on u.id=s.id_user where s.id_Profe='$idProfe' and (se.aprobadoSeg<>1 and se.aprobadoSeg<>2)";
         $vResultado = mysqli_query($con, $vSql);
         return $vResultado;
     }
@@ -56,6 +57,20 @@ class SeguimientosModel{
         $vSql = "SELECT * FROM seguimientos where id_PPS='$idPPS' and idSeguimientos='$idSeguimientos'";
         $vResultado = mysqli_query($con, $vSql);
         return $vResultado;
+    }
+    public function aprobarSegui($idPPS,$idSeguimientos){
+        $ob = new Conexion();
+        $con=$ob->conectar();
+        $query = "UPDATE seguimientos SET aprobadoSeg=1 where id_PPS='$idPPS' and idSeguimientos='$idSeguimientos'";
+        $result = mysqli_query($con, $query);
+        return $result;
+    }
+    public function desaprobarSegui($idPPS,$idSeguimientos){
+        $ob = new Conexion();
+        $con=$ob->conectar();
+        $query = "UPDATE seguimientos SET aprobadoSeg=2 where id_PPS='$idPPS' and idSeguimientos='$idSeguimientos'";
+        $result = mysqli_query($con, $query);
+        return $result;
     }
 
 

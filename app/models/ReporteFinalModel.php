@@ -45,7 +45,8 @@ class ReporteFinalModel{
     public function getReportesFinalesDocente($idProfe){
         $ob = new Conexion();
         $con=$ob->conectar();
-        $vSql = "SELECT * FROM finalReport f inner join solicitudes s on f.idPPS_FP=s.idPPS inner join users u on u.id=s.id_user where s.id_Profe='$idProfe'";
+        $vSql = "SELECT * FROM finalReport f inner join solicitudes s on f.idPPS_FP=s.idPPS 
+                inner join users u on u.id=s.id_user where s.id_Profe='$idProfe' and (f.aprobadaFR <> 1 and  f.aprobadaFR <> 2)";
         $vResultado = mysqli_query($con, $vSql);
         return $vResultado;  
     }
@@ -55,6 +56,21 @@ class ReporteFinalModel{
         $vSql = "SELECT * FROM finalreport where idPPS_FP='$idPPS' and idFR='$idFR'";
         $vResultado = mysqli_query($con, $vSql);
         return $vResultado;  
+    }
+
+    public function aprobarRF($idPPS,$idFR){
+        $ob = new Conexion();
+        $con=$ob->conectar();
+        $query = "UPDATE finalReport SET aprobadaFR=1 where idPPS_FP='$idPPS' and idFR='$idFR'";
+        $result = mysqli_query($con, $query);
+        return $result;
+    }
+    public function desaprobarRF($idPPS,$idFR){
+        $ob = new Conexion();
+        $con=$ob->conectar();
+        $query = "UPDATE finalReport SET aprobadaFR=2 where idPPS_FP='$idPPS' and idFR='$idFR'";
+        $result = mysqli_query($con, $query);
+        return $result;
     }
 
 

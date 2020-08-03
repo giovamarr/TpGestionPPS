@@ -54,8 +54,8 @@
                                     <td><?php echo($fila['apellido'].', '.$fila['nombre']) ?></td>
                                     <td>
                                         <button class="btn btn-warning" >
-                                        <strong>Ver</strong>
-                                         </button>
+                                        <strong><a href='formEvaluacionSegui.php?id=<?php echo $fila['idSeguimientos']; ?>&idP=<?php echo $fila['id_PPS']; ?>' style= 'color: black'>Ver</a></strong>
+                                        </button>
                                     </td>
                                 </tr>                               
                                         <?php
@@ -75,7 +75,7 @@
                                  $rf=new ReporteFinalController();
                                  $result=$rf->getReportesDocente();
                                 if(mysqli_num_rows($result) == 0) {
-                                    echo("<p style='text-align: center;'>No hay Informes Finales para corregir.<br />");
+                                    echo("<p style='text-align: center;'>No hay Informes Finales para corregir.<br> </p>");
                                     }
                                     else{                                                                           
                             ?> 
@@ -95,8 +95,8 @@
                                     <td><?php echo ($fila['apellido'].', '.$fila['nombre']); ?> </td>
                                     <td>
                                         <button class="btn btn-warning" >
-                                        <strong>Ver</strong>
-                                         </button>
+                                        <strong><a href='formEvaluacionReporteFinal.php?id=<?php echo $fila['idFR']; ?>&idP=<?php echo $fila['idPPS_FP']; ?>' style= 'color: black'>Ver</a></strong>
+                                        </button>
                                     </td>
                                 </tr>                               
                                         <?php

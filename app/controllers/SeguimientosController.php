@@ -53,6 +53,12 @@ class SeguimientosController{
         $seguimientos =$segui->getOne($idPPS,$idSeguimientos);
         return mysqli_fetch_array($seguimientos);
     }
+
+    public function getSeguiDocente($idSeguimientos,$idPPS){        
+        $segui=new SeguimientosModel();
+        $seguimientos =$segui->getOne($idPPS,$idSeguimientos);
+        return mysqli_fetch_array($seguimientos);
+    }
 }
 
 //$controlador = new SeguimientosController();
