@@ -2,6 +2,8 @@
 <?php
 include 'inc/verificarResponsable.php';
 require_once '../controllers/RequestController.php';  
+require_once '../controllers/ReporteFinalController.php';  
+
 ?>
 <!doctype html>
 <html lang="es">
@@ -30,7 +32,7 @@ require_once '../controllers/RequestController.php';
                 
 				<div class="row">
 					<div class="col-md-12">	
-							<h2>PPS Aprobadas</h2>		<br>				
+							<h2>PPS a evaluar</h2>		<br>				
                             <?php
                                 $Cant_por_Pag = 5;
                                 $pagina = isset ( $_GET['pagina']) ? $_GET['pagina'] : null ;
@@ -59,8 +61,10 @@ require_once '../controllers/RequestController.php';
                                     <td><b>Direccion</b></td>
                                     <td><b>Contacto</b></td>
                                     <td><b>Aprobar</b></td>
+                                    <td><b>Desaprobar</b></td>
                                 </tr>
                             <?php
+                                $rfc = new ReporteFinalController();
                                 while ($fila = mysqli_fetch_array($vResultado))
                                 {
                             ?>
@@ -73,9 +77,14 @@ require_once '../controllers/RequestController.php';
                                     <td><?php echo ($fila['direccion'].", ".$fila['localidad']); ?></td>
                                     <td><?php echo ($fila['emailE']); ?></td>
                                     <td>
-                                        <button class="btn btn-success" >
+                                        <button class="btn btn-success" onclick="">
                                             Aprobar
                                          </button>
+                                    </td>
+                                    <td>
+                                        <butdton class="btn btn-danger" onclick="">
+                                            Desaprobar
+                                        </button>
                                     </td>
                                 </tr>                               
                                         <?php

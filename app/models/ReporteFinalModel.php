@@ -72,7 +72,14 @@ class ReporteFinalModel{
         $result = mysqli_query($con, $query);
         return $result;
     }
-
+    //1 aprobada, 2 desaprobada
+    public function evaluarRF($idPPS,$idFR,$valor){
+        $ob = new Conexion();
+        $con=$ob->conectar();
+        $query = "UPDATE finalReport SET aprobadaFR='$valor' where idPPS_FP='$idPPS' and idFR='$idFR'";
+        $result = mysqli_query($con, $query);
+        return $result;
+    }
 
 
 }
