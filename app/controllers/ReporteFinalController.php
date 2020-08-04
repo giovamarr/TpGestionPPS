@@ -68,9 +68,5 @@ class ReporteFinalController{
         $rf=new ReporteFinalModel();
         $reportes =$rf->desaprobarRF($idPPS,$idFR);
     }
-    public function evaluarRF($idPPS,$idFR,$valor){        
-        $rf=new ReporteFinalModel();
-        $reportes =$rf->evaluarRF($idPPS,$idFR,$valor);
-    }
 }
 	?>
