@@ -68,6 +68,28 @@ class SolicitudesModel{
         return $vResultado;
     }
 
+    public function evaluarPPS($idPPS,$valor){
+        $ob = new Conexion();
+        $con=$ob->conectar();
+        $query = "UPDATE solicitudes SET PPSTerminada='$valor' where idPPS='$idPPS'";
+        $result = mysqli_query($con, $query);
+        return $result;
+    }
 
+    // public function desaprobarPPS($idPPS){
+    //     $ob = new Conexion();
+    //     $con=$ob->conectar();
+    //     $query = "UPDATE solicitudes SET PPSTerminada=2 where idPPS='$idPPS'";
+    //     $result = mysqli_query($con, $query);
+    //     return $result;
+    // }
+    // public function aprobarPPS($idPPS){
+    //     $ob = new Conexion();
+    //     $con=$ob->conectar();
+    //     $query = "UPDATE solicitudes SET PPSTerminada=1 where idPPS='$idPPS'";
+    //     $result = mysqli_query($con, $query);
+    //     return $result;
+    // }
+ 
 
 }

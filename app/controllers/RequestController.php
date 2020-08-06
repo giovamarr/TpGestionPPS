@@ -1,5 +1,9 @@
 <?php
-	
+	if(isset($_REQUEST['m'])){
+		$req=new RequestController();
+		$a=$_REQUEST['m'];
+		$req->$a();
+		}
 
 class RequestController{
 	
@@ -60,6 +64,27 @@ class RequestController{
 		return $vResultado;
 		
 	}
+
+	public function evaluarPPS(){        
+        $soli=new SolicitudesModel();
+		$idPPS=$_POST['idPPS'];
+		$valor=$_POST['valor'];
+		$req = $soli->evaluarPPS($idPPS,$valor);
+		header('location:../views/viewSuccess.html');	
+	}
+
+	// public function desaprobarPPS(){        
+    //     $soli=new SolicitudesModel();
+    //     $idPPS=$_POST['idPPS'];
+	// 	$req = $soli->desaprobarPPS($idPPS);
+	// 	header('location:../views/HomeResponsable.php');	
+	// }
+	// public function aprobarPPS(){        
+    //     $soli=new SolicitudesModel();
+    //     $idPPS=$_POST['idPPS'];
+	// 	$req = $soli->aprobarPPS($idPPS);
+	// 	header('location:../views/HomeResponsable.php');	
+    // }
 	
 
 }
