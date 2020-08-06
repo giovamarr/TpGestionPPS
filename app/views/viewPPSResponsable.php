@@ -2,6 +2,8 @@
 <?php
 include 'inc/verificarResponsable.php';
 require_once '../controllers/RequestController.php';  
+require_once '../controllers/UsuarioController.php';  
+
 
 ?>
 <!doctype html>
@@ -42,7 +44,7 @@ require_once '../controllers/RequestController.php';
                                 else {
                                     $inicio = ($pagina - 1) * $Cant_por_Pag;
                                     }// total de páginas
-                                    
+                                
                                 $soli=new RequestController();
                                 $total_paginas=$soli->totalPags($Cant_por_Pag);
                                 $vResultado=$soli->getPPSPaginadosinProfe($inicio,$Cant_por_Pag);
@@ -50,6 +52,9 @@ require_once '../controllers/RequestController.php';
                                     echo("<p style='text-align: center;'>No hay PPS Pendientes.<br />");
                                     }
                                     else{
+                                        $userController = new UsuarioController();
+                                        $profesores = $userController->getProfesores();
+
                             ?>
                             <table class="table">
                                 <tr class="bg-primary">
@@ -74,10 +79,26 @@ require_once '../controllers/RequestController.php';
                                     <td><?php echo ($fila['nombreEntidad']); ?></td>
                                     <td><?php echo ($fila['direccion'].", ".$fila['localidad']); ?></td>
                                     <td><?php echo ($fila['emailE']); ?></td>
+                                    <td><?php while ($prof = mysqli_fetch_array($profesores))   
+                                            echo($prof['id']);
+                                            echo($prof['nombre']);
+                                            echo($prof['apellido']);
+                                    ?></td>
                                     <td>
-                                        <button class="btn btn-warning" >
-                                            Elegir Docente
-                                         </button>
+                                         <!-- <form action="../controllers/RequestController.php?m=evaluarPPS" method="post">
+                                            <input type="hidden" name="idPPS" value="<?php echo $fila['idPPS']; ?>" >
+                                            <button type="submit" class="btn btn-warning btn-block">Elegir docente</button>
+                                        </form> -->
+                                        <div class="dropdown">
+                                            <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                Dropdown button
+                                            </button>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                <a class="dropdown-item" href="#">Action</a>
+                                                <a class="dropdown-item" href="#">Another action</a>
+                                                <a class="dropdown-item" href="#">Something else here</a>
+                                            </div>
+                                        </div>
                                     </td>
                                 </tr>                               
                                         <?php

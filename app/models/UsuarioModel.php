@@ -71,7 +71,17 @@ class UsuarioModel{
         $row = mysqli_fetch_assoc($result);
 			
         return $row;
-}
+        }
+
+        public function getProfesores(){
+            $ob = new Conexion();
+            $con=$ob->conectar();
+            $result = mysqli_query($con, "SELECT id, nombre, apellido  FROM users WHERE users.tipo=2 ");
+            $row = mysqli_fetch_assoc($result);
+            return $row;
+            }
+
+
+
     }
- 
 ?>

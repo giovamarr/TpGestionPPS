@@ -1,4 +1,13 @@
 <?php
+	if(isset($_REQUEST['m'])){
+		$usercontroller=new UsuarioController();
+		$a=$_REQUEST['m'];
+		$usercontroller->$a();
+        }
+    else{
+        $controlador = new UsuarioController();
+        $controlador->verifyLogin($_POST['email'], $_POST['password']);    
+    }
 
 class UsuarioController{
 
@@ -33,9 +42,14 @@ class UsuarioController{
         }	
     }
 
+    public function getProfesores(){
+        $user = new UsuarioModel();
+        $profesores = $user->getProfesores();
+        return $profesores;
+    }
+
 }
 //esto no deberia estar
-$controlador = new UsuarioController();
-$controlador->verifyLogin($_POST['email'], $_POST['password']);
+
 
 ?>

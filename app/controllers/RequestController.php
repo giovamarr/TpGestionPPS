@@ -46,7 +46,7 @@ class RequestController{
 	public function getPPSPaginadosinProfe($inicio,$Cant_por_Pag){
 		$soli=new SolicitudesModel();
         $vResultado =$soli->getPPSPaginado($inicio,$Cant_por_Pag);	
-		return $vResultado;
+		return $vResultado; 
 		
 	}
 
