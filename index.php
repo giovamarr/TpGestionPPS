@@ -20,7 +20,7 @@
 						<div class="loginBox">
 							<h2>Iniciar Sesion</h2><hr />	
 
-							<form action="app/controllers/UsuarioController.php" method="post">                           	
+							<form action="app/controllers/UsuarioController.php?i=1" method="post">                           	
 								<div class="form-group">									
 									<input type="text" class="form-control input-lg" name="email" placeholder="Email" required>        
 								</div>							

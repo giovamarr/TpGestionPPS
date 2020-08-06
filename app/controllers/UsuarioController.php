@@ -4,7 +4,7 @@
 		$a=$_REQUEST['m'];
 		$usercontroller->$a();
         }
-    else{
+    elseif(isset($_GET['i'])==1){
         $controlador = new UsuarioController();
         $controlador->verifyLogin($_POST['email'], $_POST['password']);    
     }
@@ -12,11 +12,11 @@
 class UsuarioController{
 
     public function __construct(){
-        require_once '../models/UsuarioModel.php';
-        session_start();		
+        require_once '../models/UsuarioModel.php';		
 	}
 
     public function verifyLogin($email, $password){
+        session_start();
         $user=new UsuarioModel();
         $infoUsuario = $user->getUsuario($email);
         $hash=$infoUsuario['password'];

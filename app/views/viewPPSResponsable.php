@@ -79,6 +79,7 @@ require_once '../controllers/UsuarioController.php';
                                     <td><?php echo ($fila['nombreEntidad']); ?></td>
                                     <td><?php echo ($fila['direccion'].", ".$fila['localidad']); ?></td>
                                     <td><?php echo ($fila['emailE']); ?></td>
+                                    <!--tira error esto-->
                                     <td><?php while ($prof = mysqli_fetch_array($profesores))   
                                             echo($prof['id']);
                                             echo($prof['nombre']);
