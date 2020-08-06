@@ -70,7 +70,7 @@ class RequestController{
 		$idPPS=$_POST['idPPS'];
 		$valor=$_POST['valor'];
 		$req = $soli->evaluarPPS($idPPS,$valor);
-		header('location:../views/viewSuccess.html');	
+		header('location:../views/viewSuccess.php');	
 	}
 
 	// public function desaprobarPPS(){        
