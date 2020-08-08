@@ -1,5 +1,9 @@
 <?php
-
+if(isset($_REQUEST['m'])){
+    $segui=new SeguimientosController();
+    $a=$_REQUEST['m'];
+    $segui->$a();
+    }
 class SeguimientosController{
 	
 	public function __construct(){
@@ -7,7 +11,7 @@ class SeguimientosController{
 	}
 
     public function insertarSeguim(){
-        
+        session_start();
         $segui=new SeguimientosModel();
         $idPPS=$_SESSION['idPPS'];
         $count =$segui->chequearIDparaSegui($idPPS);
@@ -59,11 +63,30 @@ class SeguimientosController{
         $seguimientos =$segui->getOne($idPPS,$idSeguimientos);
         return mysqli_fetch_array($seguimientos);
     }
+  
     public function enviarMail($email,$asunto,$mensaje){
 		$header="From: Pagina de Gestion de PPS"  ."\r\n";
 		$header.="X-Mailer: PHP/".phpversion();
 		$a=mail($email,$asunto,$mensage,$header);
-	}
+	  }
+  
+    public function aprobarSegui(){        
+        $segui=new SeguimientosModel();
+        $idPPS=$_POST['idPPS'];
+        $idSeguimientos=$_POST['idSeguimientos'];
+        $segui->aprobarSegui($idPPS,$idSeguimientos);
+        header('location:../views/viewReportesDocente.php');	
+    }
+
+    public function desaprobarSegui(){        
+        $segui=new SeguimientosModel();        
+        $idPPS=$_POST['idPPS'];
+        $idSeguimientos=$_POST['idSeguimientos'];
+        $comentario=$_POST['comentario'];
+        //tiene q enviar comentario en un mail
+        $segui->desaprobarSegui($idPPS,$idSeguimientos);
+        header('location:../views/viewReportesDocente.php');
+    }
 }
 
 //$controlador = new SeguimientosController();

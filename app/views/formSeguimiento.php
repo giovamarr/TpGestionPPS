@@ -31,7 +31,7 @@ include 'inc/verificarAlumno.php';
 							<hr>
 					</div>
 				</div><!-- row 2 -->
-			<form method="post" action="../controllers/SeguimientosController.php" >
+			<form method="post" action="../controllers/SeguimientosController.php?m=insertarSeguim" >
 				<h5>Comentarios / Observaciones</h5>
 				<div class="row">					
 					<div class="col-lg-6">

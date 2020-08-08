@@ -31,7 +31,7 @@ include 'inc/verificarAlumno.php'
 							<hr>
 					</div>
 				</div><!-- row 2 -->
-			<form method="post" action="../controllers/requestController.php" >
+			<form method="post" action="../controllers/requestController.php?m=insertarPPS" >
 				<h5>Datos de la Entidad/Organización/Institución</h5>
 				<div class="row">					
 					<div class="col-lg-6">

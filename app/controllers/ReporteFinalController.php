@@ -1,5 +1,11 @@
 <?php
 
+if(isset($_REQUEST['m'])){
+    $repo=new ReporteFinalController();
+    $a=$_REQUEST['m'];
+    $repo->$a();
+    }
+
 class ReporteFinalController{
 	
 	public function __construct(){
@@ -7,12 +13,12 @@ class ReporteFinalController{
 	}
 
     public function insertarReporte(){
-        
+        session_start();
         $reporte=new ReporteFinalModel();
         $idPPS=$_SESSION['idPPS'];
         $exitePPS =$reporte->chequearsiexitePPS($idPPS);     
 
-        if ($exitePPS == 1) {
+        if ($exitePPS ==1) {
             $countsiYaenvioFR = $reporte->chequearsiYaenvioFR($idPPS);
             if ($countsiYaenvioFR == 1) {
                     header('location:../views/formFinalReport.php?r=2');
@@ -59,14 +65,22 @@ class ReporteFinalController{
         return mysqli_fetch_array($reportes);
     }
     
-    public function aprobarRF($idPPS,$idFR){        
+    public function aprobarRF(){        
         $rf=new ReporteFinalModel();
+        $idPPS=$_POST['idPPS'];
+        $idFR=$_POST['idFR'];
         $reportes =$rf->aprobarRF($idPPS,$idFR);
+        header('location:../views/viewReportesDocente.php');	
     }
 
-    public function desaprobarRF($idPPS,$idFR){        
-        $rf=new ReporteFinalModel();
+    public function desaprobarRF(){        
+        $rf=new ReporteFinalModel();        
+        $idPPS=$_POST['idPPS'];
+        $idFR=$_POST['idFR'];
+        $comentario=$_POST['comentario'];
+        //tiene q enviar comentario en un mail
         $reportes =$rf->desaprobarRF($idPPS,$idFR);
+        header('location:../views/viewReportesDocente.php');
     }
     public function enviarMail($email,$asunto,$mensaje){
 		$header="From: Pagina de Gestion de PPS"  ."\r\n";
