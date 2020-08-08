@@ -52,8 +52,6 @@ require_once '../controllers/UsuarioController.php';
                                     echo("<p style='text-align: center;'>No hay PPS Pendientes.<br />");
                                     }
                                     else{
-                                        $userController = new UsuarioController();
-                                        $profesores = $userController->getProfesores();
 
                             ?>
                             <table class="table">
@@ -71,6 +69,8 @@ require_once '../controllers/UsuarioController.php';
                             <?php
                                 while ($fila = mysqli_fetch_array($vResultado))
                                 {
+                                    $userController = new UsuarioController();
+                                    $profesores = $userController->getProfesores();
                             ?>
                                 <tr>
                                     <td><?php echo ($fila['apellido']); ?></td>
@@ -81,18 +81,19 @@ require_once '../controllers/UsuarioController.php';
                                     <td><?php echo ($fila['direccion'].", ".$fila['localidad']); ?></td>
                                     <td><?php echo ($fila['emailE']); ?></td>
                                     <td>
-                                    <select class="form-control" id="select_1" name="thenumbers">
-                                    <?php while ($prof = mysqli_fetch_array($profesores)){                                        
-                                        echo "<option value=" .$prof['id']. ">" .$prof['id']. "</option>";
+                                    <form action="../controllers/RequestController.php?m=elegirProfesor" method="post">
+                                    <select class="form-control" id="idProfe" name="idProfe" required>
+                                    
+                                    <?php while ($prof = mysqli_fetch_array($profesores)){                                                                                
+                                        echo "<option value=".$prof['id'].">" .$prof['nombre']." ".$prof['apellido']."</option>";
                                     ?>
-                                    </select>
                                     <?php } ?>
+                                    </select>                                   
                                     </td>
                                     <td>
-                                    <form action="../controllers/RequestController.php?m=evaluarPPS" method="post">
+                                    
                                             <input type="hidden" name="idPPS" value="<?php echo $fila['idPPS']; ?>" >
-                                            <input type="hidden" name="valor" value=2 >
-                                            <button type="submit" class="btn btn-success btn-block">Aceptar</button>
+                                            <button type="submit" class="btn btn-success btn-block" value="Select">Aceptar</button>
 							            </form>
                                     </td>
                                     </td>

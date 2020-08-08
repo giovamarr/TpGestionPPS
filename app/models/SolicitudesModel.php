@@ -76,6 +76,14 @@ class SolicitudesModel{
         return $result;
     }
 
+    public function elegirProfesor($idPPS,$idProfe){
+        $ob = new Conexion();
+        $con=$ob->conectar();
+        $query = "UPDATE solicitudes SET id_Profe='$idProfe' where idPPS='$idPPS'";
+        $result = mysqli_query($con, $query);
+        return $result;
+    }
+
     // public function desaprobarPPS($idPPS){
     //     $ob = new Conexion();
     //     $con=$ob->conectar();

@@ -69,26 +69,24 @@ class RequestController{
         $soli=new SolicitudesModel();
 		$idPPS=$_POST['idPPS'];
 		$valor=$_POST['valor'];
-		$req = $soli->evaluarPPS($idPPS,$valor);
-		header('location:../views/viewSuccess.php');	
+		$req = $soli->evaluarPPS($idPPS,$valor);	
+		header('location:../views/viewSuccess.php');
 	}
 
-	// public function desaprobarPPS(){        
-    //     $soli=new SolicitudesModel();
-    //     $idPPS=$_POST['idPPS'];
-	// 	$req = $soli->desaprobarPPS($idPPS);
-	// 	header('location:../views/HomeResponsable.php');	
-	// }
-	// public function aprobarPPS(){        
-    //     $soli=new SolicitudesModel();
-    //     $idPPS=$_POST['idPPS'];
-	// 	$req = $soli->aprobarPPS($idPPS);
-	// 	header('location:../views/HomeResponsable.php');	
-    // }
+	public function elegirProfesor(){        
+        $soli=new SolicitudesModel();
+		$idPPS=$_POST['idPPS'];
+		$idProfe=$_POST['idProfe'];
+		$soli->elegirProfesor($idPPS,$idProfe);
+		header('location:../views/viewSuccess.php');	
+	}
+	public function enviarMail($email,$asunto,$mensaje){
+		$header="From: Pagina de Gestion de PPS"  ."\r\n";
+		$header.="X-Mailer: PHP/".phpversion();
+		$a=mail($email,$asunto,$mensage,$header);
+	}
 	
 
 }
-//$controlador = new RequestController();
-//$controlador->insertarPPS();
 
 	?>

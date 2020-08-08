@@ -28,12 +28,13 @@
         </div>
         <div class="row">
           <div class="col-lg-12">
-              <input type="button" class="btn btn-secondary btn-block" onclick="location.href='viewRegistrarAprobadoPPS.php';" value="Volver" />             </div>
+              <input type="button" class="btn btn-secondary btn-block" onclick="location.href='viewPPSResponsable.php';" value="Volver" />             </div>
           </div><!-- row 3 -->
-        </div>
-					<?php 
+		  <?php 
 							include 'inc/footer.html';
 						?>
+        </div>
+					
 				</div>
 				
 			</div>

@@ -68,5 +68,10 @@ class ReporteFinalController{
         $rf=new ReporteFinalModel();
         $reportes =$rf->desaprobarRF($idPPS,$idFR);
     }
+    public function enviarMail($email,$asunto,$mensaje){
+		$header="From: Pagina de Gestion de PPS"  ."\r\n";
+		$header.="X-Mailer: PHP/".phpversion();
+		$a=mail($email,$asunto,$mensage,$header);
+	}
 }
 	?>
