@@ -70,7 +70,34 @@ class RequestController{
         $soli=new SolicitudesModel();
 		$idPPS=$_POST['idPPS'];
 		$valor=$_POST['valor'];
-		$req = $soli->evaluarPPS($idPPS,$valor);	
+		$req = $soli->evaluarPPS($idPPS,$valor);
+		if ($valor==1){
+			$header="From: Pagina de Gestion de PPS"  ."\r\n";
+			$header.="X-Mailer: PHP/".phpversion();
+
+			$asunto='PPS Aprobada';
+			$mensaje='La PPS Nº '.$idPPS.' fue aprobada.
+					Visite la Pagina para mas Información';
+			$emailalumno=$soli->getMailUserAlumno($idPPS);
+			$emailProfe=$soli->getMailUserDocente($idPPS);
+
+			mail($emailalumno,$asunto,$mensaje,$header);			
+			mail($emailProfe,$asunto,$mensaje,$header);
+
+		}elseif($valor==2){
+			$header="From: Pagina de Gestion de PPS"  ."\r\n";
+			$header.="X-Mailer: PHP/".phpversion();
+
+			$asunto='PPS Desaprobada';
+			$mensaje='La PPS Nº '.$idPPS.' fue desaprobada.
+					Visite la Pagina para mas Información';
+			$emailalumno=$soli->getMailUserAlumno($idPPS);
+			$emailProfe=$soli->getMailUserDocente($idPPS);
+
+			mail($emailalumno,$asunto,$mensaje,$header);			
+			mail($emailProfe,$asunto,$mensaje,$header);
+		}
+
 		header('location:../views/viewSuccess.php');
 	}
 
@@ -85,6 +112,23 @@ class RequestController{
 		$header="From: Pagina de Gestion de PPS"  ."\r\n";
 		$header.="X-Mailer: PHP/".phpversion();
 		$a=mail($email,$asunto,$mensage,$header);
+	}
+
+	public function TotaldePPSParaDocente($Cant_por_Pag){ 
+		//session_start();
+		$soli=new SolicitudesModel();
+		$idProfe=$_SESSION['id'];
+        $total =$soli->TotaldePPSParaDocente($idProfe);	
+		return $total_paginas = ceil($total/ $Cant_por_Pag);
+		
+	}
+
+	public function getPPSPaginadoParaDocente($inicio,$Cant_por_Pag){
+		$soli=new SolicitudesModel();		
+		$idProfe=$_SESSION['id'];
+        $vResultado =$soli->getPPSPaginadoParaDocente($inicio,$Cant_por_Pag,$idProfe);	
+		return $vResultado; 
+		
 	}
 	
 

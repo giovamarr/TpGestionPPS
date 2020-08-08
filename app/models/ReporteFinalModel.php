@@ -72,4 +72,12 @@ class ReporteFinalModel{
         $result = mysqli_query($con, $query);
         return $result;
     }
+    public function getMailUserporRF($idP){
+        $ob = new Conexion();
+        $con=$ob->conectar();
+        $vSql = "SELECT u.email FROM  solicitudes s inner join users u on u.id=s.id_user where s.idPPS='$idP'";
+        $rf = mysqli_query($con, $vSql);
+        $vResultado=mysqli_fetch_array($rf);
+        return $vResultado['email'];
+    }
 }

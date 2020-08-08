@@ -42,6 +42,16 @@ class SeguimientosModel{
         return $vResultado;
     }
 
+    public function getMailUserporSegui($idP){
+        $ob = new Conexion();
+        $con=$ob->conectar();
+        $vSql = "SELECT u.email FROM  solicitudes s inner join users u on u.id=s.id_user where s.idPPS='$idP'";
+        $segui = mysqli_query($con, $vSql);
+        $vResultado=mysqli_fetch_array($segui);
+        return $vResultado['email'];
+    }
+    
+
     public function getSeguiDocente($idProfe){
         $ob = new Conexion();
         $con=$ob->conectar();

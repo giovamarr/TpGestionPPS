@@ -62,13 +62,8 @@ class SeguimientosController{
         $segui=new SeguimientosModel();
         $seguimientos =$segui->getOne($idPPS,$idSeguimientos);
         return mysqli_fetch_array($seguimientos);
-    }
-  
-    public function enviarMail($email,$asunto,$mensaje){
-		$header="From: Pagina de Gestion de PPS"  ."\r\n";
-		$header.="X-Mailer: PHP/".phpversion();
-		$a=mail($email,$asunto,$mensage,$header);
-	  }
+    }  
+    
   
     public function aprobarSegui(){        
         $segui=new SeguimientosModel();
@@ -78,12 +73,16 @@ class SeguimientosController{
         header('location:../views/viewReportesDocente.php');	
     }
 
-    public function desaprobarSegui(){        
+    public function desaprobarSegui(){      
         $segui=new SeguimientosModel();        
         $idPPS=$_POST['idPPS'];
         $idSeguimientos=$_POST['idSeguimientos'];
-        $comentario=$_POST['comentario'];
-        //tiene q enviar comentario en un mail
+        $mensaje=$_POST['comentario'];
+        $email=$segui->getMailUserporSegui($idPPS);
+        $asunto='Seguimiento Desaprobado';
+        $header="From: Pagina de Gestion de PPS"  ."\r\n";
+		$header.="X-Mailer: PHP/".phpversion();
+		$a=mail($email,$asunto,$mensaje,$header);
         $segui->desaprobarSegui($idPPS,$idSeguimientos);
         header('location:../views/viewReportesDocente.php');
     }

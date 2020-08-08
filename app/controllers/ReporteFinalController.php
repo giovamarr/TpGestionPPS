@@ -77,15 +77,14 @@ class ReporteFinalController{
         $rf=new ReporteFinalModel();        
         $idPPS=$_POST['idPPS'];
         $idFR=$_POST['idFR'];
-        $comentario=$_POST['comentario'];
-        //tiene q enviar comentario en un mail
+        $mensaje=$_POST['comentario'];
+        $email=$rf->getMailUserporRF($idPPS);
+        $asunto='Reporte Final Desaprobado';
+        $header="From: Pagina de Gestion de PPS"  ."\r\n";
+		$header.="X-Mailer: PHP/".phpversion();
+		$a=mail($email,$asunto,$mensaje,$header);
         $reportes =$rf->desaprobarRF($idPPS,$idFR);
         header('location:../views/viewReportesDocente.php');
     }
-    public function enviarMail($email,$asunto,$mensaje){
-		$header="From: Pagina de Gestion de PPS"  ."\r\n";
-		$header.="X-Mailer: PHP/".phpversion();
-		$a=mail($email,$asunto,$mensage,$header);
-	}
 }
 	?>

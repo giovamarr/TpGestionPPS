@@ -84,6 +84,40 @@ class SolicitudesModel{
         return $result;
     }
 
+    public function getMailUserDocente($idPPS){
+        $ob = new Conexion();
+        $con=$ob->conectar();
+        $vSql = "SELECT u.email FROM  solicitudes s inner join users u on u.id=s.id_Profe where s.idPPS='$idP'";
+        $segui = mysqli_query($con, $vSql);
+        $vResultado=mysqli_fetch_array($segui);
+        return $vResultado['email'];
+    }
+    public function getMailUserAlumno($idPPS){
+        $ob = new Conexion();
+        $con=$ob->conectar();
+        $vSql = "SELECT u.email FROM  solicitudes s inner join users u on u.id=s.id_user where s.idPPS='$idP'";
+        $segui = mysqli_query($con, $vSql);
+        $vResultado=mysqli_fetch_array($segui);
+        return $vResultado['email'];
+    }
+
+    public function TotaldePPSParaDocente($idProfe){
+        $ob = new Conexion();
+        $con=$ob->conectar();
+        $vSql = "SELECT * FROM solicitudes where id_Profe ='$idProfe'";
+	    $vResultado = $con-> query($vSql);
+        return $total_registros=mysqli_num_rows($vResultado);
+    }
+
+    public function getPPSPaginadoParaDocente($inicio,$Cant_por_Pag,$idProfe){
+        $ob = new Conexion();
+        $con=$ob->conectar();        
+        $vSql = "SELECT * FROM solicitudes sol inner join users u on u.id=sol.id_user 
+                WHERE sol.id_Profe ='$idProfe'"." limit " . $inicio . "," . $Cant_por_Pag;
+	    $vResultado = $con-> query($vSql);
+        return $vResultado;
+    }
+
     // public function desaprobarPPS($idPPS){
     //     $ob = new Conexion();
     //     $con=$ob->conectar();

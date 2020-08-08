@@ -26,6 +26,9 @@
 							<h2>MENÚ</h2>		<br>				
 							<div class="page">								
 								<form action="viewReportesDocente.php" method="post">
+									<button type="submit" class="btn btn-primary btn-block">Corregir Informes</button>
+								</form><br>
+								<form action="viewMyPPSDocente.php" method="post">
 									<button type="submit" class="btn btn-primary btn-block">Ver PPS</button>
 								</form><br>
 									
