@@ -66,6 +66,7 @@ require_once '../controllers/UsuarioController.php';
                                     <td><b>Direccion</b></td>
                                     <td><b>Contacto</b></td>
                                     <td><b>Seleccionar Docente</b></td>
+                                    <td><b>Confirmar</b></td>
                                 </tr>
                             <?php
                                 while ($fila = mysqli_fetch_array($vResultado))
@@ -79,32 +80,28 @@ require_once '../controllers/UsuarioController.php';
                                     <td><?php echo ($fila['nombreEntidad']); ?></td>
                                     <td><?php echo ($fila['direccion'].", ".$fila['localidad']); ?></td>
                                     <td><?php echo ($fila['emailE']); ?></td>
-                                    <!--tira error esto-->
-                                    <td><?php while ($prof = mysqli_fetch_array($profesores))   
-                                            echo($prof['id']);
-                                            echo($prof['nombre']);
-                                            echo($prof['apellido']);
-                                    ?></td>
                                     <td>
-                                         <!-- <form action="../controllers/RequestController.php?m=evaluarPPS" method="post">
+                                    <select class="form-control" id="select_1" name="thenumbers">
+                                    <?php while ($prof = mysqli_fetch_array($profesores)){                                        
+                                        echo "<option value=" .$prof['id']. ">" .$prof['id']. "</option>";
+                                    ?>
+                                    </select>
+                                    <?php } ?>
+                                    </td>
+                                    <td>
+                                    <form action="../controllers/RequestController.php?m=evaluarPPS" method="post">
                                             <input type="hidden" name="idPPS" value="<?php echo $fila['idPPS']; ?>" >
-                                            <button type="submit" class="btn btn-warning btn-block">Elegir docente</button>
-                                        </form> -->
-                                        <div class="dropdown">
-                                            <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                Dropdown button
-                                            </button>
-                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                <a class="dropdown-item" href="#">Action</a>
-                                                <a class="dropdown-item" href="#">Another action</a>
-                                                <a class="dropdown-item" href="#">Something else here</a>
-                                            </div>
-                                        </div>
+                                            <input type="hidden" name="valor" value=2 >
+                                            <button type="submit" class="btn btn-success btn-block">Aceptar</button>
+							            </form>
+                                    </td>
                                     </td>
                                 </tr>                               
                                         <?php
+                                        
                                         }
                                         // Liberar conjunto de resultados
+                                        mysqli_free_result($profesores);
                                         mysqli_free_result($vResultado);
                                         ?>
                                    

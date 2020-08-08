@@ -76,9 +76,8 @@ class UsuarioModel{
         public function getProfesores(){
             $ob = new Conexion();
             $con=$ob->conectar();
-            $result = mysqli_query($con, "SELECT id, nombre, apellido  FROM users WHERE users.tipo=2 ");
-            $row = mysqli_fetch_assoc($result);
-            return $row;
+            $result = mysqli_query($con, "SELECT u.id, u.nombre, u.apellido FROM users u where u.tipo = 2");
+            return $result;
             }
 
 
