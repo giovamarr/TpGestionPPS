@@ -47,7 +47,7 @@ class RequestController{
 	public function getPPSPaginadosinProfe($inicio,$Cant_por_Pag){
 		$soli=new SolicitudesModel();
         $vResultado =$soli->getPPSPaginado($inicio,$Cant_por_Pag);	
-		return $vResultado;
+		return $vResultado; 
 		
 	}
 
@@ -65,10 +65,29 @@ class RequestController{
 		return $vResultado;
 		
 	}
+
+	public function evaluarPPS(){        
+        $soli=new SolicitudesModel();
+		$idPPS=$_POST['idPPS'];
+		$valor=$_POST['valor'];
+		$req = $soli->evaluarPPS($idPPS,$valor);	
+		header('location:../views/viewSuccess.php');
+	}
+
+	public function elegirProfesor(){        
+        $soli=new SolicitudesModel();
+		$idPPS=$_POST['idPPS'];
+		$idProfe=$_POST['idProfe'];
+		$soli->elegirProfesor($idPPS,$idProfe);
+		header('location:../views/viewSuccess.php');	
+	}
+	public function enviarMail($email,$asunto,$mensaje){
+		$header="From: Pagina de Gestion de PPS"  ."\r\n";
+		$header.="X-Mailer: PHP/".phpversion();
+		$a=mail($email,$asunto,$mensage,$header);
+	}
 	
 
 }
-//$controlador = new RequestController();
-//$controlador->insertarPPS();
 
 	?>

@@ -2,6 +2,8 @@
 <?php
 include 'inc/verificarResponsable.php';
 require_once '../controllers/RequestController.php';  
+require_once '../controllers/RequestController.php';  
+
 ?>
 <!doctype html>
 <html lang="es">
@@ -30,7 +32,7 @@ require_once '../controllers/RequestController.php';
                 
 				<div class="row">
 					<div class="col-md-12">	
-							<h2>PPS Aprobadas</h2>		<br>				
+							<h2>PPS a evaluar</h2>		<br>				
                             <?php
                                 $Cant_por_Pag = 5;
                                 $pagina = isset ( $_GET['pagina']) ? $_GET['pagina'] : null ;
@@ -59,6 +61,7 @@ require_once '../controllers/RequestController.php';
                                     <td><b>Direccion</b></td>
                                     <td><b>Contacto</b></td>
                                     <td><b>Aprobar</b></td>
+                                    <td><b>Desaprobar</b></td>
                                 </tr>
                             <?php
                                 while ($fila = mysqli_fetch_array($vResultado))
@@ -73,9 +76,18 @@ require_once '../controllers/RequestController.php';
                                     <td><?php echo ($fila['direccion'].", ".$fila['localidad']); ?></td>
                                     <td><?php echo ($fila['emailE']); ?></td>
                                     <td>
-                                        <button class="btn btn-success" >
-                                            Aprobar
-                                         </button>
+                                         <form action="../controllers/RequestController.php?m=evaluarPPS" method="post">
+                                            <input type="hidden" name="idPPS" value="<?php echo $fila['idPPS']; ?>" >
+                                            <input type="hidden" name="valor" value=1 >
+                                            <button type="submit" class="btn btn-success btn-block">Aprobar</button>
+							            </form>
+                                    </td>
+                                    <td>
+                                     <form action="../controllers/RequestController.php?m=evaluarPPS" method="post">
+                                            <input type="hidden" name="idPPS" value="<?php echo $fila['idPPS']; ?>" >
+                                            <input type="hidden" name="valor" value=2 >
+                                            <button type="submit" class="btn btn-danger btn-block">Desaprobar</button>
+							            </form>
                                     </td>
                                 </tr>                               
                                         <?php

@@ -63,11 +63,41 @@ class SolicitudesModel{
     public function getPPSAprobadasPaginado($inicio,$Cant_por_Pag){
         $ob = new Conexion();
         $con=$ob->conectar();        
-        $vSql = "SELECT u.nombre,u.apellido,sol.*,up.nombre as nombreP,up.apellido as apellidoP FROM solicitudes sol INNER join finalreport fr on sol.idPPS=fr.idPPS_FP inner join users u on sol.id_user=u.id inner join users up on sol.id_Profe=up.id where fr.aprobadaFR is not null"." limit " . $inicio . "," . $Cant_por_Pag;
+        $vSql = "SELECT u.nombre,u.apellido,sol.*,up.nombre as nombreP,up.apellido as apellidoP FROM solicitudes sol INNER join finalreport fr on sol.idPPS=fr.idPPS_FP inner join users u on sol.id_user=u.id inner join users up on sol.id_Profe=up.id where fr.aprobadaFR is not null and sol.PPSTerminada is null"." limit " . $inicio . "," . $Cant_por_Pag;
 	    $vResultado = $con-> query($vSql);
         return $vResultado;
     }
 
+    public function evaluarPPS($idPPS,$valor){
+        $ob = new Conexion();
+        $con=$ob->conectar();
+        $query = "UPDATE solicitudes SET PPSTerminada='$valor' where idPPS='$idPPS'";
+        $result = mysqli_query($con, $query);
+        return $result;
+    }
 
+    public function elegirProfesor($idPPS,$idProfe){
+        $ob = new Conexion();
+        $con=$ob->conectar();
+        $query = "UPDATE solicitudes SET id_Profe='$idProfe' where idPPS='$idPPS'";
+        $result = mysqli_query($con, $query);
+        return $result;
+    }
+
+    // public function desaprobarPPS($idPPS){
+    //     $ob = new Conexion();
+    //     $con=$ob->conectar();
+    //     $query = "UPDATE solicitudes SET PPSTerminada=2 where idPPS='$idPPS'";
+    //     $result = mysqli_query($con, $query);
+    //     return $result;
+    // }
+    // public function aprobarPPS($idPPS){
+    //     $ob = new Conexion();
+    //     $con=$ob->conectar();
+    //     $query = "UPDATE solicitudes SET PPSTerminada=1 where idPPS='$idPPS'";
+    //     $result = mysqli_query($con, $query);
+    //     return $result;
+    // }
+ 
 
 }

@@ -63,6 +63,13 @@ class SeguimientosController{
         $seguimientos =$segui->getOne($idPPS,$idSeguimientos);
         return mysqli_fetch_array($seguimientos);
     }
+  
+    public function enviarMail($email,$asunto,$mensaje){
+		$header="From: Pagina de Gestion de PPS"  ."\r\n";
+		$header.="X-Mailer: PHP/".phpversion();
+		$a=mail($email,$asunto,$mensage,$header);
+	  }
+  
     public function aprobarSegui(){        
         $segui=new SeguimientosModel();
         $idPPS=$_POST['idPPS'];

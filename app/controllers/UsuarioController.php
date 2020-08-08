@@ -1,13 +1,22 @@
 <?php
+	if(isset($_REQUEST['m'])){
+		$usercontroller=new UsuarioController();
+		$a=$_REQUEST['m'];
+		$usercontroller->$a();
+        }
+    elseif(isset($_GET['i'])==1){
+        $controlador = new UsuarioController();
+        $controlador->verifyLogin($_POST['email'], $_POST['password']);    
+    }
 
 class UsuarioController{
 
     public function __construct(){
-        require_once '../models/UsuarioModel.php';
-        session_start();		
+        require_once '../models/UsuarioModel.php';		
 	}
 
     public function verifyLogin($email, $password){
+        session_start();
         $user=new UsuarioModel();
         $infoUsuario = $user->getUsuario($email);
         $hash=$infoUsuario['password'];
@@ -33,9 +42,14 @@ class UsuarioController{
         }	
     }
 
+    public function getProfesores(){
+        $user = new UsuarioModel();
+        $profesores = $user->getProfesores();
+        return $profesores;
+    }
+
 }
 //esto no deberia estar
-$controlador = new UsuarioController();
-$controlador->verifyLogin($_POST['email'], $_POST['password']);
+
 
 ?>

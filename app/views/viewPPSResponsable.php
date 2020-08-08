@@ -2,6 +2,8 @@
 <?php
 include 'inc/verificarResponsable.php';
 require_once '../controllers/RequestController.php';  
+require_once '../controllers/UsuarioController.php';  
+
 
 ?>
 <!doctype html>
@@ -42,7 +44,7 @@ require_once '../controllers/RequestController.php';
                                 else {
                                     $inicio = ($pagina - 1) * $Cant_por_Pag;
                                     }// total de páginas
-                                    
+                                
                                 $soli=new RequestController();
                                 $total_paginas=$soli->totalPags($Cant_por_Pag);
                                 $vResultado=$soli->getPPSPaginadosinProfe($inicio,$Cant_por_Pag);
@@ -50,6 +52,7 @@ require_once '../controllers/RequestController.php';
                                     echo("<p style='text-align: center;'>No hay PPS Pendientes.<br />");
                                     }
                                     else{
+
                             ?>
                             <table class="table">
                                 <tr class="bg-primary">
@@ -61,10 +64,13 @@ require_once '../controllers/RequestController.php';
                                     <td><b>Direccion</b></td>
                                     <td><b>Contacto</b></td>
                                     <td><b>Seleccionar Docente</b></td>
+                                    <td><b>Confirmar</b></td>
                                 </tr>
                             <?php
                                 while ($fila = mysqli_fetch_array($vResultado))
                                 {
+                                    $userController = new UsuarioController();
+                                    $profesores = $userController->getProfesores();
                             ?>
                                 <tr>
                                     <td><?php echo ($fila['apellido']); ?></td>
@@ -75,14 +81,28 @@ require_once '../controllers/RequestController.php';
                                     <td><?php echo ($fila['direccion'].", ".$fila['localidad']); ?></td>
                                     <td><?php echo ($fila['emailE']); ?></td>
                                     <td>
-                                        <button class="btn btn-warning" >
-                                            Elegir Docente
-                                         </button>
+                                    <form action="../controllers/RequestController.php?m=elegirProfesor" method="post">
+                                    <select class="form-control" id="idProfe" name="idProfe" required>
+                                    
+                                    <?php while ($prof = mysqli_fetch_array($profesores)){                                                                                
+                                        echo "<option value=".$prof['id'].">" .$prof['nombre']." ".$prof['apellido']."</option>";
+                                    ?>
+                                    <?php } ?>
+                                    </select>                                   
+                                    </td>
+                                    <td>
+                                    
+                                            <input type="hidden" name="idPPS" value="<?php echo $fila['idPPS']; ?>" >
+                                            <button type="submit" class="btn btn-success btn-block" value="Select">Aceptar</button>
+							            </form>
+                                    </td>
                                     </td>
                                 </tr>                               
                                         <?php
+                                        
                                         }
                                         // Liberar conjunto de resultados
+                                        mysqli_free_result($profesores);
                                         mysqli_free_result($vResultado);
                                         ?>
                                    

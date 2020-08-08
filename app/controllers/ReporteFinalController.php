@@ -82,6 +82,10 @@ class ReporteFinalController{
         $reportes =$rf->desaprobarRF($idPPS,$idFR);
         header('location:../views/viewReportesDocente.php');
     }
-
+    public function enviarMail($email,$asunto,$mensaje){
+		$header="From: Pagina de Gestion de PPS"  ."\r\n";
+		$header.="X-Mailer: PHP/".phpversion();
+		$a=mail($email,$asunto,$mensage,$header);
+	}
 }
 	?>
