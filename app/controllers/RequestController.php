@@ -5,11 +5,10 @@ if(isset($_REQUEST['m'])){
     $Request->$a();
     }	
 
-session_start();
 require_once "../models/SolicitudesModel.php";		
+class RequestController{
 
   public function insertarPPS(){
-	session_start();
 	$soli=new SolicitudesModel();
 	$id_user=$_SESSION['id'];
 	$count =$soli->chequearID($id_user);
@@ -31,9 +30,8 @@ require_once "../models/SolicitudesModel.php";
 	} else {
 		echo "Error: No se pudo enviar la solicitud de PPS<br>";
 	}	
-		}	
-
-/*
+	}
+}	
 	public function totalPags($Cant_por_Pag){
         
         $soli=new SolicitudesModel();
@@ -131,7 +129,3 @@ require_once "../models/SolicitudesModel.php";
 	
 
 }
-
-*/
-
-	?>

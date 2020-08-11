@@ -74,7 +74,7 @@
                             <?php                                                                                     
                                  $rf=new ReporteFinalController();
                                  $result=$rf->getReportesDocente();
-                                if(mysqli_num_rows($result) == 0) {
+                                if(!$result || mysqli_num_rows($result) == 0) {
                                     echo("<p style='text-align: center;'>No hay Informes Finales para corregir.<br> </p>");
                                     }
                                     else{                                                                           

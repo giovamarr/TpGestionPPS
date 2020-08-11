@@ -33,9 +33,9 @@ class ReporteFinalController{
                     }			
         } else {	
             header('location:../views/formFinalReport.php?e=1');		
-        }	
+        }
+    }
         
-    /*
     public function getReportes(){
 
         $rf=new ReporteFinalModel();
@@ -86,5 +86,5 @@ class ReporteFinalController{
         $reportes =$rf->desaprobarRF($idPPS,$idFR);
         header('location:../views/viewReportesDocente.php');
     }
-}*/
-	?>
+
+}

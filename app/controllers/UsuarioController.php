@@ -10,7 +10,9 @@
     }
 
 require_once '../models/UsuarioModel.php';
-session_start();		
+
+class UsuarioController{
+
 
     public function __construct(){
         require_once '../models/UsuarioModel.php';		
@@ -40,7 +42,8 @@ session_start();
             }
         } else { 
             header('location:../../index.php?e=1');
-        }	
+        }
+    }	
 
     public function getProfesores(){
         $user = new UsuarioModel();
@@ -49,7 +52,3 @@ session_start();
     }
 
 }
-
-
-
-?>

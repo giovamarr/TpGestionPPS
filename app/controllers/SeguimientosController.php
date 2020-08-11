@@ -36,8 +36,6 @@ class SeguimientosController{
         }
 
     }
-
-/*
     public function getSeguimientos(){
         
         $segui=new SeguimientosModel();
@@ -88,5 +86,4 @@ class SeguimientosController{
         $segui->desaprobarSegui($idPPS,$idSeguimientos);
         header('location:../views/viewReportesDocente.php');
     }
-*/
-	?>
+}
