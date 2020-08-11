@@ -9,7 +9,8 @@
         $controlador->verifyLogin($_POST['email'], $_POST['password']);    
     }
 
-class UsuarioController{
+require_once '../models/UsuarioModel.php';
+session_start();		
 
     public function __construct(){
         require_once '../models/UsuarioModel.php';		
@@ -28,19 +29,18 @@ class UsuarioController{
             $_SESSION['type'] = $infoUsuario['tipo'];
             $_SESSION['start'] = time();
             $_SESSION['expire'] = $_SESSION['start'] + (1 * 60) ;		
+
                 
-            if($infoUsuario['tipo']==1){
-                header('location:../views/HomeAlumno.php');	
+        if($infoUsuario['tipo']==1){
+            header('location:../views/HomeAlumno.php');	
             }elseif($infoUsuario['tipo']==2){
                 header('location:../views/HomeDocente.php');	
             }elseif($infoUsuario['tipo']==3){
                 header('location:../views/HomeResponsable.php');	
             }
-        
         } else { 
             header('location:../../index.php?e=1');
         }	
-    }
 
     public function getProfesores(){
         $user = new UsuarioModel();
@@ -49,7 +49,7 @@ class UsuarioController{
     }
 
 }
-//esto no deberia estar
+
 
 
 ?>

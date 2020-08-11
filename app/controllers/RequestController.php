@@ -5,13 +5,10 @@ if(isset($_REQUEST['m'])){
     $Request->$a();
     }	
 
-class RequestController{
-	
-	public function __construct(){
-		require_once "../models/SolicitudesModel.php";		
-	}
+session_start();
+require_once "../models/SolicitudesModel.php";		
 
-    public function insertarPPS(){
+  public function insertarPPS(){
 	session_start();
 	$soli=new SolicitudesModel();
 	$id_user=$_SESSION['id'];
@@ -19,6 +16,7 @@ class RequestController{
 	if ($count == 1) {
         header('location:../views/requestPPS.php?e=1');
 	} else {		
+
 	$caractPPS = $_POST['caractPPS'];
 	$nombreEntidad = $_POST['nombreEntidad'];
 	$direccion = $_POST['direccion'];
@@ -29,13 +27,13 @@ class RequestController{
     $contacto = $_POST['contacto'];    
 	$insertado= $soli->insertarSolicitudPPS($caractPPS, $nombreEntidad,$direccion,$cp,$localidad, $telefono, $email,$contacto,$id_user);
 	if ($insertado) {
-		header('location:../views/requestPPS.php?a=1');	
-		} else {
-			echo "Error: No se pudo enviar la solicitud de PPS<br>";
+	header('location:../views/requestPPS.php?a=1');	
+	} else {
+		echo "Error: No se pudo enviar la solicitud de PPS<br>";
+	}	
 		}	
-		}	
-	}
 
+/*
 	public function totalPags($Cant_por_Pag){
         
         $soli=new SolicitudesModel();
@@ -133,5 +131,7 @@ class RequestController{
 	
 
 }
+
+*/
 
 	?>

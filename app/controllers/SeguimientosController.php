@@ -34,8 +34,10 @@ class SeguimientosController{
         } else {	
             header('location:../views/formSeguimiento.php?e=1');		
         }
+
     }
 
+/*
     public function getSeguimientos(){
         
         $segui=new SeguimientosModel();
@@ -86,8 +88,5 @@ class SeguimientosController{
         $segui->desaprobarSegui($idPPS,$idSeguimientos);
         header('location:../views/viewReportesDocente.php');
     }
-}
-
-//$controlador = new SeguimientosController();
-//$controlador->insertarSeguim();
+*/
 	?>
