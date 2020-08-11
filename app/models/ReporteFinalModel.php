@@ -36,7 +36,7 @@ class ReporteFinalModel{
     public function chequearsiTieneSeguisinaprobar($idPPS){
         $ob = new Conexion();
         $con=$ob->conectar();        
-        $TieneSeguisinaprobar = "SELECT * FROM seguimientos WHERE id_PPS = '$idPPS' and aprobadoSeg=1 ";				
+        $TieneSeguisinaprobar = "SELECT * FROM seguimientos WHERE id_PPS = '$idPPS' and aprobadoSeg is null ";				
         $vResultado = mysqli_query($con, $TieneSeguisinaprobar);
         return $countsiTieneSeguisinaprobar = mysqli_num_rows($vResultado);
     }

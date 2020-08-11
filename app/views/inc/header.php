@@ -1,5 +1,8 @@
+<div class="col-lg-12"><br>
+	<h2 class="rounded" onclick="location.href='HomeAlumno.php';" ><strong>Sistema de Gestion de PPS</strong></h2>
+</div> 
 <div class="col-lg-6"><br>
-	<h3><?php echo $_SESSION['name']?></h3>
+	<h3><?php echo $_SESSION['name'].' '.$_SESSION['ape']?></h3>
 </div>
 <div class="col-lg-6">
 	<form class="cerrar" action="../../app/controllers/logout.php" method="post" ><br>

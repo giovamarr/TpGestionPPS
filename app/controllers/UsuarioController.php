@@ -25,7 +25,8 @@ class UsuarioController{
         $hash=$infoUsuario['password'];
         if (password_verify($password, $hash)) {	
             $_SESSION['loggedin'] = true;
-            $_SESSION['name'] = $infoUsuario['nombre'];								
+            $_SESSION['name'] = $infoUsuario['nombre'];	            
+            $_SESSION['ape'] = $infoUsuario['apellido'];								
             $_SESSION['idPPS'] = $infoUsuario['idPPS'];				
             $_SESSION['id'] = $infoUsuario['id'];
             $_SESSION['type'] = $infoUsuario['tipo'];
