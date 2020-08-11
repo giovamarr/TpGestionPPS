@@ -51,7 +51,9 @@ require_once '../controllers/ReporteFinalController.php';
                 </form>	
                 <div class="row">					
 						<div class="col-lg-6">	
-                        <form action=".php" method="post">
+							<form action="../controllers/ReporteFinalController.php?m=aprobarRF" method="post">
+								<input type="hidden" name="idPPS" value="<?php echo $reporte['idPPS_FP']; ?>" >
+								<input type="hidden" name="idFR" value="<?php echo $reporte['idFR']; ?>" >
 								<button type="submit" class="btn btn-success btn-block">Aprobar</button>
 							</form>
 						</div>	
@@ -75,26 +77,24 @@ require_once '../controllers/ReporteFinalController.php';
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Agrugue un comentario</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Agregue un comentario</h5>
                     </div>
-                <form method="post" action="../controllers/.php">
-                    <div class="modal-body">
-                        
-                        <div class="form-group">
-                            <label for="message-text" class="col-form-label">Comentario</label>
-                            <textarea class="form-control" id="comentario"></textarea>
-                        </div>
-                       
-                    </div>                    
-					
-                    <div class="modal-footer">
-					<form action="cerrar modal.php">
-						<input type="button" class="btn btn-secondary btn-block" data-dismiss='modal' value="Cancelar" />
-					</form>
-							<button type="button" class="btn btn-primary">Enviar Comentario</button>
-                </form>
-                        
-                    </div>
+						<form method="post" action="../controllers/ReporteFinalController.php?m=desaprobarRF">
+							<div class="modal-body">								
+								<div class="form-group">
+									<label for="message-text" class="col-form-label">Comentario</label>
+									<textarea class="form-control" name="comentario"></textarea>
+								</div>
+							</div>                   
+							
+							<div class="modal-footer">
+								<input type="button" class="btn btn-secondary btn-block" data-dismiss='modal' value="Cancelar" />
+								<input type="hidden" name="idPPS" value="<?php echo $reporte['idPPS_FP']; ?>" >
+								<input type="hidden" name="idFR" value="<?php echo $reporte['idFR']; ?>" >
+								<button type="submit" class="btn btn-primary">Enviar Comentario</button>
+							</div>
+						</form>                        
+                   
                     </div>
                 </div>
                 </div>

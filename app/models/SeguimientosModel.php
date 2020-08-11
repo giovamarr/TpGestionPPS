@@ -42,11 +42,21 @@ class SeguimientosModel{
         return $vResultado;
     }
 
+    public function getMailUserporSegui($idP){
+        $ob = new Conexion();
+        $con=$ob->conectar();
+        $vSql = "SELECT u.email FROM  solicitudes s inner join users u on u.id=s.id_user where s.idPPS='$idP'";
+        $segui = mysqli_query($con, $vSql);
+        $vResultado=mysqli_fetch_array($segui);
+        return $vResultado['email'];
+    }
+    
+
     public function getSeguiDocente($idProfe){
         $ob = new Conexion();
         $con=$ob->conectar();
         $vSql = "SELECT * FROM seguimientos se inner join solicitudes s on se.id_PPS=s.idPPS 
-                inner join users u on u.id=s.id_user where s.id_Profe='$idProfe' and (se.aprobadoSeg<>1 and se.aprobadoSeg<>2)";
+                inner join users u on u.id=s.id_user where s.id_Profe='$idProfe' and (se.aprobadoSeg is null)";
         $vResultado = mysqli_query($con, $vSql);
         return $vResultado;
     }

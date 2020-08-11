@@ -1,14 +1,11 @@
-
 <?php
-include 'inc/verificarResponsable.php';
-require_once '../controllers/RequestController.php';  
-require_once '../controllers/RequestController.php';  
-
+    include 'inc/verificarDocente.php';
+    require_once '../controllers/RequestController.php';    
 ?>
 <!doctype html>
 <html lang="es">
   <head>
-    <title>PPSs Aprobadas</title>
+    <title>Estados de mis PPS</title>
 	
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -23,7 +20,7 @@ require_once '../controllers/RequestController.php';
 
   <body>
 		<div class="container">
-			<div class="cardtable">
+			<div class="cardtable" style="max-width: 700px">
 				<div class="row">
 				<?php 
 					include 'inc/header.php';
@@ -32,7 +29,7 @@ require_once '../controllers/RequestController.php';
                 
 				<div class="row">
 					<div class="col-md-12">	
-							<h2>PPS a evaluar</h2>		<br>				
+							<h2>PPSs</h2>		<br>				
                             <?php
                                 $Cant_por_Pag = 5;
                                 $pagina = isset ( $_GET['pagina']) ? $_GET['pagina'] : null ;
@@ -43,54 +40,50 @@ require_once '../controllers/RequestController.php';
                                 else {
                                     $inicio = ($pagina - 1) * $Cant_por_Pag;
                                     }// total de páginas
-                                    $soli=new RequestController();
-                                    $total_paginas=$soli->totalPagsPPSAprobadas($Cant_por_Pag);
-                                    $vResultado=$soli->getPPSAprobadasPaginado($inicio,$Cant_por_Pag);
+                                
+                                $soli=new RequestController();
+                                $total_paginas=$soli->TotaldePPSParaDocente($Cant_por_Pag);
+                                $vResultado=$soli->getPPSPaginadoParaDocente($inicio,$Cant_por_Pag);
                                 if(mysqli_num_rows($vResultado) == 0) {
                                     echo("<p style='text-align: center;'>No hay PPS Pendientes.<br />");
                                     }
                                     else{
+
                             ?>
                             <table class="table">
                                 <tr class="bg-primary">
-                                    <td><b>Alumno</b></td>
-                                    <td><b>Profesor</b></td>
-                                    <td><b>Nro de PPS</b></td>
+                                <td><b>Nro de PPS</b></td>
+                                    <td><b>Apellido</b></td>
+                                    <td><b>Nombre</b></td>
+                                    
                                     <td><b>Tipo de PPS</b></td>
                                     <td><b>Entidad</b></td>
-                                    <td><b>Direccion</b></td>
-                                    <td><b>Contacto</b></td>
-                                    <td><b>Aprobar</b></td>
-                                    <td><b>Desaprobar</b></td>
+                                    <td><b>Estado</b></td>
                                 </tr>
                             <?php
                                 while ($fila = mysqli_fetch_array($vResultado))
                                 {
                             ?>
                                 <tr>
-                                    <td><?php echo ($fila['apellido'].', '.$fila['nombre']); ?></td>
-                                    <td><?php echo ($fila['apellidoP'].', '.$fila['nombreP']); ?></td>
-                                    <td><?php echo ($fila['idPPS']); ?></td>
+                                <td><?php echo ($fila['idPPS']); ?></td>
+                                    <td><?php echo ($fila['apellido']); ?></td>
+                                    <td><?php echo ($fila['nombre']); ?></td>
+                                    
                                     <td><?php echo ($fila['caractPPS']); ?></td>
-                                    <td><?php echo ($fila['nombreEntidad']); ?></td>
-                                    <td><?php echo ($fila['direccion'].", ".$fila['localidad']); ?></td>
-                                    <td><?php echo ($fila['emailE']); ?></td>
-                                    <td>
-                                         <form action="../controllers/RequestController.php?m=evaluarPPS" method="post">
-                                            <input type="hidden" name="idPPS" value="<?php echo $fila['idPPS']; ?>" >
-                                            <input type="hidden" name="valor" value=1 >
-                                            <button type="submit" class="btn btn-success btn-block">Aprobar</button>
-							            </form>
+                                    <td><?php echo ($fila['nombreEntidad']); ?></td>           
+                                    <td>  
+                                        <?php 
+                                            if($fila['PPSTerminada']==1){
+                                                echo('<span style="color: #00ff00;"><strong>Aprobado</strong></span>');
+                                            }elseif($fila['PPSTerminada']==2){
+                                                echo('<strong><span style="color: #ff0000;">No Aprobado</span></strong>');
+                                            }else{echo('<strong>En Curso</strong>');} 
+                                        ?>
                                     </td>
-                                    <td>
-                                     <form action="../controllers/RequestController.php?m=evaluarPPS" method="post">
-                                            <input type="hidden" name="idPPS" value="<?php echo $fila['idPPS']; ?>" >
-                                            <input type="hidden" name="valor" value=2 >
-                                            <button type="submit" class="btn btn-danger btn-block">Desaprobar</button>
-							            </form>
                                     </td>
                                 </tr>                               
                                         <?php
+                                        
                                         }
                                         // Liberar conjunto de resultados
                                         mysqli_free_result($vResultado);
@@ -106,19 +99,19 @@ require_once '../controllers/RequestController.php';
                                     echo $pagina . " ";
                                     else
                                     //si la página no es la actual, coloco el enlace para ir a esa página
-                                    echo "<a href='viewRegistrarAprobadoPPS.php?pagina=" . $i ."'>" . $i . "</a> ";}}}?>
-                                    <p>&nbsp;</p>
+                                    echo "<a href='viewMyPPSDocente.php?pagina=" . $i ."'>" . $i . "</a> ";}}}?>
+                                    <p>&nbsp;</p>                        
                     </div>
-                </div><!-- row 2 -->
+                </div><!-- row 2 --> <hr>
                 <div class="row">
                     <div class="col-lg-12">
-                        <input type="button" class="btn btn-secondary btn-block" onclick="location.href='HomeResponsable.php';" value="Volver" />
+                        <input type="button" class="btn btn-secondary btn-block" onclick="location.href='HomeDocente.php';" value="Volver" />
                     </div>
-                </div><!-- row 3 -->
+                </div><!-- row 4 -->
                 <?php 
 							include 'inc/footer.html';
 						?>
-			</div>
+			</div><!-- card -->
         </div>
 
 		<!-- Optional JavaScript -->

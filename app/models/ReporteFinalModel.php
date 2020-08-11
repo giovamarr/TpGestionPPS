@@ -21,17 +21,17 @@ class ReporteFinalModel{
     public function chequearsiexitePPS($idPPS){
         $ob = new Conexion();
         $con=$ob->conectar();        
-        $checksiexitePPS = "SELECT * FROM solicitudes WHERE idPPS = '$idPPS'";
-		$result = $con-> query($checksiexitePPS);
-        return $countsiexitePPS = mysqli_num_rows($result);
+        $checksiexitePPS = "SELECT * FROM solicitudes WHERE idPPS = '$idPPS' and id_Profe is not null";
+        $vResultado = mysqli_query($con, $checksiexitePPS);
+        return $countsiexitePPS = mysqli_num_rows($vResultado);
     }
 
     public function chequearsiYaenvioFR($idPPS){
         $ob = new Conexion();
         $con=$ob->conectar();        
         $checksiYaenvioFR = "SELECT * FROM finalReport WHERE idPPS_FP = '$idPPS' ";				
-        $result = $conn-> query($checksiYaenvioFR);
-        return $countsiYaenvioFR = mysqli_num_rows($result);
+        $vResultado = mysqli_query($con, $checksiYaenvioFR);
+        return $countsiYaenvioFR = mysqli_num_rows($vResultado);
     }
 
     public function getReportesFinales($idP){
@@ -46,7 +46,7 @@ class ReporteFinalModel{
         $ob = new Conexion();
         $con=$ob->conectar();
         $vSql = "SELECT * FROM finalReport f inner join solicitudes s on f.idPPS_FP=s.idPPS 
-                inner join users u on u.id=s.id_user where s.id_Profe='$idProfe' and (f.aprobadaFR <> 1 and  f.aprobadaFR <> 2)";
+                inner join users u on u.id=s.id_user where s.id_Profe='$idProfe' and (f.aprobadaFR is null)";
         $vResultado = mysqli_query($con, $vSql);
         return $vResultado;  
     }
@@ -72,7 +72,12 @@ class ReporteFinalModel{
         $result = mysqli_query($con, $query);
         return $result;
     }
-
-
-
+    public function getMailUserporRF($idP){
+        $ob = new Conexion();
+        $con=$ob->conectar();
+        $vSql = "SELECT u.email FROM  solicitudes s inner join users u on u.id=s.id_user where s.idPPS='$idP'";
+        $rf = mysqli_query($con, $vSql);
+        $vResultado=mysqli_fetch_array($rf);
+        return $vResultado['email'];
+    }
 }

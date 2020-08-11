@@ -67,14 +67,15 @@ require_once '../controllers/SeguimientosController.php';
 
                 <div class="row">					
 						<div class="col-lg-6">	
-                        <form action=".php" method="post">
+                        <form action="../controllers/SeguimientosController.php?m=aprobarSegui" method="post">
+                                    <input type="hidden" name="idPPS" value="<?php echo $seguimiento['id_PPS']; ?>" >
+                                    <input type="hidden" name="idSeguimientos" value="<?php echo $seguimiento['idSeguimientos']; ?>" >
 								<button type="submit" class="btn btn-success btn-block">Aprobar</button>
 							</form>
 						</div>	
                         <div class="col-lg-6">	
-                            <form action=".php" method="post">
                                 <button type="button" class="btn btn-danger btn-block" data-toggle="modal" data-target="#desaprobarModal" >Desaprobar</button>
-							</form>
+
 						</div>                  					
 				</div><!-- row 4 -->
 
@@ -89,31 +90,28 @@ require_once '../controllers/SeguimientosController.php';
                 <!----------------------Modal para agregar comentario cuando se desaprueba-------------------->
 
                 <div class="modal" id="desaprobarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Agrugue un comentario</h5>
-                    </div>
-                <form method="post" action="../controllers/.php">
-                    <div class="modal-body">
-                        
-                        <div class="form-group">
-                            <label for="message-text" class="col-form-label">Comentario</label>
-                            <textarea class="form-control" id="comentario"></textarea>
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Agregue un comentario</h5>
+                            </div>
+                                <form method="post" action="../controllers/SeguimientosController.php?m=desaprobarSegui">
+                                    <div class="modal-body">
+                                        <div class="form-group">
+                                            <label for="message-text" class="col-form-label">Comentario</label>
+                                            <textarea class="form-control" name="comentario"></textarea>
+                                        </div>                       
+                                    </div>
+                                    <div class="modal-footer">
+                                        <input type="button" class="btn btn-secondary btn-block" data-dismiss='modal' value="Cancelar" />
+                                        <input type="hidden" name="idPPS" value="<?php echo $seguimiento['id_PPS']; ?>" >
+                                        <input type="hidden" name="idSeguimientos" value="<?php echo $seguimiento['idSeguimientos']; ?>" >
+                                        <button type="submit" class="btn btn-primary">Enviar Comentario</button>
+                                    </div>
+                                </form>                            
+                                    
                         </div>
-                       
-                    </div>                    
-					
-                    <div class="modal-footer">
-					<form action="cerrar modal.php">
-						<input type="button" class="btn btn-secondary btn-block" data-dismiss='modal' value="Cancelar" />
-					</form>
-							<button type="button" class="btn btn-primary">Enviar Comentario</button>
-                </form>
-                        
                     </div>
-                    </div>
-                </div>
                 </div>
 
 

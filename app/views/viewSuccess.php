@@ -1,4 +1,4 @@
-<?php include 'inc/verificarDocente.php';?>
+<?php session_start(); ?>
 <!doctype html>
 <html lang="es">
   <head>
@@ -19,26 +19,24 @@
 				<div class="row">
 				<?php 
 					include 'inc/header.php';
-				?>					
+				?>	
 				</div><hr>
-				<div class="row">
+				<div class="row py-5">
 					<div class="col-lg-12">	
-							<h2>MENÚ</h2>		<br>				
-							<div class="page">								
-								<form action="viewReportesDocente.php" method="post">
-									<button type="submit" class="btn btn-primary btn-block">Corregir Informes</button>
-								</form><br>
-								<form action="viewMyPPSDocente.php" method="post">
-									<button type="submit" class="btn btn-primary btn-block">Ver PPS</button>
-								</form><br>
-									
-							</div>
-						</div>
+              <h3>Los cambios se han guardado  correctamente ! :)</h3>
 					</div>
-					<?php 
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+              <input type="button" class="btn btn-secondary btn-block" onclick="location.href='viewPPSResponsable.php';" value="Volver" />             </div>
+          </div><!-- row 3 -->
+		  <?php 
 							include 'inc/footer.html';
 						?>
+        </div>
+					
 				</div>
+				
 			</div>
 		</div>
 		<!-- Optional JavaScript -->

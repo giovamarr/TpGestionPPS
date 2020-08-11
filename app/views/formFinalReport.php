@@ -31,7 +31,7 @@ include 'inc/verificarAlumno.php';
 								<hr>
 						</div>
 				</div><!-- row 2 -->
-					<form method="post" action="../controllers/ReporteFinalController.php" >
+					<form method="post" action="../controllers/ReporteFinalController.php?m=insertarReporte" >
 					<h5>Conclusiones sobre la experiencia de la PPS</h5>
 				<div class="row">					
 						<div class="col-lg-12">	
