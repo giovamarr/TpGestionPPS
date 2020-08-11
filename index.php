@@ -33,7 +33,7 @@
 								echo '<p><strong><span style="color: #ff0000;">Usuario o Contrase&ntilde;a Incorrecta</span></strong></p>';
 							}
 							?>													
-							<hr><p>¿No tienes Cuenta? <a href="app/views/register.php" title="Crear cuenta">Registrate</a></p>								
+							<!--<hr><p>¿No tienes Cuenta? <a href="app/views/register.php" title="Crear cuenta">Registrate</a></p>		-->							
 						</div><!-- /.loginBox -->	
 						<?php 
 							include 'app/views/inc/footer.html';

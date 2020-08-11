@@ -17,20 +17,24 @@ class SeguimientosController{
         $count =$segui->chequearIDparaSegui($idPPS);
 
         if ($count == 1) {
-
-        $actividadesRealizadas = $_POST['actividadesRealizadas'];
-        $actividadesProximas = $_POST['actividadesProximas'];
-        $cuestionesPendientes = $_POST['cuestionesPendientes'];
-        $experiencias = $_POST['experiencias'];
-        $desvioCronograma = $_POST['desvioCronograma'];
-        $hsTrabajadas = $_POST['hsTrabajadas'];
-        $TotalhsTrabajadas = $_POST['TotalhsTrabajadas'];  
-        $insertado =$segui->insertarSeguimiento($actividadesRealizadas, $actividadesProximas,$cuestionesPendientes,$experiencias, $desvioCronograma, $hsTrabajadas,$TotalhsTrabajadas,$idPPS);
-        if ($insertado) {
-            header('location:../views/formSeguimiento.php?a=1');	
-            } else {
-                echo "Error: No se pudo enviar el Seguimiento.<br>";
-            }
+                $countIF =$segui->chequearsitieneIF($idPPS);
+                if($countIF == 1){
+                    header('location:../views/formSeguimiento.php?s=1');
+                }else{
+                    $actividadesRealizadas = $_POST['actividadesRealizadas'];
+                    $actividadesProximas = $_POST['actividadesProximas'];
+                    $cuestionesPendientes = $_POST['cuestionesPendientes'];
+                    $experiencias = $_POST['experiencias'];
+                    $desvioCronograma = $_POST['desvioCronograma'];
+                    $hsTrabajadas = $_POST['hsTrabajadas'];
+                    $TotalhsTrabajadas = $_POST['TotalhsTrabajadas'];  
+                    $insertado =$segui->insertarSeguimiento($actividadesRealizadas, $actividadesProximas,$cuestionesPendientes,$experiencias, $desvioCronograma, $hsTrabajadas,$TotalhsTrabajadas,$idPPS);
+                    if ($insertado) {
+                        header('location:../views/formSeguimiento.php?a=1');	
+                    } else {
+                            echo "location:../views/formSeguimiento.php?d=1";
+                        }
+                }
         } else {	
             header('location:../views/formSeguimiento.php?e=1');		
         }
@@ -78,11 +82,12 @@ class SeguimientosController{
         $idPPS=$_POST['idPPS'];
         $idSeguimientos=$_POST['idSeguimientos'];
         $mensaje=$_POST['comentario'];
-        $email=$segui->getMailUserporSegui($idPPS);
-        $asunto='Seguimiento Desaprobado';
-        $header="From: Pagina de Gestion de PPS"  ."\r\n";
-		$header.="X-Mailer: PHP/".phpversion();
-		$a=mail($email,$asunto,$mensaje,$header);
+            $mail=$segui->getMailUserporSegui($idPPS);
+            $email=$mail['email'];
+            $asunto='Seguimiento Desaprobado';
+            $header="From: Pagina de Gestion de PPS"  ."\r\n";
+            $header.="X-Mailer: PHP/".phpversion();            
+            mail($email,$asunto,$mensaje,$header);
         $segui->desaprobarSegui($idPPS,$idSeguimientos);
         header('location:../views/viewReportesDocente.php');
     }

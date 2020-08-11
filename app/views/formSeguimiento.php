@@ -74,9 +74,11 @@ include 'inc/verificarAlumno.php';
 				</div><!-- row 4 -->		
 			</form>
 			<?php if (isset($_GET['e'])==1){
-				echo '<p><strong><span style="color: #ff0000;">No tiene una PPS en curso o todavia no se le ha asignado un Profesor.</span></strong></p>';
+						echo '<p><strong><span style="color: #ff0000;">No tiene una PPS en curso o todavia no se le ha asignado un Profesor.</span></strong></p>';
 					}elseif(isset($_GET['a'])==1){
 						echo '<p><span style="color: #00ff00;"><strong>Seguimiento enviado correctamente</strong></span></p>';
+					}elseif(isset($_GET['s'])==1){
+						echo '<p><strong><span style="color: #ff0000;">Usted Tiene un Informe final que tiene que ser corregido.</span></strong></p>';
 					}
 			?>
 			<?php 

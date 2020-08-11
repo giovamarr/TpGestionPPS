@@ -5,10 +5,14 @@ if(isset($_REQUEST['m'])){
     $Request->$a();
     }	
 
-require_once "../models/SolicitudesModel.php";		
+	
 class RequestController{
+	public function __construct(){
+		require_once "../models/SolicitudesModel.php";	
+	}
 
   public function insertarPPS(){
+	session_start();
 	$soli=new SolicitudesModel();
 	$id_user=$_SESSION['id'];
 	$count =$soli->chequearID($id_user);

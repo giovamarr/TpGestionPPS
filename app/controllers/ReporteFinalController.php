@@ -19,18 +19,23 @@ class ReporteFinalController{
         $exitePPS =$reporte->chequearsiexitePPS($idPPS);     
 
         if ($exitePPS ==1) {
-            $countsiYaenvioFR = $reporte->chequearsiYaenvioFR($idPPS);
+           $countsiYaenvioFR = $reporte->chequearsiYaenvioFR($idPPS);
             if ($countsiYaenvioFR == 1) {
-                    header('location:../views/formFinalReport.php?r=2');
-                    }else{
-                        $conclusiones = $_POST['conclusiones'];
-                        $insertado=$reporte->insertarReporte($conclusiones,$idPPS);
-                        if ($insertado) {
-                            header('location:../views/formFinalReport.php?a=1');
-                        } else {
-                            echo "Error: No se pudo enviar el Reporte.<br>";
-                        }
-                    }			
+                header('location:../views/formFinalReport.php?r=2');
+            }else{
+                $countsiTieneSeguisinaprobar= $reporte->chequearsiTieneSeguisinaprobar($idPPS);
+                if($countsiTieneSeguisinaprobar == 1){
+                    header('location:../views/formFinalReport.php?s=1');
+                }else{
+                    $conclusiones = $_POST['conclusiones'];
+                    $insertado=$reporte->insertarReporte($conclusiones,$idPPS);
+                    if ($insertado) {
+                        header('location:../views/formFinalReport.php?a=1');
+                    } else {
+                        echo "location:../views/formFinalReport.php?d=1";
+                    }
+                }
+            }			
         } else {	
             header('location:../views/formFinalReport.php?e=1');		
         }

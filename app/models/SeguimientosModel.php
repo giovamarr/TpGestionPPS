@@ -33,6 +33,13 @@ class SeguimientosModel{
 	    $result = $con-> query($checkID);
         return $count = mysqli_num_rows($result);
     }
+    public function chequearsitieneIF($idPPS){
+        $ob = new Conexion();
+        $con=$ob->conectar();
+        $checkID = "SELECT * FROM finalReport WHERE idPPS_FP = '$idPPS'";
+	    $result = $con-> query($checkID);
+        return $count = mysqli_num_rows($result);
+    }
 
     public function getSegui($idP){
         $ob = new Conexion();
@@ -45,10 +52,10 @@ class SeguimientosModel{
     public function getMailUserporSegui($idP){
         $ob = new Conexion();
         $con=$ob->conectar();
-        $vSql = "SELECT u.email FROM  solicitudes s inner join users u on u.id=s.id_user where s.idPPS='$idP'";
+        $vSql = "SELECT u.* FROM  solicitudes s inner join users u on u.id=s.id_user where s.idPPS='$idP'";
         $segui = mysqli_query($con, $vSql);
         $vResultado=mysqli_fetch_array($segui);
-        return $vResultado['email'];
+        return $vResultado;
     }
     
 

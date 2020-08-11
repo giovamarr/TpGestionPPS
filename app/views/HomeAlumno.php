@@ -29,7 +29,7 @@
 								<button type="submit" class="btn btn-primary btn-block">Solicitud de Inicio de PPS</button>
 							</form><br>
 							<form action="formSeguimiento.php" method="post">
-								<button type="submit" class="btn btn-primary btn-block">Subir Seguimiento Seguimientos de PPS</button>
+								<button type="submit" class="btn btn-primary btn-block">Subir Seguimiento de PPS</button>
 							</form><br>
 							<form action="formFinalReport.php" method="post">
 								<button type="submit" class="btn btn-primary btn-block">Subir Infome Final PPS </button>

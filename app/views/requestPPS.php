@@ -77,7 +77,7 @@ include 'inc/verificarAlumno.php'
 				</div><!-- row 4 -->			
 			</form>
 			<?php if (isset($_GET['e'])==1){
-				echo '<p><strong><span style="color: #ff0000;">Ya tiene una solicitud PPS en curso</span></strong></p>';
+				echo '<p><strong><span style="color: #ff0000;">Usted ya tiene una solicitud PPS en curso</span></strong></p>';
 					}elseif(isset($_GET['a'])==1){
 						echo '<p><span style="color: #00ff00;"><strong>Solicitud enviada correctamente</strong></span></p>';
 					}
