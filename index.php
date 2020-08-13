@@ -17,7 +17,9 @@
 			<div class="row">
 				<div class="col-md-12">		
 					<div class="card">
+					<div text-align="center"><img src="app/views/inc/utnlogo.png"  width="75" height="75"alt="UTN"></div> <br>
 						<div class="loginBox">
+
 							<h2>Iniciar Sesion</h2><hr />	
 
 							<form action="app/controllers/UsuarioController.php?i=1" method="post">                           	

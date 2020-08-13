@@ -1,5 +1,5 @@
 <div class="col-lg-12"><br>
-	<h2 class="rounded" onclick="location.href='HomeAlumno.php';" ><strong>Sistema de Gestion de PPS</strong></h2>
+	<h2 class="rounded" onclick="location.href='HomeAlumno.php';" ><img src="inc/utnlogo.png" width="50" height="50"alt="Home"><strong> &nbsp Sistema de Gestion de PPS</strong></h2>
 </div> 
 <div class="col-lg-6"><br>
 	<h3><?php echo $_SESSION['name'].' '.$_SESSION['ape']?></h3>
