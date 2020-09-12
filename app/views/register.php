@@ -33,13 +33,13 @@
 								<div class="form-group">
 									<input type="password" class="form-control" name="password2" placeholder="Repita la Contraseña" required>
 								</div>
-								<div class="form-group"> 
+								<!--<div class="form-group"> 
 									<select name="tipo" id="tipo" required >
 									    <option value="1">Alumno</option>
 								        <option value="2">Docente</option>
 									    <option value="3">Responsable</option>
 									</select>
-								</div>
+								</div>-->
 								<button type="submit" class="btn btn-success btn-block">Registrarte</button>									
 							</form>
 							<?php if (isset($_GET['r'])==1){
