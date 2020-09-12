@@ -43,6 +43,12 @@ class UsuarioModel{
             return $result;
             }
 
+        public function insertUsuario($name,$surname,$email,$password,$tipo){
+            $ob = new Conexion();
+            $con=$ob->conectar();
+            $result = mysqli_query($con, "INSERT INTO users (nombre, apellido, password,email,tipo) VALUES ('$name', '$surname', '$password','$email','$tipo')");
+            return $result;
+            }
 
 
     }

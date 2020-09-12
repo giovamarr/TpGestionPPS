@@ -1,3 +1,15 @@
+<?php
+session_start();
+if(isset($_SESSION['type'])){
+if($_SESSION['type']==1){
+header('location:app/views/HomeAlumno.php');
+}elseif($_SESSION['type']==2){	
+	header('location:app/views/HomeDocente.php');
+}elseif($_SESSION['type']==3){
+	header('location:app/views/HomeResponsable.php');	
+}else{
+}}
+?>
 <!doctype html>
 <html lang="es">
   <head>
@@ -16,7 +28,7 @@
 		<div class="container-fluid">			
 			<div class="row">
 				<div class="col-md-12">		
-					<div class="card">
+					<div class="card login" >
 					<div text-align="center"><img src="app/views/inc/utnlogo.png"  width="75" height="75"alt="UTN"></div> <br>
 						<div class="loginBox">
 
@@ -35,7 +47,7 @@
 								echo '<p><strong><span style="color: #ff0000;">Usuario o Contrase&ntilde;a Incorrecta</span></strong></p>';
 							}
 							?>													
-							<!--<hr><p>¿No tienes Cuenta? <a href="app/views/register.php" title="Crear cuenta">Registrate</a></p>		-->							
+							<hr><p>¿No tienes Cuenta? <a href="app/views/register.php" title="Crear cuenta">Registrate</a></p>						
 						</div><!-- /.loginBox -->	
 						<?php 
 							include 'app/views/inc/footer.html';

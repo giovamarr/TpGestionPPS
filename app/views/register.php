@@ -17,7 +17,7 @@
 				<div class="col-lg-12">	
 					<div class="card">
 							<h2>Crea tu cuenta</h2><hr />	
-							<form method="post" action="app/controllers/registerController.php" >
+							<form method="post" action="../controllers/UsuarioController.php?m=insertarUser" >
 								<div class="form-group">	
 									<input type="text" class="form-control" name="name" placeholder="Nombre" required>			
 								 </div>
@@ -30,10 +30,33 @@
 								<div class="form-group">
 									<input type="password" class="form-control" name="password" placeholder="Contraseña" required>
 								</div>
-								<button type="submit" class="btn btn-success btn-block">Resgistrarte</button>
+								<div class="form-group">
+									<input type="password" class="form-control" name="password2" placeholder="Repita la Contraseña" required>
+								</div>
+								<div class="form-group"> 
+									<select name="tipo" id="tipo" required >
+									    <option value="1">Alumno</option>
+								        <option value="2">Docente</option>
+									    <option value="3">Responsable</option>
+									</select>
+								</div>
+								<button type="submit" class="btn btn-success btn-block">Registrarte</button>									
 							</form>
+							<?php if (isset($_GET['r'])==1){
+												echo '<p><strong><span style="color: #ff0000;">El mail ingresado ya esta asociado a otra cuenta.</span></strong></p>';
+											}elseif(isset($_GET['e'])==1){
+												echo '<p><span style="color: #ff0000;"><strong>Las contraseñas no coinciden.</strong></span></p>';
+											}elseif(isset($_GET['a'])==1){
+												echo '<p><span style="color: #00ff00;"><strong>Cuenta Creada Correctamente</strong></span></p>';
+											}
+										?>
 							<hr><p>¿Tienes una cuenta? <a href="../../index.php" title="Ingresar a una cuenta">Ingresar</a></p>
+							<?php 
+							include 'inc/footer.html';
+							?>
 						</div>
+						
+
 				</div>
 			</div>
 		</div>
