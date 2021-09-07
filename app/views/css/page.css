@@ -1,0 +1,32 @@
+.non-line:hover{
+    
+    text-decoration-line:none;
+    font-size: 100px;
+    
+}
+body{
+    background-color: rgba(0, 0, 0, 0.05);
+}
+.card.menu{
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    max-width: 350px;
+}
+.grey{
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+.table td.fit, 
+.table th.fit {
+    white-space: nowrap;
+    width: 1%;
+}
+
+table {
+    border-radius: 4px;
+    overflow:hidden;
+}
+.preguntas:hover{
+
+    text-decoration-line:none;
+}

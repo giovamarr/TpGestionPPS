@@ -20,7 +20,7 @@ class UsuarioModel{
                        '".$this->apellido."',
                        '".$this->email."',
                        '".$this->password."');";
-        $vResultado = mysqli_query($cnn, $query);       
+        $vResultado = mysqli_query($con, $query);       
         return $vResultado;
     }
     
@@ -52,4 +52,3 @@ class UsuarioModel{
 
 
     }
-?>

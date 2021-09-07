@@ -1,66 +1,91 @@
 <?php
 session_start();
-if(isset($_SESSION['type'])){
-if($_SESSION['type']==1){
-header('location:app/views/HomeAlumno.php');
-}elseif($_SESSION['type']==2){	
-	header('location:app/views/HomeDocente.php');
-}elseif($_SESSION['type']==3){
-	header('location:app/views/HomeResponsable.php');	
-}else{
-}}
+if (isset($_SESSION['type'])) {
+    if ($_SESSION['type'] == 1) {
+        header('location:app/views/AlumnoHome.php');
+    } elseif ($_SESSION['type'] == 2) {
+        header('location:app/views/DocenteHome.php');
+    } elseif ($_SESSION['type'] == 3) {
+        header('location:app/views/ResponsableHome.php');
+    } else {
+    }
+}
+include 'app/views/inc/topScripts.php';
 ?>
-<!doctype html>
-<html lang="es">
-  <head>
-    <title>Inicio de Sesion</title>
-	
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel=" shortcut icon" type="image/png" href="app/views/inc/utnlogo.png" />
+<title>Inicio</title>
+<link rel=" stylesheet" href="app/views/css/page.css">
+</head>
+<div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light d-flex flex-wrap align-items-center justify-content-center justify-content-md-between p-3 mb-4 pt-4">
 
-	<!-- Bootstrap CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous"">
-	<link rel="stylesheet" href="app/views/css/login.css">
-  </head>
+        <div class="d-flex text-start ">
+            <a class="navbar-brand text-start d-flex " href="index.php">
+                <div>
+                    <span><img src="app/views/inc/logo.png" width="130" height="70" alt="UTN">
+                    </span>
 
-  <body>
-		<div class="container-fluid">			
-			<div class="row">
-				<div class="col-md-12">		
-					<div class="card login" >
-					<div text-align="center"><img src="app/views/inc/utnlogo.png"  width="75" height="75"alt="UTN"></div> <br>
-						<div class="loginBox">
+                </div>
+            </a>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-							<h2>Iniciar Sesion</h2><hr />	
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav  m-auto text-primary">
+                <li><a href="index.php" class="nav-link px-2  text-primary">Home</a></li>
+                <li><a href="app/views/publicFAQs.php" class="nav-link px-2  text-primary">FAQs</a></li>
+                <li><a href="app/views/publiccontact.php" class="nav-link px-2  text-primary">Contacto</a></li>
+            </ul>
+            <div class="col-md-4 text-end">
+                <button type="button" class="btn btn-outline-primary w-45" onclick="window.location.href='index.php'">
+                    Iniciar Sesión
+                </button>
+                <button type="button" class="btn btn-primary w-45" onclick="window.location.href='app/views/publicregister.php'">Registrarse</button>
+            </div>
 
-							<form action="app/controllers/UsuarioController.php?i=1" method="post">                           	
-								<div class="form-group">									
-									<input type="text" class="form-control input-lg" name="email" placeholder="Email" required>        
-								</div>							
-								<div class="form-group">        
-									<input type="password" class="form-control input-lg" name="password" placeholder="Contraseña" required>       
-								</div>								    
-									<button type="submit" class="btn btn-success btn-block glyphicon glyphicon-chevron-right" >Ingresar</button>
-							</form>
-							<?php if (isset($_GET['e'])==1){
-								echo '<p><strong><span style="color: #ff0000;">Usuario o Contrase&ntilde;a Incorrecta</span></strong></p>';
-							}
-							?>													
-							<hr><p>¿No tienes Cuenta? <a href="app/views/register.php" title="Crear cuenta">Registrate</a></p>						
-						</div><!-- /.loginBox -->	
-						<?php 
-							include 'app/views/inc/footer.html';
-						?>
-					</div><!-- /.card -->
-				</div><!-- /.col -->
-			</div><!--/.row-->
-		</div><!-- /.container -->
+        </div>
+    </nav>
+    <hr>
+    <div class="row">
+        <div class="container col-xl-10 col-xxl-8 px-3 py-5">
+            <div class="row align-items-center g-lg-5 ">
+                <div class="col-lg-7 text-center text-lg-start">
+                    <h1 class="display-5 fw-bold lh-1 mb-3">
+                        Bienvenido al Sistema de Gestión de PPS
+                    </h1>
+                    <p class="col-lg-12 fs-4 ">
+                        En este sitio web podras completar las Prácticas Profesionales Supervisadas correspondientes a la carrera de Ingenieria en Sitemas de la Informacion de la Universidad UTN - FRRO.
+                    </p>
+                </div>
+                <div class="col-md-10 mx-auto col-lg-5">
+                    <form class="p-4 p-md-5 border rounded-3 grey" action="app/controllers/UsuarioController.php?i=1" method="post">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control input-lg" name="email" placeholder="Email" required />
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="password" class="form-control input-lg" name="password" placeholder="Contraseña" required />
+                        </div>
+                        <button class="w-100 btn btn-lg btn-primary" type="submit">
+                            Ingresar
+                        </button>
+                        <div class="text-center">
+                            <?php if (isset($_GET['e']) == 1) {
+                                echo '<br><medium class="text" style="color:#ed4956;">Usuario o Contrase&ntilde;a Incorrecta</medium>';
+                            }
+                            ?>
+                        </div>
+                        <hr class="" />
+                        <medium class="text-muted">
+                            <p class="mb-0">¿No tienes Cuenta? <a href="app/views/publicregister.php" title="Crear cuenta">Registrate</a>
+                        </medium>
+                    </form>
 
-		<!-- Optional JavaScript -->
-		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>	
-	</body>
-</html>	
+                </div>
+            </div>
+        </div>
+    </div>
+    <?php
+    include 'app/views/inc/footerv2.html';
+    ?>
