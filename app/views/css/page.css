@@ -30,3 +30,10 @@ table {
 
     text-decoration-line:none;
 }
+.icon{
+    color: black;
+    transition: 0.25s;
+}
+.icon:hover{
+    color: rgb(3, 102, 194);
+}
