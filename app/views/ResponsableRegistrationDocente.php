@@ -1,15 +1,6 @@
 <?php
-session_start();
-if (isset($_SESSION['type'])) {
-    if ($_SESSION['type'] == 1) {
-        header('location:AlumnoHome.php');
-    } elseif ($_SESSION['type'] == 2) {
-        header('location:DocenteHome.php');
-    } elseif ($_SESSION['type'] == 3) {
-        header('location:ResponsableHome.php');
-    } else {
-    }
-}
+
+include 'inc/verificarResponsable.php';
 include 'inc/topScripts.php';
 ?>
 <title>Registro</title>
@@ -23,7 +14,7 @@ include 'inc/headerv2.php';
             <div class="col-md-10 mx-auto col-lg-5">
                 <form class="p-4 p-md-5 border rounded-3 grey" action="../controllers/UsuarioController.php?m=insertarUser" method="post">
 
-                    <h2>Crea tu cuenta</h2>
+                    <h2>Registrar Docente</h2>
                     <hr />
                     <div class="form-group">
                         <input type="text" class="form-control" name="name" placeholder="Nombre" minlength="4" maxlength="20" pattern="[A-Za-z0-9_-\s]{1,20}" required>
@@ -41,9 +32,9 @@ include 'inc/headerv2.php';
                         <input type="password" class="form-control" name="password2" placeholder="Repita la Contraseña" minlength="6" maxlength="20" pattern="[A-Za-z0-9_-\s]{1,20}" required>
                     </div>
                     <div class="form-group">
-                        <input type="number" id="tipo" class="form-control" name="tipo" value=1 disabled hidden required>
+                        <input type="number" id="tipo" class="form-control" name="tipo" value=2 disabled hidden required>
                     </div>
-                    <button type="submit" class="w-100 h-1 btn btn-lg btn-primary">Registrarte</button>
+                    <button type="submit" class="w-100 h-1 btn btn-lg btn-primary">Registrar</button>
                     <div class="text-center">
 
                         <?php if (isset($_GET['r']) == 1) {
@@ -51,14 +42,10 @@ include 'inc/headerv2.php';
                         } elseif (isset($_GET['e']) == 1) {
                             echo '<br><medium class="text" style="color:#ed4956;">Las contraseñas no coinciden.</medium>';
                         } elseif (isset($_GET['a']) == 1) {
-                            echo '<br><medium class="text" style="color:#00ff00;">Cuenta Creada Correctamente</medium>';
+                            echo '<br><medium class="text" style="color:#00ff00;">Docente registrado correctamente</medium>';
                         }
                         ?>
                     </div>
-                    <hr class="" />
-                    <medium class="text-muted">
-                        <p class="mb-0">¿Tienes una cuenta? <a href="../../index.php" title="Ingresar a una cuenta">Ingresar</a>
-                    </medium>
                 </form>
 
             </div>

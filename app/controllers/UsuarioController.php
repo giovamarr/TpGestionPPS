@@ -66,20 +66,39 @@ class UsuarioController
         $password2 = $_POST['password2'];
         $tipo = $_POST['tipo'];
         $infoUsuario = $user->getUsuario($email);
-        if ($infoUsuario) {
-            header('location:../views/PublicRegister.php?r=1');
-        } else {
-            if (strcmp($password, $password2) == 0) {
-                $passHash = password_hash($password, PASSWORD_DEFAULT);
-                $insertado = $user->insertUsuario($name, $surname, $email, $passHash, $tipo);
-                if ($insertado) {
-                    header('location:../views/PublicRegister.php?a=1');
-                } else {
-                    echo "<div class='alert alert-success mt-4' role='alert'><h3>No se pudo Insertar el Usuario</h3>
-		                            <a class='btn btn-outline-primary' href='../views/login.php' role='button'>Login</a></div>";
-                }
+        if ($tipo == 1) {
+            if ($infoUsuario) {
+                header('location:../views/PublicRegister.php?r=1');
             } else {
-                header('location:../views/PublicRegister.php?e=1');
+                if (strcmp($password, $password2) == 0) {
+                    $passHash = password_hash($password, PASSWORD_DEFAULT);
+                    $insertado = $user->insertUsuario($name, $surname, $email, $passHash, $tipo);
+                    if ($insertado) {
+                        header('location:../views/PublicRegister.php?a=1');
+                    } else {
+                        echo "<div class='alert alert-success mt-4' role='alert'><h3>No se pudo Insertar el Usuario</h3>
+                                        <a class='btn btn-outline-primary' href='../views/login.php' role='button'>Login</a></div>";
+                    }
+                } else {
+                    header('location:../views/PublicRegister.php?e=1');
+                }
+            }
+        } else {
+            if ($infoUsuario) {
+                header('location:../views/ResponsableRegistrationDocente.php?r=1');
+            } else {
+                if (strcmp($password, $password2) == 0) {
+                    $passHash = password_hash($password, PASSWORD_DEFAULT);
+                    $insertado = $user->insertUsuario($name, $surname, $email, $passHash, $tipo);
+                    if ($insertado) {
+                        header('location:../views/ResponsableRegistrationDocente.php?a=1');
+                    } else {
+                        echo "<div class='alert alert-success mt-4' role='alert'><h3>No se pudo Insertar el Usuario</h3>
+                                        <a class='btn btn-outline-primary' href='../views/login.php' role='button'>Login</a></div>";
+                    }
+                } else {
+                    header('location:../views/ResponsableRegistrationDocente.php?e=1');
+                }
             }
         }
     }
