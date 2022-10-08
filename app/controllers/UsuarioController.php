@@ -64,7 +64,7 @@ class UsuarioController
         $email = $_POST['email'];
         $password = $_POST['password'];
         $password2 = $_POST['password2'];
-        $tipo = $_POST['tipo'];
+        $tipo = 1;
         $infoUsuario = $user->getUsuario($email);
         if ($tipo == 1) {
             if ($infoUsuario) {

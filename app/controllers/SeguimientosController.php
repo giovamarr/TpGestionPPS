@@ -96,7 +96,7 @@ class SeguimientosController
         $header = "From: Pagina de Gestion de PPS"  . "\r\n";
         $header .= "X-Mailer: PHP/" . phpversion();
         mail($email, $asunto, $mensaje, $header);
-        $segui->desaprobarSegui($idPPS, $idSeguimientos);
+        $segui->desaprobarSegui($idPPS, $idSeguimientos,$mensaje);
         header('location:../views/DocenteViewReport.php');
     }
 }

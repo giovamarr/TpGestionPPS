@@ -51,7 +51,6 @@ include 'inc/headerv2.php';
                                 ?>
 
                                 </table>
-                            </div>
                     </div>
                 </div>
                 <hr>

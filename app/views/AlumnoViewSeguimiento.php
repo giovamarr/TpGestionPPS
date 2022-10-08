@@ -50,6 +50,9 @@ include 'inc/headerv2.php';
                         <div class="form-group">
                             <p><strong>Total de Horas Trabajadas</strong><input type="number" min="0" class="form-control" name="TotalhsTrabajadas" value="<?php echo $seguimiento['TotalhsTrabajadas']; ?>" readonly></p>
                         </div>
+                        <div class="form-group">
+                            <p><strong>Comentario del Profesor</strong><input type="text" class="form-control" name="comentario" value="<?php echo $seguimiento['comentario']; ?>" readonly> </p>
+                        </div>
                     </div>
                 </div>
                 <hr>

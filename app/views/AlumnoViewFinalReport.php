@@ -32,6 +32,9 @@ include 'inc/headerv2.php';
                         <div class="form-group">
                             <textarea class="form-control " name="conclusiones" placeholder="Mensaje" readonly style="min-height: 175px;"><?php echo $reporte['conclusiones']; ?></textarea>
                         </div>
+                        <div class="form-group">
+                            <p><strong>Comentario del Profesor</strong><input type="text" class="form-control" name="comentario" value="<?php echo $reporte['comentario']; ?>" readonly> </p>
+                        </div>
                     </div>
                 </div>
                 <hr>

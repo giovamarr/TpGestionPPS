@@ -11,6 +11,7 @@ class SeguimientosModel{
     protected $TotalhsTrabajadas;
     protected $desvioCronograma;
     protected $id_PPS;
+    protected $comentario;
     protected $aprobadoSeg;
 
     public function __construct() {
@@ -82,10 +83,10 @@ class SeguimientosModel{
         $result = mysqli_query($con, $query);
         return $result;
     }
-    public function desaprobarSegui($idPPS,$idSeguimientos){
+    public function desaprobarSegui($idPPS,$idSeguimientos,$comentario){
         $ob = new Conexion();
         $con=$ob->conectar();
-        $query = "UPDATE seguimientos SET aprobadoSeg=2 where id_PPS='$idPPS' and idSeguimientos='$idSeguimientos'";
+        $query = "UPDATE seguimientos SET aprobadoSeg=2 , comentario='$comentario' where id_PPS='$idPPS' and idSeguimientos='$idSeguimientos'";
         $result = mysqli_query($con, $query);
         return $result;
     }

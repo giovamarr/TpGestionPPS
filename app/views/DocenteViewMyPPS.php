@@ -63,7 +63,8 @@ include 'inc/headerv2.php';
                                                                     } else {
                                                                         echo ('<strong>En Curso</strong>');
                                                                     }
-                                                                    ?></td>
+                                                                    ?>
+                                                                    </td>
                                     </tr>
                                 <?php
                                 }
@@ -73,7 +74,8 @@ include 'inc/headerv2.php';
 
                             </table>
 
-                        </div><span style='text-align: center;'>
+                        </div>
+                        <span style='text-align: center;'>
                         <?php
                         if ($total_paginas > 1) {
                             for ($i = 1; $i <= $total_paginas; $i++) {
@@ -86,7 +88,8 @@ include 'inc/headerv2.php';
                             }
                         }
                     } ?>
-                        &nbsp;</span>
+                        &nbsp;
+                    </span>
                 </div>
                 <hr>
                 <div class="row pt-1">
