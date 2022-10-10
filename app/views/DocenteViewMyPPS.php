@@ -13,7 +13,7 @@ include 'inc/headerv2.php';
     <div class="row align-items-center ">
         <div class="col d-block align-items-center justify-content-center col-md-8 mx-auto">
             <div class="p-2 grey">
-                <h2 class="p-2 text-center"> <b>PPSs</b> </h2>
+                <h2 class="p-2 text-center" alt="PPSs"> <b>PPSs</b> </h2>
 
                 <hr>
                 <div class="pl-2 pr-2 pt-4">
@@ -39,12 +39,12 @@ include 'inc/headerv2.php';
 
                             <table class="table table-dark table-hover table-bordered table-sm">
                                 <thead>
-                                    <td class="text-center fit p-2"><b style="max-width: 10%;">Nro de PPS</b></td>
-                                    <td class="text-center fit p-2"><b style="max-width: 10%;">Apellido</b></td>
-                                    <td class="text-center fit p-2"><b style="max-width: 10%;">Nombre</b></td>
-                                    <td class="text-center  fit p-2"><b style="max-width: 10%;">Tipo de PPS</b></td>
-                                    <td class="text-center  p-2"><b style="max-width: 10%;">Entidad</b></td>
-                                    <td class="text-center  p-2"><b style="max-width: 10%;">Estado</b></td>
+                                    <td class="text-center fit p-2" alt="Nro de PPS"><b style="max-width: 10%;">Nro de PPS</b></td>
+                                    <td class="text-center fit p-2" alt="Apellido"><b style="max-width: 10%;">Apellido</b></td>
+                                    <td class="text-center fit p-2" alt="Nombre"><b style="max-width: 10%;">Nombre</b></td>
+                                    <td class="text-center  fit p-2" alt="Tipo de PPS"><b style="max-width: 10%;">Tipo de PPS</b></td>
+                                    <td class="text-center  p-2" alt="Entidad"><b style="max-width: 10%;">Entidad</b></td>
+                                    <td class="text-center  p-2" alt="Estado"><b style="max-width: 10%;">Estado</b></td>
                                 </thead>
                                 <?php
                                 while ($fila = mysqli_fetch_array($vResultado)) {
@@ -93,8 +93,8 @@ include 'inc/headerv2.php';
                 </div>
                 <hr>
                 <div class="row pt-1">
-                    <div class="col-lg-12">
-                        <input type="button" class="btn btn-secondary btn-block" onclick="location.href='DocenteHome.php';" value="Volver" />
+                    <div class="col-lg-12" >
+                        <input type="button"alt="volver" class="btn btn-secondary btn-block" onclick="location.href='DocenteHome.php';" value="Volver" />
                     </div>
                 </div>
 

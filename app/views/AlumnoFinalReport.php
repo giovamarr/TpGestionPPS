@@ -19,13 +19,13 @@ include 'inc/headerv2.php';
         <div class="col d-block align-items-center justify-content-center col-md-8 mx-auto">
 
             <form class="p-4 grey" method="post" action="../controllers/ReporteFinalController.php?m=insertarReporte">
-                <h2 class="pb-1 text-center"> <b>Formulario de Informe Final de PPS</b> </h2>
+                <h2 class="pb-1 text-center" alt="Formulario de Informe Final"> <b>Formulario de Informe Final de PPS</b> </h2>
                 <hr>
-                <h5 class="text-center pb-2">Conclusiones sobre la experiencia de la PPS</h5>
+                <h5 class="text-center pb-2" alt="Conclusiones">Conclusiones sobre la experiencia de la PPS</h5>
                 <div class="row ">
                     <div class="col-lg-12 ">
                         <div class="form-group">
-                            <textarea class="form-control " name="conclusiones" placeholder="Escribe aquí su Conclusión" required style="min-height: 175px;" minlength="1" maxlength="750" pattern="[A-Za-z0-9_-\s]{1,750}"></textarea>
+                            <textarea class="form-control " alt="Escribe aquí su Conclusión" name="conclusiones" placeholder="Escribe aquí su Conclusión" required style="min-height: 175px;" minlength="1" maxlength="750" pattern="[A-Za-z0-9_-\s]{1,750}"></textarea>
                         </div>
                     </div>
                 </div>
@@ -47,11 +47,11 @@ include 'inc/headerv2.php';
                 <div class="row">
                     <div class="col-md-6 m-1 mx-auto">
                         <form action="mainAlumno.php">
-                            <input type="button" class="btn btn-secondary btn-block" onclick="location.href='AlumnoHome.php';" value="Cancelar" />
+                            <input type="button" class="btn btn-secondary btn-block" onclick="location.href='AlumnoHome.php';" value="Cancelar" alt="cancelar"/>
                         </form>
                     </div>
                     <div class="col-md-6  m-1 mx-auto">
-                        <button type="submit" class="btn btn-primary btn-block"> Enviar</button>
+                        <button type="submit" class="btn btn-primary btn-block" alt="enviar"> Enviar</button>
                     </div>
                 </div>
 

@@ -16,9 +16,9 @@ include 'inc/headerv2.php';
         <div class="col d-block align-items-center justify-content-center col-md-8 mx-auto">
 
             <div class="p-2 grey">
-                <h2 class="pb-1 text-center"> <b>Reportes</b> </h2>
+                <h2 class="pb-1 text-center" alt="reportes"> <b>Reportes</b> </h2>
                 <hr>
-                <h5 class="pb-1 text-center"> <b>Seguimientos</b> </h5>
+                <h5 class="pb-1 text-center" alt="seguimientos"> <b>Seguimientos</b> </h5>
                 <div class="row">
                     <div class="col-md-12">
                         <?php
@@ -30,11 +30,11 @@ include 'inc/headerv2.php';
                         ?>
                             <div class="table-responsive pl-md-2 pr-md-2">
 
-                                <table class="table table-dark table-hover table-bordered table-sm">
+                                <table class="table table-dark table-hover table-bordered table-sm" alt="tabla seguimientos">
                                     <thead>
-                                        <td class="text-center fit p-2"><b>Nro</b></td>
-                                        <td class="p-2"><b>Condición</b></td>
-                                        <td class="text-center fit p-2"><b style="max-width: 10%;">Ver Informe</b></td>
+                                        <td class="text-center fit p-2"alt="numero"><b>Nro</b></td>
+                                        <td class="p-2"alt="condicion"><b>Condición</b></td>
+                                        <td class="text-center fit p-2"><b style="max-width: 10%;"alt="fila ve informe">Ver Informe</b></td>
                                     </thead>
                                     <?php
                                     while ($fila = mysqli_fetch_array($result)) {
@@ -51,7 +51,7 @@ include 'inc/headerv2.php';
                                                                             ?></td>
                                             <td class="text-center align-middle">
                                                 <button class="btn btn-warning">
-                                                    <strong><a href='AlumnoViewSeguimiento.php?id=<?php echo $fila['idSeguimientos']; ?>' style='color: black'>Ver</a></strong>
+                                                    <strong><a href='AlumnoViewSeguimiento.php?id=<?php echo $fila['idSeguimientos']; ?>' style='color: black' alt="ir a seguimiento">Ver</a></strong>
                                                 </button>
                                             </td>
                                         </tr>
@@ -70,7 +70,7 @@ include 'inc/headerv2.php';
 
                 <div class="row">
                     <div class="col-md-12">
-                        <h5 class="pb-1 text-center"> <b>Informe Final</b> </h5>
+                        <h5 class="pb-1 text-center" alt="informe final"> <b>Informe Final</b> </h5>
                         <?php
                         $rf = new ReporteFinalController();
                         $result = $rf->getReportes();
@@ -82,9 +82,9 @@ include 'inc/headerv2.php';
 
                                 <table class="table table-dark table-hover table-bordered table-sm ">
                                     <thead>
-                                        <td class="text-center fit p-2 "><b>Nro</b></td>
-                                        <td class="p-2"><b>Condción</b></td>
-                                        <td class="text-center fit p-2"><b>Ver Informe</b></td>
+                                        <td class="text-center fit p-2 " alt="nro informe final"><b>Nro</b></td>
+                                        <td class="p-2" alt="condicion informe final"><b>Condción</b></td>
+                                        <td class="text-center fit p-2" alt="columna ver informe final"><b>Ver Informe</b></td>
                                     </thead>
                                     <?php
                                     while ($fila = mysqli_fetch_array($result)) {
@@ -101,7 +101,7 @@ include 'inc/headerv2.php';
                                                                             ?></td>
                                             <td class="text-center align-middle">
                                                 <button class="btn btn-warning ">
-                                                    <strong><a href='AlumnoViewFinalReport.php?id=<?php echo $fila['idFR']; ?>' style='color: black'>Ver</a></strong>
+                                                    <strong><a href='AlumnoViewFinalReport.php?id=<?php echo $fila['idFR']; ?>' style='color: black' alt="ir a ver informe final">Ver</a></strong>
                                                 </button>
                                             </td>
                                         </tr>
@@ -120,7 +120,7 @@ include 'inc/headerv2.php';
                 <hr>
                 <div class="row pt-2">
                     <div class="col-lg-12">
-                        <input type="button" class="btn btn-secondary btn-block" onclick="location.href='AlumnoHome.php';" value="Volver" />
+                        <input type="button" class="btn btn-secondary btn-block" onclick="location.href='AlumnoHome.php';" value="Volver" alt="volver"/>
                     </div>
                 </div>
 

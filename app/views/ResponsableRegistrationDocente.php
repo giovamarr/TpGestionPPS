@@ -14,27 +14,27 @@ include 'inc/headerv2.php';
             <div class="col-md-10 mx-auto col-lg-5">
                 <form class="p-4 p-md-5 border rounded-3 grey" action="../controllers/UsuarioController.php?m=insertarUser" method="post">
 
-                    <h2>Registrar Docente</h2>
+                    <h2 alt="Registrar Docente">Registrar Docente</h2>
                     <hr />
                     <div class="form-group">
-                        <input type="text" class="form-control" name="name" placeholder="Nombre" minlength="4" maxlength="20" pattern="[A-Za-z0-9_-\s]{1,20}" required>
+                        <input type="text" alt="nombre" class="form-control" name="name" placeholder="Nombre" minlength="4" maxlength="20" pattern="[A-Za-z0-9_-\s]{1,20}" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" name="surname" placeholder="Apellido" minlength="4" maxlength="20" pattern="[A-Za-z0-9_-\s]{1,20}" required>
+                        <input type="text" alt="apellido" class="form-control" name="surname" placeholder="Apellido" minlength="4" maxlength="20" pattern="[A-Za-z0-9_-\s]{1,20}" required>
                     </div>
                     <div class="form-group">
-                        <input type="email" class="form-control" name="email" aria-describedby="emailHelp" minlength="4" maxlength="32" placeholder="Email" required>
+                        <input type="email" alt="email" class="form-control" name="email" aria-describedby="emailHelp" minlength="4" maxlength="32" placeholder="Email" required>
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control" name="password" placeholder="Contraseña" minlength="6" maxlength="20" pattern="[A-Za-z0-9_-\s]{1,20}" required>
+                        <input type="password" alt="contraseña" class="form-control" name="password" placeholder="Contraseña" minlength="6" maxlength="20" pattern="[A-Za-z0-9_-\s]{1,20}" required>
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control" name="password2" placeholder="Repita la Contraseña" minlength="6" maxlength="20" pattern="[A-Za-z0-9_-\s]{1,20}" required>
+                        <input type="password" alt="repetir contraseña" class="form-control" name="password2" placeholder="Repita la Contraseña" minlength="6" maxlength="20" pattern="[A-Za-z0-9_-\s]{1,20}" required>
                     </div>
                     <div class="form-group">
-                        <input type="number" id="tipo" class="form-control" name="tipo" value=2 disabled hidden required>
+                        <input type="number" alt="tipo" id="tipo" class="form-control" name="tipo" value=2 disabled hidden required>
                     </div>
-                    <button type="submit" class="w-100 h-1 btn btn-lg btn-primary">Registrar</button>
+                    <button type="submit" class="w-100 h-1 btn btn-lg btn-primary"  alt="confirmar registro">Registrar</button>
                     <div class="text-center">
 
                         <?php if (isset($_GET['r']) == 1) {

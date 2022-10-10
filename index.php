@@ -52,22 +52,22 @@ include 'app/views/inc/topScripts.php';
         <div class="container col-xl-10 col-xxl-8 px-3 py-5">
             <div class="row align-items-center g-lg-5 ">
                 <div class="col-lg-7 text-center text-lg-start">
-                    <h1 class="display-5 fw-bold lh-1 mb-3">
+                    <h1 class="display-5 fw-bold lh-1 mb-3" alt="Sistema de Gestión de PPS">
                         Bienvenido al Sistema de Gestión de PPS
                     </h1>
-                    <p class="col-lg-12 fs-4 ">
+                    <p class="col-lg-12 fs-4 " alt="mensaje">
                         En este sitio web podras completar las Prácticas Profesionales Supervisadas correspondientes a la carrera de Ingenieria en Sitemas de la Informacion de la Universidad UTN - FRRO.
                     </p>
                 </div>
                 <div class="col-md-10 mx-auto col-lg-5">
                     <form class="p-4 p-md-5 border rounded-3 grey" action="app/controllers/UsuarioController.php?i=1" method="post">
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control input-lg" name="email" placeholder="Email" required />
+                            <input type="text" alt="correo" class="form-control input-lg" name="email" placeholder="Email" required />
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="password" class="form-control input-lg" name="password" placeholder="Contraseña" required />
+                            <input type="password" alt="contraseña" class="form-control input-lg" name="password" placeholder="Contraseña" required />
                         </div>
-                        <button class="w-100 btn btn-lg btn-primary" type="submit">
+                        <button class="w-100 btn btn-lg btn-primary" type="submit" alt="iniciar sesion">
                             Ingresar
                         </button>
                         <div class="text-center">
@@ -78,7 +78,7 @@ include 'app/views/inc/topScripts.php';
                         </div>
                         <hr class="" />
                         <medium class="text-muted">
-                            <p class="mb-0">¿No tienes Cuenta? <a href="app/views/publicregister.php" title="Crear cuenta">Registrate</a>
+                            <p class="mb-0">¿No tienes Cuenta? <a href="app/views/publicregister.php" title="Crear cuenta" alt="ir a registrarse">Registrate</a>
                         </medium>
                     </form>
 

@@ -14,7 +14,7 @@ include 'inc/headerv2.php';
     <div class="row align-items-center ">
         <div class="col d-block align-items-center justify-content-center col-md-11 mx-auto">
             <div class="p-2 grey">
-                <h2 class="p-2 text-center"> <b>Definir Tutores de PPS</b> </h2>
+                <h2 class="p-2 text-center" alt="Definir Tutores de PPS"> <b>Definir Tutores de PPS</b> </h2>
 
                 <hr>
                 <div class="pl-2 pr-2 pt-4">
@@ -37,17 +37,17 @@ include 'inc/headerv2.php';
 
                     ?>
                         <div class="table-responsive-lg pl-md-2 pr-md-2">
-                            <table class="table table-dark table-hover table-bordered table-sm">
+                            <table class="table table-dark table-hover table-bordered table-sm" alt="table">
                                 <thead>
-                                    <td class="text-center fit p-2"><b style="max-width: 10%;">Apellido</b></td>
-                                    <td class="text-center fit p-2"><b style="max-width: 10%;">Nombre</b></td>
-                                    <td class="text-center fit p-2"><b style="max-width: 10%;">Nro de PPS</b></td>
-                                    <td class="text-center fit p-2"><b style="max-width: 10%;">Tipo de PPS</b></td>
-                                    <td class="text-center fit p-2"><b style="max-width: 10%;">Entidad</b></td>
-                                    <td class="text-center fit p-2"><b style="max-width: 10%;">Direccion</b></td>
-                                    <td class="text-center fit p-2"><b style="max-width: 10%;">Contacto</b></td>
-                                    <td class="text-center fit p-2"><b style="max-width: 10%;">Seleccionar Docente</b></td>
-                                    <td class="text-center fit p-2"><b style="max-width: 10%;">Confirmar</b></td>
+                                    <td class="text-center fit p-2"><b style="max-width: 10%;"alt="Apellido">Apellido</b></td>
+                                    <td class="text-center fit p-2"><b style="max-width: 10%;"alt="Nombre">Nombre</b></td>
+                                    <td class="text-center fit p-2"><b style="max-width: 10%;"alt="Nro de PPS">Nro de PPS</b></td>
+                                    <td class="text-center fit p-2"><b style="max-width: 10%;"alt="Tipo de PPS">Tipo de PPS</b></td>
+                                    <td class="text-center fit p-2"><b style="max-width: 10%;"alt="Entidad">Entidad</b></td>
+                                    <td class="text-center fit p-2"><b style="max-width: 10%;"alt="Direccion">Direccion</b></td>
+                                    <td class="text-center fit p-2"><b style="max-width: 10%;"alt="Contacto">Contacto</b></td>
+                                    <td class="text-center fit p-2"><b style="max-width: 10%;"alt="Seleccionar Docente">Seleccionar Docente</b></td>
+                                    <td class="text-center fit p-2"><b style="max-width: 10%;"alt="Confirmar">Confirmar</b></td>
                                 </thead>
                                 <?php
                                 while ($fila = mysqli_fetch_array($vResultado)) {
@@ -74,7 +74,7 @@ include 'inc/headerv2.php';
                                         </td>
                                         <td class="align-middle">
                                             <input type="hidden" name="idPPS" value="<?php echo $fila['idPPS']; ?>">
-                                            <button type="submit" class="btn btn-success btn-block" value="Select">Aceptar</button>
+                                            <button type="submit" class="btn btn-success btn-block" value="Select" alt="aceptar">Aceptar</button>
                                             </form>
                                         </td>
                                     </tr>
@@ -107,7 +107,7 @@ include 'inc/headerv2.php';
                 <hr>
                 <div class="row pt-1">
                     <div class="col-lg-12">
-                        <input type="button" class="btn btn-secondary btn-block" onclick="location.href='ResponsableHome.php';" value="Volver" />
+                        <input type="button" class="btn btn-secondary btn-block" onclick="location.href='ResponsableHome.php';" value="Volver" alt="volver" />
                     </div>
                 </div>
 

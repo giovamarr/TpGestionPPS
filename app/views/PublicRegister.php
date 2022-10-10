@@ -23,28 +23,28 @@ include 'inc/headerv2.php';
             <div class="col-md-10 mx-auto col-lg-5">
                 <form class="p-4 p-md-5 border rounded-3 grey" action="../controllers/UsuarioController.php?m=insertarUser" method="post">
 
-                    <h2>Crea tu cuenta</h2>
+                    <h2 alt="Crea tu cuenta">Crea tu cuenta</h2>
                     <hr />
                     <div class="form-group">
-                        <input type="text" class="form-control" name="name" placeholder="Nombre" minlength="4" maxlength="20" pattern="[A-Za-z0-9_-\s]{1,20}" required>
+                        <input type="text" alt="nombre" class="form-control" name="name" placeholder="Nombre" minlength="4" maxlength="20" pattern="[A-Za-z0-9_-\s]{1,20}" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" name="surname" placeholder="Apellido" minlength="4" maxlength="20" pattern="[A-Za-z0-9_-\s]{1,20}" required>
+                        <input type="text" alt="apellido" class="form-control" name="surname" placeholder="Apellido" minlength="4" maxlength="20" pattern="[A-Za-z0-9_-\s]{1,20}" required>
                     </div>
                     <div class="form-group">
-                        <input type="email" class="form-control" name="email" aria-describedby="emailHelp" minlength="4" maxlength="32" placeholder="Email" required>
+                        <input type="email" alt="email" class="form-control" name="email" aria-describedby="emailHelp" minlength="4" maxlength="32" placeholder="Email" required>
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control" name="password" placeholder="Contraseña" minlength="6" maxlength="20" pattern="[A-Za-z0-9_-\s]{1,20}" required>
+                        <input type="password" alt="contraseña" class="form-control" name="password" placeholder="Contraseña" minlength="6" maxlength="20" pattern="[A-Za-z0-9_-\s]{1,20}" required>
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control" name="password2" placeholder="Repita la Contraseña" minlength="6" maxlength="20" pattern="[A-Za-z0-9_-\s]{1,20}" required>
+                        <input type="password" alt="confirmar contraseña" class="form-control" name="password2" placeholder="Repita la Contraseña" minlength="6" maxlength="20" pattern="[A-Za-z0-9_-\s]{1,20}" required>
                     </div>
                     <div class="form-group">
-                        <input type="number" id="tipo" class="form-control" name="tipo" value=1 disabled hidden required>
+                        <input type="number" alt="tipo" id="tipo" class="form-control" name="tipo" value=1 disabled hidden required>
                     </div>
-                    <button type="submit" class="w-100 h-1 btn btn-lg btn-primary">Registrarte</button>
-                    <div class="text-center">
+                    <button type="submit" class="w-100 h-1 btn btn-lg btn-primary" alt="confirmar registro">Registrarte</button>
+                    <div class="text-center"alt="mensaje">
 
                         <?php if (isset($_GET['r']) == 1) {
                             echo '<br><medium class="text" style="color:#ed4956;">El mail ingresado ya esta asociado a otra cuenta.</medium>';
@@ -57,7 +57,7 @@ include 'inc/headerv2.php';
                     </div>
                     <hr class="" />
                     <medium class="text-muted">
-                        <p class="mb-0">¿Tienes una cuenta? <a href="../../index.php" title="Ingresar a una cuenta">Ingresar</a>
+                        <p class="mb-0" alt="Tienes una cuenta">¿Tienes una cuenta? <a href="../../index.php" title="Ingresar a una cuenta" alt="ir al inicio de sesion">Ingresar</a>
                     </medium>
                 </form>
 

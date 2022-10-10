@@ -13,7 +13,7 @@ include 'inc/headerv2.php';
     <div class="row align-items-center ">
         <div class="col d-block align-items-center justify-content-center col-md-11 mx-auto">
             <div class="p-2 grey">
-                <h2 class="p-2 text-center"> <b>PPS a evaluar</b> </h2>
+                <h2 class="p-2 text-center" alt="PPS a evaluar"> <b>PPS a evaluar</b> </h2>
 
                 <hr>
                 <div class="pl-2 pr-2 pt-4">
@@ -36,15 +36,15 @@ include 'inc/headerv2.php';
                         <div class="table-responsive-lg pl-md-2 pr-md-2">
                             <table class="table table-dark table-hover table-bordered table-sm">
                                 <thead>
-                                    <td class="text-center fit p-2"><b style="max-width: 10%;">Alumno</b></td>
-                                    <td class="text-center fit p-2"><b style="max-width: 10%;">Profesor</b></td>
-                                    <td class="text-center fit p-2"><b style="max-width: 10%;">Nro de PPS</b></td>
-                                    <td class="text-center fit p-2"><b style="max-width: 10%;">Tipo de PPS</b></td>
-                                    <td class="text-center fit p-2"><b style="max-width: 10%;">Entidad</b></td>
-                                    <td class="text-center fit p-2"><b style="max-width: 10%;">Direccion</b></td>
-                                    <td class="text-center fit p-2"><b style="max-width: 10%;">Contacto</b></td>
-                                    <td class="text-center fit p-2"><b style="max-width: 10%;">Aprobar</b></td>
-                                    <td class="text-center fit p-2"><b style="max-width: 10%;">Desaprobar</b></td>
+                                    <td class="text-center fit p-2" alt="Alumno"><b style="max-width: 10%;">Alumno</b></td>
+                                    <td class="text-center fit p-2" alt="Profesor"><b style="max-width: 10%;">Profesor</b></td>
+                                    <td class="text-center fit p-2" alt="Nro de PPS"><b style="max-width: 10%;">Nro de PPS</b></td>
+                                    <td class="text-center fit p-2" alt="Tipo de PPS"><b style="max-width: 10%;">Tipo de PPS</b></td>
+                                    <td class="text-center fit p-2" alt="Entidad"><b style="max-width: 10%;">Entidad</b></td>
+                                    <td class="text-center fit p-2" alt="Direccion"><b style="max-width: 10%;">Direccion</b></td>
+                                    <td class="text-center fit p-2" alt="Contacto"><b style="max-width: 10%;">Contacto</b></td>
+                                    <td class="text-center fit p-2" alt="Aprobar"><b style="max-width: 10%;">Aprobar</b></td>
+                                    <td class="text-center fit p-2" alt="Desaprobar"><b style="max-width: 10%;">Desaprobar</b></td>
                                 </thead>
                                 <?php
                                 while ($fila = mysqli_fetch_array($vResultado)) {
@@ -63,14 +63,14 @@ include 'inc/headerv2.php';
                                             <form action="../controllers/RequestController.php?m=evaluarPPS" method="post">
                                                 <input type="hidden" name="idPPS" value="<?php echo $fila['idPPS']; ?>">
                                                 <input type="hidden" name="valor" value=1>
-                                                <button type="submit" class="btn btn-success btn-block">Aprobar</button>
+                                                <button type="submit" class="btn btn-success btn-block"  alt="aprobar boton">Aprobar</button>
                                             </form>
                                         </td>
                                         <td class="align-middle">
                                             <form action="../controllers/RequestController.php?m=evaluarPPS" method="post">
                                                 <input type="hidden" name="idPPS" value="<?php echo $fila['idPPS']; ?>">
                                                 <input type="hidden" name="valor" value=2>
-                                                <button type="submit" class="btn btn-danger btn-block">Desaprobar</button>
+                                                <button type="submit" class="btn btn-danger btn-block"  alt="desaprobar boton">Desaprobar</button>
                                             </form>
                                         </td>
                                     </tr>
@@ -100,7 +100,7 @@ include 'inc/headerv2.php';
                 <hr>
                 <div class="row pt-1">
                     <div class="col-lg-12">
-                        <input type="button" class="btn btn-secondary btn-block" onclick="location.href='ResponsableHome.php';" value="Volver" />
+                        <input type="button" class="btn btn-secondary btn-block" onclick="location.href='ResponsableHome.php';" value="Volver"  alt="volver"/>
                     </div>
                 </div>
 

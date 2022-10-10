@@ -17,15 +17,15 @@ include 'inc/topScripts.php';
     </svg>
 
     <div class="container px-4 py-4" id="hanging-icons">
-        <h1 class="pb-2 text-center">Menú</h1>
+        <h1 class="pb-2 text-center" alt="menu">Menú</h1>
         <div class="row g-4 py-4 row-cols-1 row-cols-lg-3 d-flex justify-content-center">
 
             <div class="card col-md m-2 menu">
                 <div class="card-body">
-                    <h3 class="card-title text-center">Corregir Informes</h3>
+                    <h3 class="card-title text-center" alt="Corregir Informes">Corregir Informes</h3>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     <div class="text-center">
-                        <button type="submit" class="btn btn-primary " onclick="location.href='DocenteViewReport.php';">
+                        <button type="submit" class="btn btn-primary " onclick="location.href='DocenteViewReport.php';" alt="ir a Corregir Informes">
                             <svg width="20" height="20" fill="currentColor" class="bi bi-arrow-right-circle-fill d-flex align-items-center justify-content-center">
                                 <use xlink:href="#arrow"></use>
                             </svg>
@@ -36,10 +36,10 @@ include 'inc/topScripts.php';
             </div>
             <div class="card col-md m-2 menu">
                 <div class="card-body">
-                    <h3 class="card-title text-center">Ver PPS</h3>
+                    <h3 class="card-title text-center" alt="ver pps">Ver PPS</h3>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     <div class="text-center">
-                        <button type="submit" class="btn btn-primary " onclick="location.href='DocenteViewMyPPS.php';">
+                        <button type="submit" class="btn btn-primary " onclick="location.href='DocenteViewMyPPS.php';" alt="ir a ver pps">
                             <svg width="20" height="20" fill="currentColor" class="bi bi-arrow-right-circle-fill d-flex align-items-center justify-content-center">
                                 <use xlink:href="#arrow"></use>
                             </svg>

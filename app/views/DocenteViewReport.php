@@ -14,7 +14,7 @@ include 'inc/headerv2.php';
     <div class="row align-items-center ">
         <div class="col d-block align-items-center justify-content-center col-md-8 mx-auto">
             <div class="p-2 grey">
-                <h2 class="pb-1 text-center"> <b>Seguimientos</b> </h2>
+                <h2 class="pb-1 text-center"alt="seguimiento"> <b>Seguimientos</b> </h2>
                 <div class="row">
                     <div class="col-md-12">
                         <?php
@@ -26,11 +26,11 @@ include 'inc/headerv2.php';
                         ?>
                             <div class="table-responsive pl-md-2 pr-md-2">
 
-                                <table class="table table-dark table-hover table-bordered table-sm">
+                                <table class="table table-dark table-hover table-bordered table-sm" alt="tabla">
                                     <thead>
-                                        <td class="text-center fit p-2"><b>Nro</b></td>
-                                        <td class="p-2"><b>Alumno</b></td>
-                                        <td class="text-center fit p-2"><b style="max-width: 10%;">Ver Informe</b></td>
+                                        <td class="text-center fit p-2" alt="numero"><b>Nro</b></td>
+                                        <td class="p-2" alt="alumno"><b>Alumno</b></td>
+                                        <td class="text-center fit p-2"><b style="max-width: 10%;" alt="ver informe">Ver Informe</b></td>
                                     </thead>
                                     <?php
                                     while ($fila = mysqli_fetch_array($result)) {
@@ -39,7 +39,7 @@ include 'inc/headerv2.php';
                                             <td class="align-middle"><?php echo ($fila['idSeguimientos']); ?></td>
                                             <td class="align-middle pl-2"><?php echo ($fila['apellido'] . ', ' . $fila['nombre']) ?></td>
                                             <td class="text-center align-middle">
-                                                <button class="btn btn-warning">
+                                                <button class="btn btn-warning" alt="ir a seguimiento">
                                                     <strong><a href='DocenteEvaluateSeguimiento.php?id=<?php echo $fila['idSeguimientos']; ?>&idP=<?php echo $fila['id_PPS']; ?>' style='color: black'>Ver</a></strong>
                                                 </button>
                                             </td>
@@ -54,7 +54,7 @@ include 'inc/headerv2.php';
                     </div>
                 </div>
                 <hr>
-                <h2 class="pb-1 text-center"> <b>Informes Finales</b> </h2>
+                <h2 class="pb-1 text-center" alt="Informes Finales"> <b>Informes Finales</b> </h2>
                 <div class="row">
 
                     <div class="col-md-12">
@@ -69,9 +69,9 @@ include 'inc/headerv2.php';
 
                                 <table class="table table-dark table-hover table-bordered table-sm">
                                     <thead>
-                                        <td class="text-center fit p-2"><b>Nro</b></td>
-                                        <td class="p-2"><b>Alumno</b></td>
-                                        <td class="text-center fit p-2"><b style="max-width: 10%;">Ver Informe</b></td>
+                                        <td class="text-center fit p-2" alt="Nro"><b>Nro</b></td>
+                                        <td class="p-2" alt="Alumno"><b>Alumno</b></td>
+                                        <td class="text-center fit p-2" alt="Ver Informe"><b style="max-width: 10%;">Ver Informe</b></td>
                                     </thead>
                                     <?php
                                     while ($fila = mysqli_fetch_array($result)) {
@@ -80,7 +80,7 @@ include 'inc/headerv2.php';
                                             <td class="align-middle"><?php echo ($fila['idFR']); ?></td>
                                             <td class="align-middle pl-2"><?php echo ($fila['apellido'] . ', ' . $fila['nombre']) ?></td>
                                             <td class="text-center align-middle">
-                                                <button class="btn btn-warning">
+                                                <button class="btn btn-warning" alt="ir a informe">
                                                     <strong><a href='DocenteEvaluateFinalReport.php?id=<?php echo $fila['idFR']; ?>&idP=<?php echo $fila['idPPS_FP']; ?>' style='color: black'>Ver</a></strong>
                                                 </button>
                                             </td>
