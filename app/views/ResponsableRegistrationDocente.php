@@ -32,7 +32,7 @@ include 'inc/headerv2.php';
                         <input type="password" alt="repetir contraseña" class="form-control" name="password2" placeholder="Repita la Contraseña" minlength="6" maxlength="20" pattern="[A-Za-z0-9_-\s]{1,20}" required>
                     </div>
                     <div class="form-group">
-                        <input type="number" alt="tipo" id="tipo" class="form-control" name="tipo" value=2 disabled hidden required>
+                        <input type="number" alt="tipo" id="tipo" class="form-control" name="tipo" value=2 hidden required>
                     </div>
                     <button type="submit" class="w-100 h-1 btn btn-lg btn-primary"  alt="confirmar registro">Registrar</button>
                     <div class="text-center">
@@ -46,6 +46,11 @@ include 'inc/headerv2.php';
                         }
                         ?>
                     </div>
+                    <div class="row pt-1">
+                    <div class="col-lg-12">
+                        <input type="button" class="btn btn-secondary btn-block" onclick="location.href='ResponsableHome.php';" value="Volver"  alt="volver"/>
+                    </div>
+                </div>
                 </form>
 
             </div>

@@ -6,7 +6,7 @@ class Conexion{
     public static function Conectar(){
      $dbhost	= "localhost:8111";	   // localhost or IP
      $dbuser	= "root";		  // database username
-     $dbpass	= "";		     // database password
+     $dbpass	= "root";		     // database password
     $dbname	= "pps";    // database name
     try{
         return mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);

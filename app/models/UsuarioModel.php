@@ -39,7 +39,7 @@ class UsuarioModel{
         public function getProfesores(){
             $ob = new Conexion();
             $con=$ob->conectar();
-            $result = mysqli_query($con, "SELECT u.id, u.nombre, u.apellido FROM users u where u.tipo = 2");
+            $result = mysqli_query($con, "SELECT u.id, u.nombre, u.apellido FROM users u INNER JOIN solicitudes s ON s.id_Profe=u.id where u.tipo = 2   GROUP BY u.id HAVING COUNT(u.id)<10");
             return $result;
             }
 

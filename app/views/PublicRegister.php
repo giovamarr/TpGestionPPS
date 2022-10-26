@@ -41,7 +41,7 @@ include 'inc/headerv2.php';
                         <input type="password" alt="confirmar contraseña" class="form-control" name="password2" placeholder="Repita la Contraseña" minlength="6" maxlength="20" pattern="[A-Za-z0-9_-\s]{1,20}" required>
                     </div>
                     <div class="form-group">
-                        <input type="number" alt="tipo" id="tipo" class="form-control" name="tipo" value=1 disabled hidden required>
+                        <input type="number" alt="tipo" id="tipo" class="form-control" name="tipo" value=1  hidden required>
                     </div>
                     <button type="submit" class="w-100 h-1 btn btn-lg btn-primary" alt="confirmar registro">Registrarte</button>
                     <div class="text-center"alt="mensaje">

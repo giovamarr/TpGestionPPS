@@ -25,7 +25,7 @@ include 'inc/headerv2.php';
                         $seguimientos = new SeguimientosController();
                         $result = $seguimientos->getSeguimientos();
                         if (mysqli_num_rows($result) == 0) {
-                            echo ("<p style='text-align: center;'>No hay Seguimientos enviados.<br />");
+                            echo ("<p style='text-align: center;'>No hay Seguimientos enviados.<br /> </p>");
                         } else {
                         ?>
                             <div class="table-responsive pl-md-2 pr-md-2">
@@ -64,8 +64,8 @@ include 'inc/headerv2.php';
 
                                 </table>
                             </div>
-                    </div>
                 </div><!-- row 2 -->
+                
                 <hr>
 
                 <div class="row">
