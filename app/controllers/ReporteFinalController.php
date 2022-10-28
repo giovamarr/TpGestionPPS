@@ -97,7 +97,7 @@ class ReporteFinalController
         $header = "From: Pagina de Gestion de PPS"  . "\r\n";
         $header .= "X-Mailer: PHP/" . phpversion();
         $a = mail($email, $asunto, $mensaje, $header);
-        $reportes = $rf->desaprobarRF($idPPS, $idFR);
+        $reportes = $rf->desaprobarRF($idPPS, $idFR,$mensaje);
         header('location:../views/DocenteViewReport.php');
     }
 }

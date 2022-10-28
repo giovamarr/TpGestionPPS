@@ -75,7 +75,7 @@ class ReporteFinalModel{
     public function desaprobarRF($idPPS,$idFR){
         $ob = new Conexion();
         $con=$ob->conectar();
-        $query = "UPDATE finalReport SET aprobadaFR=2 where idPPS_FP='$idPPS' and idFR='$idFR'";
+        $query = "UPDATE finalReport SET aprobadaFR=2 , comentario='$comentario' where idPPS_FP='$idPPS' and idFR='$idFR'";
         $result = mysqli_query($con, $query);
         return $result;
     }

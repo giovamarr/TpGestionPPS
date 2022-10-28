@@ -28,20 +28,22 @@ include 'inc/headerv2.php';
                             echo ("<p style='text-align: center;'>No hay Seguimientos enviados.<br /> </p>");
                         } else {
                         ?>
-                            <div class="table-responsive pl-md-2 pr-md-2">
+                        <div class="table-responsive pl-md-2 pr-md-2">
 
-                                <table class="table table-dark table-hover table-bordered table-sm" alt="tabla seguimientos">
-                                    <thead>
-                                        <td class="text-center fit p-2"alt="numero"><b>Nro</b></td>
-                                        <td class="p-2"alt="condicion"><b>Condición</b></td>
-                                        <td class="text-center fit p-2"><b style="max-width: 10%;"alt="fila ve informe">Ver Informe</b></td>
-                                    </thead>
-                                    <?php
+                            <table class="table table-dark table-hover table-bordered table-sm"
+                                alt="tabla seguimientos">
+                                <thead>
+                                    <td class="text-center fit p-2" alt="numero"><b>Nro</b></td>
+                                    <td class="p-2" alt="condicion"><b>Condición</b></td>
+                                    <td class="text-center fit p-2"><b style="max-width: 10%;" alt="fila ve informe">Ver
+                                            Informe</b></td>
+                                </thead>
+                                <?php
                                     while ($fila = mysqli_fetch_array($result)) {
                                     ?>
-                                        <tr>
-                                            <td class="align-middle"><?php echo ($fila['idSeguimientos']); ?></td>
-                                            <td class="align-middle pl-2"><?php if ($fila['aprobadoSeg'] == 1) {
+                                <tr>
+                                    <td class="align-middle"><?php echo ($fila['idSeguimientos']); ?></td>
+                                    <td class="align-middle pl-2"><?php if ($fila['aprobadoSeg'] == 1) {
                                                                                 echo ('<span style="color: #00ff00;">Aprobado</span>');
                                                                             } elseif ($fila['aprobadoSeg'] == 2) {
                                                                                 echo ('<span style="color: #ff0000;">No Aprobado</span>');
@@ -49,12 +51,14 @@ include 'inc/headerv2.php';
                                                                                 echo ('No corregido');
                                                                             }
                                                                             ?></td>
-                                            <td class="text-center align-middle">
-                                                <button class="btn btn-warning">
-                                                    <strong><a href='AlumnoViewSeguimiento.php?id=<?php echo $fila['idSeguimientos']; ?>' style='color: black' alt="ir a seguimiento">Ver</a></strong>
-                                                </button>
-                                            </td>
-                                        </tr>
+                                    <td class="text-center align-middle">
+                                        <button class="btn btn-warning">
+                                            <strong><a
+                                                    href='AlumnoViewSeguimiento.php?id=<?php echo $fila['idSeguimientos']; ?>'
+                                                    style='color: black' alt="ir a seguimiento">Ver</a></strong>
+                                        </button>
+                                    </td>
+                                </tr>
                                 <?php
                                     }
                                     // Liberar conjunto de resultados
@@ -62,10 +66,11 @@ include 'inc/headerv2.php';
                                 }
                                 ?>
 
-                                </table>
-                            </div>
+                            </table>
+                        </div>
+                    </div>
                 </div><!-- row 2 -->
-                
+
                 <hr>
 
                 <div class="row">
@@ -78,20 +83,21 @@ include 'inc/headerv2.php';
                             echo ("<p style='text-align: center;'>No hay Informes Finales Enviados.<br />");
                         } else {
                         ?>
-                            <div class="table-responsive pl-md-2 pr-md-2">
+                        <div class="table-responsive pl-md-2 pr-md-2">
 
-                                <table class="table table-dark table-hover table-bordered table-sm ">
-                                    <thead>
-                                        <td class="text-center fit p-2 " alt="nro informe final"><b>Nro</b></td>
-                                        <td class="p-2" alt="condicion informe final"><b>Condción</b></td>
-                                        <td class="text-center fit p-2" alt="columna ver informe final"><b>Ver Informe</b></td>
-                                    </thead>
-                                    <?php
+                            <table class="table table-dark table-hover table-bordered table-sm ">
+                                <thead>
+                                    <td class="text-center fit p-2 " alt="nro informe final"><b>Nro</b></td>
+                                    <td class="p-2" alt="condicion informe final"><b>Condción</b></td>
+                                    <td class="text-center fit p-2" alt="columna ver informe final"><b>Ver
+                                            Informe</b></td>
+                                </thead>
+                                <?php
                                     while ($fila = mysqli_fetch_array($result)) {
                                     ?>
-                                        <tr>
-                                            <td class="align-middle"><?php echo ($fila['idFR']); ?></td>
-                                            <td class="align-middle pl-2"><?php if ($fila['aprobadaFR'] == 1) {
+                                <tr>
+                                    <td class="align-middle"><?php echo ($fila['idFR']); ?></td>
+                                    <td class="align-middle pl-2"><?php if ($fila['aprobadaFR'] == 1) {
                                                                                 echo ('<span style="color: #00ff00;">Aprobado</span>');
                                                                             } elseif ($fila['aprobadaFR'] == 2) {
                                                                                 echo ('<span style="color: #ff0000;">No Aprobado</span>');
@@ -99,12 +105,13 @@ include 'inc/headerv2.php';
                                                                                 echo ('No corregido');
                                                                             }
                                                                             ?></td>
-                                            <td class="text-center align-middle">
-                                                <button class="btn btn-warning ">
-                                                    <strong><a href='AlumnoViewFinalReport.php?id=<?php echo $fila['idFR']; ?>' style='color: black' alt="ir a ver informe final">Ver</a></strong>
-                                                </button>
-                                            </td>
-                                        </tr>
+                                    <td class="text-center align-middle">
+                                        <button class="btn btn-warning ">
+                                            <strong><a href='AlumnoViewFinalReport.php?id=<?php echo $fila['idFR']; ?>'
+                                                    style='color: black' alt="ir a ver informe final">Ver</a></strong>
+                                        </button>
+                                    </td>
+                                </tr>
                                 <?php
                                     }
                                     // Liberar conjunto de resultados
@@ -113,22 +120,24 @@ include 'inc/headerv2.php';
                                 }
                                 ?>
 
-                                </table>
-                            </div>
-                    </div>
-                </div><!-- row 3 -->
-                <hr>
-                <div class="row pt-2">
-                    <div class="col-lg-12">
-                        <input type="button" class="btn btn-secondary btn-block" onclick="location.href='AlumnoHome.php';" value="Volver" alt="volver"/>
+                            </table>
+                        </div>
                     </div>
                 </div>
-
-
+            </div><!-- row 3 -->
+            <hr>
+            <div class="row pt-2">
+                <div class="col-lg-12">
+                    <input type="button" class="btn btn-secondary btn-block" onclick="location.href='AlumnoHome.php';"
+                        value="Volver" alt="volver" />
+                </div>
             </div>
 
+
         </div>
+
     </div>
+</div>
 </div>
 
 <?php
