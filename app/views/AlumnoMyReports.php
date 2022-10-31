@@ -59,15 +59,15 @@ include 'inc/headerv2.php';
                                         </button>
                                     </td>
                                 </tr>
-                                <?php
+                            </table>
+                        </div>
+                        <?php
                                     }
                                     // Liberar conjunto de resultados
                                     mysqli_free_result($result);
                                 }
                                 ?>
 
-                            </table>
-                        </div>
                     </div>
                 </div><!-- row 2 -->
 
@@ -112,7 +112,9 @@ include 'inc/headerv2.php';
                                         </button>
                                     </td>
                                 </tr>
-                                <?php
+                            </table>
+                        </div>
+                        <?php
                                     }
                                     // Liberar conjunto de resultados
                                     mysqli_free_result($result);
@@ -120,24 +122,21 @@ include 'inc/headerv2.php';
                                 }
                                 ?>
 
-                            </table>
-                        </div>
+                    </div>
+                </div><!-- row 3 -->
+                <hr>
+                <div class="row pt-2">
+                    <div class="col-lg-12">
+                        <input type="button" class="btn btn-secondary btn-block"
+                            onclick="location.href='AlumnoHome.php';" value="Volver" alt="volver" />
                     </div>
                 </div>
-            </div><!-- row 3 -->
-            <hr>
-            <div class="row pt-2">
-                <div class="col-lg-12">
-                    <input type="button" class="btn btn-secondary btn-block" onclick="location.href='AlumnoHome.php';"
-                        value="Volver" alt="volver" />
-                </div>
+
+
             </div>
 
-
         </div>
-
     </div>
-</div>
 </div>
 
 <?php

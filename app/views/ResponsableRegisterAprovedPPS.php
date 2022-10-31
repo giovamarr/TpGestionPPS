@@ -1,6 +1,7 @@
 <?php
 include 'inc/verificarResponsable.php';
 require_once '../controllers/RequestController.php';
+require_once '../controllers/UsuarioController.php';
 include 'inc/topScripts.php';
 ?>
 <title>PPSs Aprobadas</title>
@@ -33,56 +34,69 @@ include 'inc/headerv2.php';
                         echo ("<p style='text-align: center;'>No hay PPS Pendientes.<br />");
                     } else {
                     ?>
-                        <div class="table-responsive-lg pl-md-2 pr-md-2">
-                            <table class="table table-dark table-hover table-bordered table-sm">
-                                <thead>
-                                    <td class="text-center fit p-2" alt="Alumno"><b style="max-width: 10%;">Alumno</b></td>
-                                    <td class="text-center fit p-2" alt="Profesor"><b style="max-width: 10%;">Profesor</b></td>
-                                    <td class="text-center fit p-2" alt="Nro de PPS"><b style="max-width: 10%;">Nro de PPS</b></td>
-                                    <td class="text-center fit p-2" alt="Tipo de PPS"><b style="max-width: 10%;">Tipo de PPS</b></td>
-                                    <td class="text-center fit p-2" alt="Entidad"><b style="max-width: 10%;">Entidad</b></td>
-                                    <td class="text-center fit p-2" alt="Direccion"><b style="max-width: 10%;">Direccion</b></td>
-                                    <td class="text-center fit p-2" alt="Contacto"><b style="max-width: 10%;">Contacto</b></td>
-                                    <td class="text-center fit p-2" alt="Aprobar"><b style="max-width: 10%;">Aprobar</b></td>
-                                    <td class="text-center fit p-2" alt="Desaprobar"><b style="max-width: 10%;">Desaprobar</b></td>
-                                </thead>
-                                <?php
+                    <div class="table-responsive-lg pl-md-2 pr-md-2">
+                        <table class="table table-dark table-hover table-bordered table-sm">
+                            <thead>
+                                <td class="text-center fit p-2" alt="Alumno"><b style="max-width: 10%;">Alumno</b></td>
+                                <td class="text-center fit p-2" alt="Profesor"><b style="max-width: 10%;">Profesor</b>
+                                </td>
+                                <td class="text-center fit p-2" alt="Nro de PPS"><b style="max-width: 10%;">Nro de
+                                        PPS</b></td>
+                                <td class="text-center fit p-2" alt="Tipo de PPS"><b style="max-width: 10%;">Tipo de
+                                        PPS</b></td>
+                                <td class="text-center fit p-2" alt="Entidad"><b style="max-width: 10%;">Entidad</b>
+                                </td>
+                                <td class="text-center fit p-2" alt="Direccion"><b style="max-width: 10%;">Direccion</b>
+                                </td>
+                                <td class="text-center fit p-2" alt="Contacto"><b style="max-width: 10%;">Contacto</b>
+                                </td>
+                                <td class="text-center fit p-2" alt="Aprobar"><b style="max-width: 10%;">Aprobar</b>
+                                </td>
+                                <td class="text-center fit p-2" alt="Desaprobar"><b
+                                        style="max-width: 10%;">Desaprobar</b></td>
+                            </thead>
+                            <?php
                                 while ($fila = mysqli_fetch_array($vResultado)) {
                                     $userController = new UsuarioController();
                                     $profesores = $userController->getProfesores();
                                 ?>
-                                    <tr>
-                                        <td class="align-middle"><?php echo ($fila['apellido'] . ', ' . $fila['nombre']); ?></td>
-                                        <td class="align-middle"><?php echo ($fila['apellidoP'] . ', ' . $fila['nombreP']); ?></td>
-                                        <td class="align-middle"><?php echo ($fila['idPPS']); ?></td>
-                                        <td class="align-middle"><?php echo ($fila['caractPPS']); ?></td>
-                                        <td class="align-middle"><?php echo ($fila['nombreEntidad']); ?></td>
-                                        <td class="align-middle"><?php echo ($fila['direccion'] . ", " . $fila['localidad']); ?></td>
-                                        <td class="align-middle"><?php echo ($fila['emailE']); ?></td>
-                                        <td class="align-middle">
-                                            <form action="../controllers/RequestController.php?m=evaluarPPS" method="post">
-                                                <input type="hidden" name="idPPS" value="<?php echo $fila['idPPS']; ?>">
-                                                <input type="hidden" name="valor" value=1>
-                                                <button type="submit" class="btn btn-success btn-block"  alt="aprobar boton">Aprobar</button>
-                                            </form>
-                                        </td>
-                                        <td class="align-middle">
-                                            <form action="../controllers/RequestController.php?m=evaluarPPS" method="post">
-                                                <input type="hidden" name="idPPS" value="<?php echo $fila['idPPS']; ?>">
-                                                <input type="hidden" name="valor" value=2>
-                                                <button type="submit" class="btn btn-danger btn-block"  alt="desaprobar boton">Desaprobar</button>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                <?php
+                            <tr>
+                                <td class="align-middle"><?php echo ($fila['apellido'] . ', ' . $fila['nombre']); ?>
+                                </td>
+                                <td class="align-middle"><?php echo ($fila['apellidoP'] . ', ' . $fila['nombreP']); ?>
+                                </td>
+                                <td class="align-middle"><?php echo ($fila['idPPS']); ?></td>
+                                <td class="align-middle"><?php echo ($fila['caractPPS']); ?></td>
+                                <td class="align-middle"><?php echo ($fila['nombreEntidad']); ?></td>
+                                <td class="align-middle"><?php echo ($fila['direccion'] . ", " . $fila['localidad']); ?>
+                                </td>
+                                <td class="align-middle"><?php echo ($fila['emailE']); ?></td>
+                                <td class="align-middle">
+                                    <form action="../controllers/RequestController.php?m=evaluarPPS" method="post">
+                                        <input type="hidden" name="idPPS" value="<?php echo $fila['idPPS']; ?>">
+                                        <input type="hidden" name="valor" value=1>
+                                        <button type="submit" class="btn btn-success btn-block"
+                                            alt="aprobar boton">Aprobar</button>
+                                    </form>
+                                </td>
+                                <td class="align-middle">
+                                    <form action="../controllers/RequestController.php?m=evaluarPPS" method="post">
+                                        <input type="hidden" name="idPPS" value="<?php echo $fila['idPPS']; ?>">
+                                        <input type="hidden" name="valor" value=2>
+                                        <button type="submit" class="btn btn-danger btn-block"
+                                            alt="desaprobar boton">Desaprobar</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            <?php
                                 }
                                 // Liberar conjunto de resultados
                                 mysqli_free_result($vResultado);
                                 ?>
 
-                            </table>
+                        </table>
 
-                        </div><span style='text-align: center;'>
+                    </div><span style='text-align: center;'>
                         <?php
                         if ($total_paginas > 1) {
                             for ($i = 1; $i <= $total_paginas; $i++) {
@@ -100,7 +114,8 @@ include 'inc/headerv2.php';
                 <hr>
                 <div class="row pt-1">
                     <div class="col-lg-12">
-                        <input type="button" class="btn btn-secondary btn-block" onclick="location.href='ResponsableHome.php';" value="Volver"  alt="volver"/>
+                        <input type="button" class="btn btn-secondary btn-block"
+                            onclick="location.href='ResponsableHome.php';" value="Volver" alt="volver" />
                     </div>
                 </div>
 

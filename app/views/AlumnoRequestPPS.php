@@ -1,5 +1,6 @@
 <?php
 include 'inc/verificarAlumno.php';
+require_once '../controllers/SeguimientosController.php';
 include 'inc/topScripts.php';
 ?>
 <title>Solicitud PPS</title>
@@ -17,7 +18,24 @@ include 'inc/headerv2.php';
 <div class="container col-md-12  ">
     <div class="row align-items-center ">
         <div class="col d-block align-items-center justify-content-center col-md-8 mx-auto">
-
+        <?php
+                        $seguimientos = new SeguimientosController();
+                        $result = $seguimientos->getSeguimientos();
+                        if (mysqli_num_rows($result) != 0) {
+                            ?>
+                            <div class='p-4 grey'> <h2 class='pb-1 text-center' alt='solicitud inicial de pps'> <b>Solicitud Inicial de PPS</b> </h2>
+                            <hr>
+                            <p  style='text-align: center;'>Ya tienes una PPS en curso.<br /> </p>
+                            <hr>
+                            <div class="col-md-6 m-1 mx-auto">
+                        <form action="mainAlumno.php">
+                            <input type="button" class="btn btn-secondary btn-block" onclick="location.href='AlumnoHome.php';" value="Volver"alt="Volver" />
+                        </form>
+                    </div>    
+                        </div>
+                            <?php
+                        } else {
+                        ?>
             <form class="p-4 grey" method="post" action="../controllers/requestController.php?m=insertarPPS">
                 <h2 class="pb-1 text-center" alt="solicitud inicial de pps"> <b>Solicitud Inicial de PPS</b> </h2>
                 <hr>
@@ -74,7 +92,9 @@ include 'inc/headerv2.php';
 
 
             </form>
-
+            <?php
+                      }
+                        ?>
         </div>
     </div>
 </div>
