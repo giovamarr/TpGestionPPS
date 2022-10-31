@@ -1,6 +1,6 @@
 <?php
 include 'inc/verificarAlumno.php';
-require_once '../controllers/SeguimientosController.php';
+require_once '../controllers/RequestController.php';
 include 'inc/topScripts.php';
 ?>
 <title>Solicitud PPS</title>
@@ -10,7 +10,8 @@ include 'inc/headerv2.php';
 ?>
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
     <symbol id="arrow" viewBox="0 0 16 16">
-        <path d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z">
+        <path
+            d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z">
         </path>
     </symbol>
 </svg>
@@ -18,22 +19,24 @@ include 'inc/headerv2.php';
 <div class="container col-md-12  ">
     <div class="row align-items-center ">
         <div class="col d-block align-items-center justify-content-center col-md-8 mx-auto">
-        <?php
-                        $seguimientos = new SeguimientosController();
-                        $result = $seguimientos->getSeguimientos();
-                        if (mysqli_num_rows($result) != 0) {
+            <?php
+                        $soli = new RequestController();
+                        $result = $soli->getSolicitud();
+                        if ($result != 0) {
                             ?>
-                            <div class='p-4 grey'> <h2 class='pb-1 text-center' alt='solicitud inicial de pps'> <b>Solicitud Inicial de PPS</b> </h2>
-                            <hr>
-                            <p  style='text-align: center;'>Ya tienes una PPS en curso.<br /> </p>
-                            <hr>
-                            <div class="col-md-6 m-1 mx-auto">
-                        <form action="mainAlumno.php">
-                            <input type="button" class="btn btn-secondary btn-block" onclick="location.href='AlumnoHome.php';" value="Volver"alt="Volver" />
-                        </form>
-                    </div>    
-                        </div>
-                            <?php
+            <div class='p-4 grey'>
+                <h2 class='pb-1 text-center' alt='solicitud inicial de pps'> <b>Solicitud Inicial de PPS</b> </h2>
+                <hr>
+                <p style='text-align: center;'>Ya tienes una PPS en curso.<br /> </p>
+                <hr>
+                <div class="col-md-6 m-1 mx-auto">
+                    <form action="mainAlumno.php">
+                        <input type="button" class="btn btn-secondary btn-block"
+                            onclick="location.href='AlumnoHome.php';" value="Volver" alt="Volver" />
+                    </form>
+                </div>
+            </div>
+            <?php
                         } else {
                         ?>
             <form class="p-4 grey" method="post" action="../controllers/requestController.php?m=insertarPPS">
@@ -43,31 +46,45 @@ include 'inc/headerv2.php';
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <input type="text" class="form-control" name="caractPPS" alt="Característica PPS" placeholder="Característica PPS" minlength="1" maxlength="60" pattern="[A-Za-z0-9_-\s]{1,60}" required>
+                            <input type="text" class="form-control" name="caractPPS" alt="Característica PPS"
+                                placeholder="Característica PPS" minlength="1" maxlength="60"
+                                pattern="[A-Za-z0-9_-\s]{1,60}" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" name="nombreEntidad" alt="Nombre de la Entidad" placeholder="Nombre de la Entidad" minlength="1" maxlength="60" pattern="[A-Za-z0-9_-\s]{1,60}" required>
+                            <input type="text" class="form-control" name="nombreEntidad" alt="Nombre de la Entidad"
+                                placeholder="Nombre de la Entidad" minlength="1" maxlength="60"
+                                pattern="[A-Za-z0-9_-\s]{1,60}" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" name="direccion" alt="direccion" placeholder="Dirección" minlength="1" maxlength="50" pattern="[A-Za-z0-9_-\s]{1,50}" required>
+                            <input type="text" class="form-control" name="direccion" alt="direccion"
+                                placeholder="Dirección" minlength="1" maxlength="50" pattern="[A-Za-z0-9_-\s]{1,50}"
+                                required>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" name="cp" alt="correo postal" placeholder="Correo Postal" minlength="1" maxlength="32" pattern="[A-Za-z0-9_-\s]{1,32}" required>
+                            <input type="text" class="form-control" name="cp" alt="correo postal"
+                                placeholder="Correo Postal" minlength="1" maxlength="32" pattern="[A-Za-z0-9_-\s]{1,32}"
+                                required>
                         </div>
 
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <input type="text" class="form-control" name="localidad" alt="localidad" placeholder="Localidad" minlength="1" maxlength="50" pattern="[A-Za-z0-9_-\s]{1,50}" required>
+                            <input type="text" class="form-control" name="localidad" alt="localidad"
+                                placeholder="Localidad" minlength="1" maxlength="50" pattern="[A-Za-z0-9_-\s]{1,50}"
+                                required>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" name="telefono" alt="telefono" placeholder="Teléfono" minlength="1" maxlength="32" pattern="[0-9]{1,32}" required>
+                            <input type="text" class="form-control" name="telefono" alt="telefono"
+                                placeholder="Teléfono" minlength="1" maxlength="32" pattern="[0-9]{1,32}" required>
                         </div>
                         <div class="form-group">
-                            <input type="email" class="form-control" name="email" aria-describedby="emailHelp" alt="email" placeholder="Mail del contacto" minlength="1" maxlength="40" required>
+                            <input type="email" class="form-control" name="email" aria-describedby="emailHelp"
+                                alt="email" placeholder="Mail del contacto" minlength="1" maxlength="40" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" name="contacto" alt="persona de contacto" placeholder="Persona de contacto de la Entidad" minlength="1" maxlength="50" pattern="[A-Za-z0-9_-\s]{1,50}" required>
+                            <input type="text" class="form-control" name="contacto" alt="persona de contacto"
+                                placeholder="Persona de contacto de la Entidad" minlength="1" maxlength="50"
+                                pattern="[A-Za-z0-9_-\s]{1,50}" required>
                         </div>
                     </div>
                 </div>
@@ -82,7 +99,8 @@ include 'inc/headerv2.php';
                 <div class="row">
                     <div class="col-md-6 m-1 mx-auto">
                         <form action="mainAlumno.php">
-                            <input type="button" class="btn btn-secondary btn-block" onclick="location.href='AlumnoHome.php';" value="Cancelar"alt="cancelar" />
+                            <input type="button" class="btn btn-secondary btn-block"
+                                onclick="location.href='AlumnoHome.php';" value="Cancelar" alt="cancelar" />
                         </form>
                     </div>
                     <div class="col-md-6  m-1 mx-auto">

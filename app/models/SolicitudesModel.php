@@ -37,6 +37,14 @@ class SolicitudesModel
         $result = $con->query($checkID);
         return $count = mysqli_num_rows($result);
     }
+    public function getSolicitud($id_user)
+    {
+        $ob = new Conexion();
+        $con = $ob->conectar();
+        $checkID = "SELECT * FROM solicitudes WHERE id_user = '$id_user' and id_Profe IS NOT NULL";
+        $result = $con->query($checkID);
+        return $count = mysqli_num_rows($result);
+    }
 
     public function TotaldePPSsinDocente()
     {
