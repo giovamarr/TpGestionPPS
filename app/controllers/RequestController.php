@@ -76,6 +76,13 @@ class RequestController
 		return $vResultado;
 	}
 
+	public function getPPSAprobadasFechaPaginado($inicio, $month, $year,  $Cant_por_Pag)
+	{
+		$soli = new SolicitudesModel();
+		$vResultado = $soli->getPPSAprobadasFechaPaginado($inicio, $month, $year, $Cant_por_Pag);
+		return $vResultado;
+	}
+
 	public function evaluarPPS()
 	{
 		$soli = new SolicitudesModel();
