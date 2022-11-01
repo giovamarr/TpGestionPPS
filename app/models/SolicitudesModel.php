@@ -23,8 +23,9 @@ class SolicitudesModel
     {
         $ob = new Conexion();
         $con = $ob->conectar();
-        $query = "INSERT INTO solicitudes (caractPPS, nombreEntidad, direccion, cp, localidad, tel, emailE, contactoEntidad, id_user) 
-                VALUES ('$caractPPS', '$nombreEntidad', '$direccion','$cp','$localidad', '$telefono', '$email','$contacto',$id_user)";
+        $date=date('Y-m-d');
+        $query = "INSERT INTO solicitudes (caractPPS, nombreEntidad, direccion, cp, localidad, tel, emailE, contactoEntidad, id_user,date) 
+                VALUES ('$caractPPS', '$nombreEntidad', '$direccion','$cp','$localidad', '$telefono', '$email','$contacto',$id_user,'$date')";
         $result = mysqli_query($con, $query);
         return $result;
     }

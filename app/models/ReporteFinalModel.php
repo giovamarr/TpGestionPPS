@@ -12,7 +12,8 @@ class ReporteFinalModel{
     public function insertarReporte($conclusiones,$idPPS){
         $ob = new Conexion();
         $con=$ob->conectar();
-        $query = "INSERT INTO finalReport (conclusiones, idPPS_FP ) VALUES ('$conclusiones',$idPPS)";
+        $date=date('Y-m-d');
+        $query = "INSERT INTO finalReport (conclusiones, idPPS_FP,date ) VALUES ('$conclusiones',$idPPS,'$date')";
         $result = mysqli_query($con, $query);
         return $result;
 

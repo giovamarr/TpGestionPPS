@@ -20,10 +20,10 @@ include 'inc/headerv2.php';
                 <?php
                     $year = date('Y');
                     $month = date('m');
-                if($_GET['month']){
+                if(isset($_GET['month'])){
                     $month=$_GET['month'];
                 }
-                if($_GET['year']){
+                if(isset($_GET['year'])){
                     $year=$_GET['year'];
                 }
                     
