@@ -50,6 +50,8 @@ include 'inc/headerv2.php';
                                 </td>
                                 <td class="text-center fit p-2" alt="Contacto"><b style="max-width: 10%;">Contacto</b>
                                 </td>
+                                <td class="text-center fit p-2" alt="Aprobar"><b style="max-width: 10%;">Segui...</b>
+                                </td>
                                 <td class="text-center fit p-2" alt="Aprobar"><b style="max-width: 10%;">Aprobar</b>
                                 </td>
                                 <td class="text-center fit p-2" alt="Desaprobar"><b
@@ -57,8 +59,6 @@ include 'inc/headerv2.php';
                             </thead>
                             <?php
                                 while ($fila = mysqli_fetch_array($vResultado)) {
-                                    $userController = new UsuarioController();
-                                    $profesores = $userController->getProfesores();
                                 ?>
                             <tr>
                                 <td class="align-middle"><?php echo ($fila['apellido'] . ', ' . $fila['nombre']); ?>
@@ -71,6 +71,7 @@ include 'inc/headerv2.php';
                                 <td class="align-middle"><?php echo ($fila['direccion'] . ", " . $fila['localidad']); ?>
                                 </td>
                                 <td class="align-middle"><?php echo ($fila['emailE']); ?></td>
+                                <td class="align-middle"><a href="ResponsableRegisterAprovedPPSViewSegumientos.php?idPps=<?php echo $fila['idPPS']; ?> &iduser=<?php echo $fila['IdUser']; ?> &idprof=<?php echo $fila['IdProf']; ?>" class="nav-link px-4  text-primary">Ver</a></td>
                                 <td class="align-middle">
                                     <form action="../controllers/RequestController.php?m=evaluarPPS" method="post">
                                         <input type="hidden" name="idPPS" value="<?php echo $fila['idPPS']; ?>">
