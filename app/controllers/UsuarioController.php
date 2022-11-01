@@ -55,6 +55,13 @@ class UsuarioController
         return $profesores;
     }
 
+    public function getById($id)
+    {
+        $user = new UsuarioModel();
+        $user = $user->getById($id);
+        return $user;
+    }
+
     public function insertarUser()
     {
         $user = new UsuarioModel();
