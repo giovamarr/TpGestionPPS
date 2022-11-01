@@ -18,31 +18,40 @@ include 'inc/headerv2.php';
 
                 <hr>
                 <?php
-                    $month = date('m');
                     $year = date('Y');
-                ?>
-                <form>
-                    <select name="" value="<?php echo ($month); ?>" id="">
-                        <option value="1">Enero</option>
-                        <option value="2">Febrero</option>
-                        <option value="3">Marzo</option>
-                        <option value="4">Abril</option>
-                        <option value="5">Mayo</option>
-                        <option value="6">Junio</option>
-                        <option value="7">Julio</option>
-                        <option value="8">Agosto</option>
-                        <option value="9">Septiembre</option>
-                        <option value="10">Octubre</option>
-                        <option value="11">Noviembre</option>
-                        <option value="12">Diciembre</option>
-                    </select>
+                    $month = date('m');
+                if($_GET['month']){
+                    $month=$_GET['month'];
+                }
+                if($_GET['year']){
+                    $year=$_GET['year'];
+                }
                     
-                    <select name="" id="">
-                        <option value=""></option>
-                        <option value=""></option>
-                        <option value=""></option>
-                    </select>
-                    <button></button>
+
+                ?>
+                <form class="row">
+                    <div class="col-12 d-flex justify-content-end align-items-center">
+                        <select class="m-2 p-1 rounded" name="month">
+                            <option value="1" <?php if ($month==1){echo "selected";}?>>Enero</option>
+                            <option value="2" <?php if ($month==2){echo "selected";}?>>Febrero</option>
+                            <option value="3" <?php if ($month==3){echo "selected";}?>>Marzo</option>
+                            <option value="4" <?php if ($month==4){echo "selected";}?>>Abril</option>
+                            <option value="5" <?php if ($month==5){echo "selected";}?>>Mayo</option>
+                            <option value="6" <?php if ($month==6){echo "selected";}?>>Junio</option>
+                            <option value="7" <?php if ($month==7){echo "selected";}?>>Julio</option>
+                            <option value="8" <?php if ($month==8){echo "selected";}?>>Agosto</option>
+                            <option value="9" <?php if ($month==9){echo "selected";}?>>Septiembre</option>
+                            <option value="10" <?php if ($month==10){echo "selected";}?>>Octubre</option>
+                            <option value="11" <?php if ($month==11){echo "selected";}?>>Noviembre</option>
+                            <option value="12" <?php if ($month==12){echo "selected";}?>>Diciembre</option>
+                        </select>
+                        <select class="m-2 p-1 rounded" name="year" value="<?php echo $year ?>">
+                            <option value="2020" <?php if ($year==2020){echo "selected";}?>>2020</option>
+                            <option value="2021" <?php if ($year==2021){echo "selected";}?>>2021</option>
+                            <option value="2022" <?php if ($year==2022){echo "selected";}?>>2022</option>
+                        </select>
+                        <button class="btn btn-primary m-2 pe-2 ps-2">Filtrar </button>
+                    </div>
                 </form>
                 <div class="pl-2 pr-2 pt-4">
                     <?php
@@ -60,36 +69,43 @@ include 'inc/headerv2.php';
 
                     $vResultado = $soli->getPPSAprobadasFechaPaginado($inicio, $month, $year, $Cant_por_Pag);
                     if (mysqli_num_rows($vResultado) == 0) {
-                        echo ("<p style='text-align: center;'>No hay PPS Aprobadas.<br />");
+                        echo ("<p style='text-align: center;'>No hay PPS Aprobadas en este mes.<br />");
                     } else {
 
                     ?>
 
-                        <div class="table-responsive-lg pl-md-2 pr-md-2">
-                            <table class="table table-dark table-hover table-bordered table-sm" alt="table">
-                                <thead>
-                                    <td class="text-center fit p-2"><b style="max-width: 10%;"alt="Apellido">Apellido</b></td>
-                                    <td class="text-center fit p-2"><b style="max-width: 10%;"alt="Nombre">Nombre</b></td>
-                                    <td class="text-center fit p-2"><b style="max-width: 10%;"alt="Nro de PPS">Nro de PPS</b></td>
-                                    <td class="text-center fit p-2"><b style="max-width: 10%;"alt="Tipo de PPS">Tipo de PPS</b></td>
-                                    <td class="text-center fit p-2"><b style="max-width: 10%;"alt="Entidad">Entidad</b></td>
-                                    <td class="text-center fit p-2"><b style="max-width: 10%;"alt="Direccion">Direccion</b></td>
-                                    <td class="text-center fit p-2"><b style="max-width: 10%;"alt="Contacto">Contacto</b></td>
-                                </thead>
-                                <?php
+                    <div class="table-responsive-lg pl-md-2 pr-md-2">
+                        <table class="table table-dark table-hover table-bordered table-sm" alt="table">
+                            <thead>
+                                <td class="text-center fit p-2"><b style="max-width: 10%;" alt="Apellido">Apellido</b>
+                                </td>
+                                <td class="text-center fit p-2"><b style="max-width: 10%;" alt="Nombre">Nombre</b></td>
+                                <td class="text-center fit p-2"><b style="max-width: 10%;" alt="Nro de PPS">Nro de
+                                        PPS</b></td>
+                                <td class="text-center fit p-2"><b style="max-width: 10%;" alt="Tipo de PPS">Tipo de
+                                        PPS</b></td>
+                                <td class="text-center fit p-2"><b style="max-width: 10%;" alt="Entidad">Entidad</b>
+                                </td>
+                                <td class="text-center fit p-2"><b style="max-width: 10%;" alt="Direccion">Direccion</b>
+                                </td>
+                                <td class="text-center fit p-2"><b style="max-width: 10%;" alt="Contacto">Contacto</b>
+                                </td>
+                            </thead>
+                            <?php
                                 while ($fila = mysqli_fetch_array($vResultado)) {
                                     $userController = new UsuarioController();
                                     $profesores = $userController->getProfesores();
                                 ?>
-                                    <tr>
-                                        <td class="align-middle"><?php echo ($fila['apellido']); ?></td>
-                                        <td class="align-middle"><?php echo ($fila['nombre']); ?></td>
-                                        <td class="align-middle"><?php echo ($fila['idPPS']); ?></td>
-                                        <td class="align-middle"><?php echo ($fila['caractPPS']); ?></td>
-                                        <td class="align-middle"><?php echo ($fila['nombreEntidad']); ?></td>
-                                        <td class="align-middle"><?php echo ($fila['direccion'] . ", " . $fila['localidad']); ?></td>
-                                        <td class="align-middle"><?php echo ($fila['emailE']); ?></td>
-                                        <!-- <td class="align-middle">
+                            <tr>
+                                <td class="align-middle"><?php echo ($fila['apellido']); ?></td>
+                                <td class="align-middle"><?php echo ($fila['nombre']); ?></td>
+                                <td class="align-middle"><?php echo ($fila['idPPS']); ?></td>
+                                <td class="align-middle"><?php echo ($fila['caractPPS']); ?></td>
+                                <td class="align-middle"><?php echo ($fila['nombreEntidad']); ?></td>
+                                <td class="align-middle"><?php echo ($fila['direccion'] . ", " . $fila['localidad']); ?>
+                                </td>
+                                <td class="align-middle"><?php echo ($fila['emailE']); ?></td>
+                                <!-- <td class="align-middle">
                                             <form action="../controllers/RequestController.php?m=elegirProfesor" method="post">
                                                 <select class="form-control" id="idProfe" name="idProfe" required>
 
@@ -104,9 +120,9 @@ include 'inc/headerv2.php';
                                             <button type="submit" class="btn btn-success btn-block" value="Select" alt="aceptar">Aceptar</button>
                                             </form>
                                         </td> -->
-                                    </tr>
+                            </tr>
 
-                                <?php
+                            <?php
 
                                 }
                                 // Liberar conjunto de resultados
@@ -114,9 +130,9 @@ include 'inc/headerv2.php';
                                 mysqli_free_result($vResultado);
                                 ?>
 
-                            </table>
+                        </table>
 
-                        </div><span style='text-align: center;'>
+                    </div><span style='text-align: center;'>
                         <?php
                         if ($total_paginas > 1) {
                             for ($i = 1; $i <= $total_paginas; $i++) {
@@ -134,7 +150,8 @@ include 'inc/headerv2.php';
                 <hr>
                 <div class="row pt-1">
                     <div class="col-lg-12">
-                        <input type="button" class="btn btn-secondary btn-block" onclick="location.href='ResponsableHome.php';" value="Volver" alt="volver" />
+                        <input type="button" class="btn btn-secondary btn-block"
+                            onclick="location.href='ResponsableHome.php';" value="Volver" alt="volver" />
                     </div>
                 </div>
 
