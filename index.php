@@ -17,7 +17,8 @@ include 'app/views/inc/topScripts.php';
 <link rel=" stylesheet" href="app/views/css/page.css">
 </head>
 <div class="container">
-    <nav class="navbar navbar-expand-lg navbar-light d-flex flex-wrap align-items-center justify-content-center justify-content-md-between p-3 mb-4 pt-4">
+    <nav
+        class="navbar navbar-expand-lg navbar-light d-flex flex-wrap align-items-center justify-content-center justify-content-md-between p-3 mb-4 pt-4">
 
         <div class="d-flex text-start ">
             <a class="navbar-brand text-start d-flex " href="index.php">
@@ -28,7 +29,8 @@ include 'app/views/inc/topScripts.php';
                 </div>
             </a>
         </div>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -42,7 +44,8 @@ include 'app/views/inc/topScripts.php';
                 <button type="button" class="btn btn-outline-primary w-45" onclick="window.location.href='index.php'">
                     Iniciar Sesión
                 </button>
-                <button type="button" class="btn btn-primary w-45" onclick="window.location.href='app/views/publicregister.php'">Registrarse</button>
+                <button type="button" class="btn btn-primary w-45"
+                    onclick="window.location.href='app/views/publicregister.php'">Registrarse</button>
             </div>
 
         </div>
@@ -56,16 +59,20 @@ include 'app/views/inc/topScripts.php';
                         Bienvenido al Sistema de Gestión de PPS
                     </h1>
                     <p class="col-lg-12 fs-4 " alt="mensaje">
-                        En este sitio web podras completar las Prácticas Profesionales Supervisadas correspondientes a la carrera de Ingenieria en Sitemas de la Informacion de la Universidad UTN - FRRO.
+                        En este sitio web podras completar las Prácticas Profesionales Supervisadas correspondientes a
+                        la carrera de Ingenieria en Sitemas de la Informacion de la Universidad UTN - FRRO.
                     </p>
                 </div>
                 <div class="col-md-10 mx-auto col-lg-5">
-                    <form class="p-4 p-md-5 border rounded-3 grey" action="app/controllers/UsuarioController.php?i=1" method="post">
+                    <form class="p-4 p-md-5 border rounded-3 grey" action="app/controllers/UsuarioController.php?i=1"
+                        method="post">
                         <div class="form-floating mb-3">
-                            <input type="text" alt="correo" class="form-control input-lg" name="email" placeholder="Email" required />
+                            <input type="text" alt="correo" class="form-control input-lg" name="email"
+                                placeholder="Email" required />
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="password" alt="contraseña" class="form-control input-lg" name="password" placeholder="Contraseña" required />
+                            <input type="password" alt="contraseña" class="form-control input-lg" name="password"
+                                placeholder="Contraseña" required />
                         </div>
                         <button class="w-100 btn btn-lg btn-primary" type="submit" alt="iniciar sesion">
                             Ingresar
@@ -78,7 +85,8 @@ include 'app/views/inc/topScripts.php';
                         </div>
                         <hr class="" />
                         <medium class="text-muted">
-                            <p class="mb-0">¿No tienes Cuenta? <a href="app/views/publicregister.php" title="Crear cuenta" alt="ir a registrarse">Registrate</a>
+                            <p class="mb-0">¿No tienes Cuenta? <a href="./app/views/PublicRegister.php"
+                                    title="Crear cuenta" alt="ir a registrarse">Registrate</a>
                         </medium>
                     </form>
 
