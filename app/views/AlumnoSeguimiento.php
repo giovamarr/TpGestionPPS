@@ -1,6 +1,6 @@
 <?php
 include 'inc/verificarAlumno.php';
-require_once '../controllers/SeguimientosController.php';
+require_once '../controllers/RequestController.php';
 include 'inc/topScripts.php';
 ?>
 <title>Seguimiento PPS</title>
@@ -20,9 +20,9 @@ include 'inc/headerv2.php';
     <div class="row align-items-center ">
         <div class="col d-block align-items-center justify-content-center col-md-8 mx-auto">
             <?php
-            $seguimientos = new SeguimientosController();
-            $result = $seguimientos->getSeguimientos();
-            if (mysqli_num_rows($result) == 0) {
+            $soli = new RequestController();
+            $result = $soli->getSolicitud();
+            if ($result == 0) {
                 ?>
             <div class='p-4 grey'>
                 <h2 class="pb-1 text-center" alt="Formulario de Seguimiento de PPS"> <b>Formulario de Seguimiento de

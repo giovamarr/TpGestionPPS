@@ -12,7 +12,8 @@ class ReporteFinalModel{
     public function insertarReporte($conclusiones,$idPPS){
         $ob = new Conexion();
         $con=$ob->conectar();
-        $query = "INSERT INTO finalReport (conclusiones, idPPS_FP ) VALUES ('$conclusiones',$idPPS)";
+        $date=date('Y-m-d');
+        $query = "INSERT INTO finalReport (conclusiones, idPPS_FP,date ) VALUES ('$conclusiones',$idPPS,'$date')";
         $result = mysqli_query($con, $query);
         return $result;
 
@@ -61,6 +62,14 @@ class ReporteFinalModel{
         $ob = new Conexion();
         $con=$ob->conectar();
         $vSql = "SELECT * FROM finalreport where idPPS_FP='$idPPS' and idFR='$idFR'";
+        $vResultado = mysqli_query($con, $vSql);
+        return $vResultado;  
+    }
+
+    public function getReporteFinalAdmin($idPPS){
+        $ob = new Conexion();
+        $con=$ob->conectar();
+        $vSql = "SELECT * FROM finalreport where idPPS_FP='$idPPS'";
         $vResultado = mysqli_query($con, $vSql);
         return $vResultado;  
     }

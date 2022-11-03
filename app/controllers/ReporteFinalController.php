@@ -70,6 +70,13 @@ class ReporteFinalController
         return mysqli_fetch_array($reportes);
     }
 
+    public function getReporteFinalAdmin($idPPS)
+    {
+        $rf = new ReporteFinalModel();
+        $reportes = $rf->getReporteFinalAdmin($idPPS);
+        return mysqli_fetch_array($reportes);
+    }
+
     public function getReporteDocente($idFR, $idPPS)
     {
         $rf = new ReporteFinalModel();

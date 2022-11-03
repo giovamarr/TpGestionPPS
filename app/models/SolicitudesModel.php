@@ -23,8 +23,9 @@ class SolicitudesModel
     {
         $ob = new Conexion();
         $con = $ob->conectar();
-        $query = "INSERT INTO solicitudes (caractPPS, nombreEntidad, direccion, cp, localidad, tel, emailE, contactoEntidad, id_user) 
-                VALUES ('$caractPPS', '$nombreEntidad', '$direccion','$cp','$localidad', '$telefono', '$email','$contacto',$id_user)";
+        $date=date('Y-m-d');
+        $query = "INSERT INTO solicitudes (caractPPS, nombreEntidad, direccion, cp, localidad, tel, emailE, contactoEntidad, id_user,date) 
+                VALUES ('$caractPPS', '$nombreEntidad', '$direccion','$cp','$localidad', '$telefono', '$email','$contacto',$id_user,'$date')";
         $result = mysqli_query($con, $query);
         return $result;
     }
@@ -34,6 +35,14 @@ class SolicitudesModel
         $ob = new Conexion();
         $con = $ob->conectar();
         $checkID = "SELECT * FROM solicitudes WHERE id_user = '$id_user' ";
+        $result = $con->query($checkID);
+        return $count = mysqli_num_rows($result);
+    }
+    public function getSolicitud($id_user)
+    {
+        $ob = new Conexion();
+        $con = $ob->conectar();
+        $checkID = "SELECT * FROM solicitudes WHERE id_user = '$id_user' and id_Profe IS NOT NULL";
         $result = $con->query($checkID);
         return $count = mysqli_num_rows($result);
     }
@@ -70,10 +79,21 @@ class SolicitudesModel
     {
         $ob = new Conexion();
         $con = $ob->conectar();
-        $vSql = "SELECT u.nombre,u.apellido,sol.*,up.nombre as nombreP,up.apellido as apellidoP FROM solicitudes sol INNER join finalreport fr on sol.idPPS=fr.idPPS_FP inner join users u on sol.id_user=u.id inner join users up on sol.id_Profe=up.id where fr.aprobadaFR is not null and sol.PPSTerminada is null" . " limit " . $inicio . "," . $Cant_por_Pag;
+        $vSql = "SELECT u.nombre,u.apellido,sol.*,up.nombre as nombreP,up.apellido as apellidoP, u.id as IdUser, up.id as IdProf FROM solicitudes sol INNER join finalreport fr on sol.idPPS=fr.idPPS_FP inner join users u on sol.id_user=u.id inner join users up on sol.id_Profe=up.id where fr.aprobadaFR is not null and sol.PPSTerminada is null" . " limit " . $inicio . "," . $Cant_por_Pag;
         $vResultado = $con->query($vSql);
         return $vResultado;
     }
+    public function getPPSAprobadasFechaPaginado($inicio, $month, $year, $Cant_por_Pag)
+    {
+        $ob = new Conexion();
+        $con = $ob->conectar();
+        $vSql = "SELECT u.nombre,u.apellido,sol.*,up.nombre as nombreP,up.apellido as apellidoP FROM solicitudes sol INNER join finalreport fr on sol.idPPS=fr.idPPS_FP inner join users u on sol.id_user=u.id inner join users up on sol.id_Profe=up.id where fr.aprobadaFR is not null and sol.PPSTerminada is not null and month(fr.date)='$month' and year(fr.date)" . " limit " . $inicio . "," . $Cant_por_Pag;
+        $vResultado = $con->query($vSql);
+        return $vResultado;
+    }
+
+
+
 
     public function evaluarPPS($idPPS, $valor)
     {

@@ -46,6 +46,13 @@ class RequestController
 		$total = $soli->TotaldePPSsinDocente();
 		return $total_paginas = ceil($total / $Cant_por_Pag);
 	}
+	public function getSolicitud()
+	{
+		$soli = new SolicitudesModel();
+		$id_user = $_SESSION['id'];
+		$vResultado = $soli->getSolicitud($id_user);
+		return $vResultado;
+	}
 
 	public function getPPSPaginadosinProfe($inicio, $Cant_por_Pag)
 	{
@@ -66,6 +73,13 @@ class RequestController
 	{
 		$soli = new SolicitudesModel();
 		$vResultado = $soli->getPPSAprobadasPaginado($inicio, $Cant_por_Pag);
+		return $vResultado;
+	}
+
+	public function getPPSAprobadasFechaPaginado($inicio, $month, $year,  $Cant_por_Pag)
+	{
+		$soli = new SolicitudesModel();
+		$vResultado = $soli->getPPSAprobadasFechaPaginado($inicio, $month, $year, $Cant_por_Pag);
 		return $vResultado;
 	}
 

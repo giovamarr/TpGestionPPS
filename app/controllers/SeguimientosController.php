@@ -99,4 +99,11 @@ class SeguimientosController
         $segui->desaprobarSegui($idPPS, $idSeguimientos,$mensaje);
         header('location:../views/DocenteViewReport.php');
     }
+
+    public function getSeguimientosAdmin($idPPS)
+    {
+        $segui = new SeguimientosModel();
+        $seguimientos = $segui->getSegui($idPPS);
+        return $seguimientos;
+    }
 }

@@ -39,7 +39,7 @@ class UsuarioModel{
         public function getProfesores(){
             $ob = new Conexion();
             $con=$ob->conectar();
-            $result = mysqli_query($con, "SELECT u.id, u.nombre, u.apellido FROM users u INNER JOIN solicitudes s ON s.id_Profe=u.id where u.tipo = 2   GROUP BY u.id HAVING COUNT(u.id)<10");
+            $result = mysqli_query($con, "SELECT distinct u.id, u.nombre, u.apellido FROM users u where u.tipo = 2");
             return $result;
             }
 
@@ -49,6 +49,13 @@ class UsuarioModel{
             $result = mysqli_query($con, "INSERT INTO users (nombre, apellido, password,email,tipo) VALUES ('$name', '$surname', '$password','$email','$tipo')");
             return $result;
             }
-
-
+        
+        public function getById($id){
+            $ob = new Conexion();
+            $con=$ob->conectar();
+            $result = mysqli_query($con, "SELECT u.id, u.nombre, u.apellido FROM users u where u.id = $id");
+            return $result;
+            }
+    
+        
     }
