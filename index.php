@@ -12,9 +12,9 @@ if (isset($_SESSION['type'])) {
 }
 include 'app/views/inc/topScripts.php';
 ?>
-<link rel=" shortcut icon" type="image/png" href="app/views/inc/utnlogo.png" />
+<link rel=" shortcut icon" type="image/png" href="./app/views/inc/utnlogo.png" />
 <title>Inicio</title>
-<link rel=" stylesheet" href="app/views/css/page.css">
+<link rel=" stylesheet" href="./app/views/css/page.css">
 </head>
 <div class="container">
     <nav
@@ -36,16 +36,16 @@ include 'app/views/inc/topScripts.php';
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav  m-auto text-primary">
-                <li><a href="index.php" class="nav-link px-2  text-primary">Home</a></li>
-                <li><a href="app/views/publicFAQs.php" class="nav-link px-2  text-primary">FAQs</a></li>
-                <li><a href="app/views/publiccontact.php" class="nav-link px-2  text-primary">Contacto</a></li>
+                <li><a href="./index.php" class="nav-link px-2  text-primary">Home</a></li>
+                <li><a href="./app/views/PublicFAQs.php" class="nav-link px-2  text-primary">FAQs</a></li>
+                <li><a href="./app/views/PublicContact.php" class="nav-link px-2  text-primary">Contacto</a></li>
             </ul>
             <div class="col-md-4 text-end">
                 <button type="button" class="btn btn-outline-primary w-45" onclick="window.location.href='index.php'">
                     Iniciar Sesión
                 </button>
                 <button type="button" class="btn btn-primary w-45"
-                    onclick="window.location.href='app/views/publicregister.php'">Registrarse</button>
+                    onclick="window.location.href='./app/views/PublicRegister.php'">Registrarse</button>
             </div>
 
         </div>
