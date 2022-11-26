@@ -42,6 +42,12 @@ class UsuarioModel{
             $result = mysqli_query($con, "SELECT distinct u.id, u.nombre, u.apellido FROM users u where u.tipo = 2");
             return $result;
             }
+        public function getInfoProfesores(){
+            $ob = new Conexion();
+            $con=$ob->conectar();
+            $result = mysqli_query($con, "SELECT distinct u.id, u.nombre, u.apellido,COUNT(s.idPPS) as PPSs,u.email FROM users u LEFT JOIN solicitudes s ON s.id_Profe=u.id where u.tipo = 2 GROUP BY u.id");
+            return $result;
+            }
 
         public function insertUsuario($name,$surname,$email,$password,$tipo){
             $ob = new Conexion();

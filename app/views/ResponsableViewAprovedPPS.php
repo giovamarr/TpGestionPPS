@@ -74,7 +74,7 @@ include 'inc/headerv2.php';
 
                     ?>
 
-                    <div class="table-responsive-lg pl-md-2 pr-md-2">
+                    <div class="table-responsive pl-md-2 pr-md-2">
                         <table class="table table-dark table-hover table-bordered table-sm" alt="table">
                             <thead>
                                 <td class="text-center fit p-2"><b style="max-width: 10%;" alt="Apellido">Apellido</b>
@@ -106,7 +106,7 @@ include 'inc/headerv2.php';
                                 </td>
                                 <td class="align-middle"><?php echo ($fila['emailE']); ?></td>
                                 <!-- <td class="align-middle">
-                                            <form action="../controllers/RequestController.php?m=elegirProfesor" method="post">
+                                            <form action="../controllers/RequestController.php?m=elegirProfesor" method="POST">
                                                 <select class="form-control" id="idProfe" name="idProfe" required>
 
                                                     <?php while ($prof = mysqli_fetch_array($profesores)) {

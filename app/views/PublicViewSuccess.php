@@ -3,7 +3,7 @@
 session_start();
 include 'inc/topScripts.php';
 ?>
-<title>FAQs</title>
+<title>Preguntas Frecuentes</title>
 </head>
 <?php
 include 'inc/headerv2.php';
@@ -21,7 +21,8 @@ include 'inc/headerv2.php';
                 <hr>
                 <div class="row">
                     <div class="col-lg-12">
-                        <input type="button" class="btn btn-secondary btn-block" onclick="location.href='ResponsableViewPPS.php';" value="Volver" alt="volver"/>
+                        <input type="button" class="btn btn-secondary btn-block"
+                            onclick="location.href='ResponsableViewPPS.php';" value="Volver" alt="volver" />
                     </div>
                 </div>
 

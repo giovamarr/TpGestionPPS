@@ -1,7 +1,7 @@
 <?php
-if (isset($_REQUEST['m'])) {
+if (isset($_GET['m'])) {
     $segui = new SeguimientosController();
-    $a = $_REQUEST['m'];
+    $a = $_GET['m'];
     $segui->$a();
 }
 class SeguimientosController
@@ -22,7 +22,8 @@ class SeguimientosController
         if ($count == 1) {
             $countIF = $segui->chequearsitieneIF($idPPS);
             if ($countIF == 1) {
-                header('location:../views/AlumnoSeguimiento.php?s=1');
+                header('Location: ../views/AlumnoSeguimiento.php?s=1');
+                exit();
             } else {
                 $actividadesRealizadas = $_POST['actividadesRealizadas'];
                 $actividadesProximas = $_POST['actividadesProximas'];
@@ -33,13 +34,16 @@ class SeguimientosController
                 $TotalhsTrabajadas = $_POST['TotalhsTrabajadas'];
                 $insertado = $segui->insertarSeguimiento($actividadesRealizadas, $actividadesProximas, $cuestionesPendientes, $experiencias, $desvioCronograma, $hsTrabajadas, $TotalhsTrabajadas, $idPPS);
                 if ($insertado) {
-                    header('location:../views/AlumnoSeguimiento.php?a=1');
+                    header('Location: ../views/AlumnoSeguimiento.php?a=1');
+                    exit();
                 } else {
-                    echo "location:../views/AlumnoSeguimiento.php?d=1";
+                    header( "Location: ../views/AlumnoSeguimiento.php?d=1");
+                    exit();
                 }
             }
         } else {
-            header('location:../views/AlumnoSeguimiento.php?e=1');
+            header('Location: ../views/AlumnoSeguimiento.php?e=1');
+            exit();
         }
     }
     public function getSeguimientos()
@@ -81,7 +85,8 @@ class SeguimientosController
         $idPPS = $_POST['idPPS'];
         $idSeguimientos = $_POST['idSeguimientos'];
         $segui->aprobarSegui($idPPS, $idSeguimientos);
-        header('location:../views/DocenteViewReport.php');
+        header('Location: ../views/DocenteViewReport.php');
+        exit();
     }
 
     public function desaprobarSegui()
@@ -97,7 +102,8 @@ class SeguimientosController
         $header .= "X-Mailer: PHP/" . phpversion();
         mail($email, $asunto, $mensaje, $header);
         $segui->desaprobarSegui($idPPS, $idSeguimientos,$mensaje);
-        header('location:../views/DocenteViewReport.php');
+        header('Location: ../views/DocenteViewReport.php');
+        exit();
     }
 
     public function getSeguimientosAdmin($idPPS)

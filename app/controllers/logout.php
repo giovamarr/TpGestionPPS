@@ -1,9 +1,7 @@
-/* Destroy current user session */
-
 <?php
 session_start();
 session_unset();
 session_destroy();
-
-header('location:../../index.php');
+header('Location: ../../index.php');
+exit();
 ?>

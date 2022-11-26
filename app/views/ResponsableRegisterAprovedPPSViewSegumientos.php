@@ -31,7 +31,8 @@ include 'inc/headerv2.php';
                     $vReporteFinal = $reporteFinalController->getReporteFinalAdmin($_GET['idPps']);
                 
                 } else {
-                    header('location: ResponsableRegisterAprovedPPS.php');
+                    header('Location: ResponsableRegisterAprovedPPS.php');
+                    exit();
                 }
 
                 if (mysqli_num_rows($vResultado) == 0) {
@@ -49,7 +50,7 @@ include 'inc/headerv2.php';
                     </div>
                 </div>
                 <hr>
-                <div class="table-responsive-lg pl-md-2 pr-md-2">
+                <div class="table-responsive pl-md-2 pr-md-2">
                     <h3 class="text-center">Seguimientos</h3>
                     <table class="table table-dark table-hover table-bordered table-sm">
                         <thead>

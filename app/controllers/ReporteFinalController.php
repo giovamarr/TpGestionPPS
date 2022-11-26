@@ -1,8 +1,8 @@
 <?php
 
-if (isset($_REQUEST['m'])) {
+if (isset($_GET['m'])) {
     $repo = new ReporteFinalController();
-    $a = $_REQUEST['m'];
+    $a = $_GET['m'];
     $repo->$a();
 }
 
@@ -24,23 +24,28 @@ class ReporteFinalController
         if ($exitePPS == 1) {
             $countsiYaenvioFR = $reporte->chequearsiYaenvioFR($idPPS);
             if ($countsiYaenvioFR == 1) {
-                header('location:../views/AlumnoFinalReport.php?r=2');
+                header('Location: ../views/AlumnoFinalReport.php?r=2');
+                exit();
             } else {
                 $countsiTieneSeguisinaprobar = $reporte->chequearsiTieneSeguisinaprobar($idPPS);
                 if ($countsiTieneSeguisinaprobar == 1) {
-                    header('location:../views/AlumnoFinalReport.php?s=1');
+                    header('Location: ../views/AlumnoFinalReport.php?s=1');
+                    exit();
                 } else {
                     $conclusiones = $_POST['conclusiones'];
                     $insertado = $reporte->insertarReporte($conclusiones, $idPPS);
                     if ($insertado) {
-                        header('location:../views/AlumnoFinalReport.php?a=1');
+                        header('Location: ../views/AlumnoFinalReport.php?a=1');
+                        exit();
                     } else {
-                        echo "location:../views/AlumnoFinalReport.php?d=1";
+                        header("Location: ../views/AlumnoFinalReport.php?d=1");
+                        exit();
                     }
                 }
             }
         } else {
-            header('location:../views/AlumnoFinalReport.php?e=1');
+            header('Location: ../views/AlumnoFinalReport.php?e=1');
+            exit();
         }
     }
 
@@ -90,7 +95,8 @@ class ReporteFinalController
         $idPPS = $_POST['idPPS'];
         $idFR = $_POST['idFR'];
         $reportes = $rf->aprobarRF($idPPS, $idFR);
-        header('location:../views/DocenteViewReport.php');
+        header('Location: ../views/DocenteViewReport.php');
+        exit();
     }
 
     public function desaprobarRF()
@@ -105,6 +111,7 @@ class ReporteFinalController
         $header .= "X-Mailer: PHP/" . phpversion();
         $a = mail($email, $asunto, $mensaje, $header);
         $reportes = $rf->desaprobarRF($idPPS, $idFR,$mensaje);
-        header('location:../views/DocenteViewReport.php');
+        header('Location: ../views/DocenteViewReport.php');
+        exit();
     }
 }

@@ -39,7 +39,7 @@ include 'inc/headerv2.php';
             <?php
                         } else {
                         ?>
-            <form class="p-4 grey" method="post" action="../controllers/requestController.php?m=insertarPPS">
+            <form class="p-4 grey" method="POST" action="../controllers/requestController.php?m=insertarPPS">
                 <h2 class="pb-1 text-center" alt="solicitud inicial de pps"> <b>Solicitud Inicial de PPS</b> </h2>
                 <hr>
                 <h5 class="text-center pb-2" alt="seccion datos">Datos de la Entidad / Organización / Institución</h5>
@@ -90,9 +90,13 @@ include 'inc/headerv2.php';
                 </div>
                 <div class="row d-flex justify-content-center">
                     <?php if (isset($_GET['e']) == 1) {
-                        echo '<p><span style="color: #ff0000;">Usted ya tiene una solicitud PPS en curso</span></p>';
+                        echo '<div class="alert alert-danger mt-2 p-2 text-left" role="alert">
+                        <b>Usted ya tiene una solicitud PPS en curso</b>
+                      </div>';
                     } elseif (isset($_GET['a']) == 1) {
-                        echo '<p><span style="color: #00ff00;">Solicitud enviada correctamente</span></p>';
+                        echo '<div class="alert alert-success mt-2 p-2 text-left" style="background-color: #80cd92;" role="alert">
+                        <b>Solicitud enviada correctamente</b>
+                      </div>';
                     }
                     ?>
                 </div>

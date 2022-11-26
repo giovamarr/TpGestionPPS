@@ -1,7 +1,7 @@
 <?php
-if (isset($_REQUEST['m'])) {
+if (isset($_GET['m'])) {
 	$Request = new RequestController();
-	$a = $_REQUEST['m'];
+	$a = $_GET['m'];
 	$Request->$a();
 }
 
@@ -20,7 +20,8 @@ class RequestController
 		$id_user = $_SESSION['id'];
 		$count = $soli->chequearID($id_user);
 		if ($count == 1) {
-			header('location:../views/AlumnoRequestPPS.php?e=1');
+			header('Location: ../views/AlumnoRequestPPS.php?e=1');
+			exit();
 		} else {
 
 			$caractPPS = $_POST['caractPPS'];
@@ -33,7 +34,8 @@ class RequestController
 			$contacto = $_POST['contacto'];
 			$insertado = $soli->insertarSolicitudPPS($caractPPS, $nombreEntidad, $direccion, $cp, $localidad, $telefono, $email, $contacto, $id_user);
 			if ($insertado) {
-				header('location:../views/AlumnoRequestPPS.php?a=1');
+				header('Location: ../views/AlumnoRequestPPS.php?a=1');
+				exit();
 			} else {
 				echo "Error: No se pudo enviar la solicitud de PPS<br>";
 			}
@@ -115,7 +117,8 @@ class RequestController
 			mail($emailProfe, $asunto, $mensaje, $header);
 		}
 
-		header('location:../views/PublicViewSuccess.php');
+		header('Location: ../views/PublicViewSuccess.php');
+        exit();
 	}
 
 	public function elegirProfesor()
@@ -124,7 +127,8 @@ class RequestController
 		$idPPS = $_POST['idPPS'];
 		$idProfe = $_POST['idProfe'];
 		$soli->elegirProfesor($idPPS, $idProfe);
-		header('location:../views/PublicViewSuccess.php');
+		header('Location: ../views/PublicViewSuccess.php');
+        exit();
 	}
 	public function enviarMail($email, $asunto, $mensaje)
 	{

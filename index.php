@@ -2,11 +2,14 @@
 session_start();
 if (isset($_SESSION['type'])) {
     if ($_SESSION['type'] == 1) {
-        header('location:app/views/AlumnoHome.php');
+        header('Location: app/views/AlumnoHome.php');
+        exit();
     } elseif ($_SESSION['type'] == 2) {
-        header('location:app/views/DocenteHome.php');
+        header('Location: app/views/DocenteHome.php');
+        exit();
     } elseif ($_SESSION['type'] == 3) {
-        header('location:app/views/ResponsableHome.php');
+        header('Location: app/views/ResponsableHome.php');
+        exit();
     } else {
     }
 }
@@ -37,7 +40,8 @@ include 'app/views/inc/topScripts.php';
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav  m-auto text-primary">
                 <li><a href="./index.php" class="nav-link px-2  text-primary">Home</a></li>
-                <li><a href="./app/views/PublicFAQs.php" class="nav-link px-2  text-primary">FAQs</a></li>
+                <li><a href="./app/views/PublicFAQs.php" class="nav-link px-2  text-primary">Preguntas Frecuentes</a>
+                </li>
                 <li><a href="./app/views/PublicContact.php" class="nav-link px-2  text-primary">Contacto</a></li>
             </ul>
             <div class="col-md-4 text-end">
@@ -65,21 +69,23 @@ include 'app/views/inc/topScripts.php';
                 </div>
                 <div class="col-md-10 mx-auto col-lg-5">
                     <form class="p-4 p-md-5 border rounded-3 grey" action="app/controllers/UsuarioController.php?i=1"
-                        method="post">
+                        method="POST">
                         <div class="form-floating mb-3">
                             <input type="text" alt="correo" class="form-control input-lg" name="email"
-                                placeholder="Email" required />
+                                placeholder="Correo Electrónico" required />
                         </div>
                         <div class="form-floating mb-3">
                             <input type="password" alt="contraseña" class="form-control input-lg" name="password"
                                 placeholder="Contraseña" required />
                         </div>
-                        <button class="w-100 btn btn-lg btn-primary" type="submit" alt="iniciar sesion">
+                        <button class="w-100 btn btn-lg btn-primary" type="submit" alt="Ingresar">
                             Ingresar
                         </button>
                         <div class="text-center">
                             <?php if (isset($_GET['e']) == 1) {
-                                echo '<br><medium class="text" style="color:#ed4956;">Usuario o Contrase&ntilde;a Incorrecta</medium>';
+                                echo '<div class="alert alert-danger mt-2 p-2 text-left" role="alert">
+                                <b>Usuario o Contrase&ntilde;a Incorrecta</b>
+                              </div>';
                             }
                             ?>
                         </div>

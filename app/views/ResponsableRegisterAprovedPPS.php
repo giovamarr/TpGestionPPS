@@ -34,7 +34,7 @@ include 'inc/headerv2.php';
                         echo ("<p style='text-align: center;'>No hay PPS Pendientes.<br />");
                     } else {
                     ?>
-                    <div class="table-responsive-lg pl-md-2 pr-md-2">
+                    <div class="table-responsive pl-md-2 pr-md-2">
                         <table class="table table-dark table-hover table-bordered table-sm">
                             <thead>
                                 <td class="text-center fit p-2" alt="Alumno"><b style="max-width: 10%;">Alumno</b></td>
@@ -71,9 +71,11 @@ include 'inc/headerv2.php';
                                 <td class="align-middle"><?php echo ($fila['direccion'] . ", " . $fila['localidad']); ?>
                                 </td>
                                 <td class="align-middle"><?php echo ($fila['emailE']); ?></td>
-                                <td class="align-middle"><a href="ResponsableRegisterAprovedPPSViewSegumientos.php?idPps=<?php echo $fila['idPPS']; ?> &iduser=<?php echo $fila['IdUser']; ?> &idprof=<?php echo $fila['IdProf']; ?>" class="nav-link px-4  text-primary">Ver</a></td>
+                                <td class="align-middle"><a
+                                        href="ResponsableRegisterAprovedPPSViewSegumientos.php?idPps=<?php echo $fila['idPPS']; ?> &iduser=<?php echo $fila['IdUser']; ?> &idprof=<?php echo $fila['IdProf']; ?>"
+                                        class="nav-link px-4  text-primary">Ver</a></td>
                                 <td class="align-middle">
-                                    <form action="../controllers/RequestController.php?m=evaluarPPS" method="post">
+                                    <form action="../controllers/RequestController.php?m=evaluarPPS" method="POST">
                                         <input type="hidden" name="idPPS" value="<?php echo $fila['idPPS']; ?>">
                                         <input type="hidden" name="valor" value=1>
                                         <button type="submit" class="btn btn-success btn-block"
@@ -81,7 +83,7 @@ include 'inc/headerv2.php';
                                     </form>
                                 </td>
                                 <td class="align-middle">
-                                    <form action="../controllers/RequestController.php?m=evaluarPPS" method="post">
+                                    <form action="../controllers/RequestController.php?m=evaluarPPS" method="POST">
                                         <input type="hidden" name="idPPS" value="<?php echo $fila['idPPS']; ?>">
                                         <input type="hidden" name="valor" value=2>
                                         <button type="submit" class="btn btn-danger btn-block"

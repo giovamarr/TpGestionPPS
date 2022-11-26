@@ -40,7 +40,7 @@ include 'inc/headerv2.php';
             <?php
                         } else {
                         ?>
-            <form class="p-4 grey" method="post" action="../controllers/ReporteFinalController.php?m=insertarReporte">
+            <form class="p-4 grey" method="POST" action="../controllers/ReporteFinalController.php?m=insertarReporte">
                 <h2 class="pb-1 text-center" alt="Formulario de Informe Final"> <b>Formulario de Informe Final de
                         PPS</b> </h2>
                 <hr>
@@ -57,15 +57,25 @@ include 'inc/headerv2.php';
 
                 <div class="row d-flex justify-content-center">
                     <?php if (isset($_GET['e']) == 1) {
-                        echo '<p><span style="color: #ff0000;">No tiene una PPS en curso o todavia no se le ha asignado un Profesor.</span></p>';
+                        echo '<div class="alert alert-danger mt-2 p-2 text-left" role="alert">
+                        <b>No tiene una PPS en curso o todavia no se le ha asignado un Profesor</b>
+                      </div>';
                     } elseif (isset($_GET['r']) == 1) {
-                        echo '<p><span style="color: #ff0000;">Usted ya ha enviado un Informe Final.</span></p>';
+                        echo '<div class="alert alert-danger mt-2 p-2 text-left" role="alert">
+                        <b>Usted ya ha enviado un Informe Final.</b>
+                      </div>';
                     } elseif (isset($_GET['a']) == 1) {
-                        echo '<p><span style="color: #00ff00;">Informe Final enviado correctamente</span></p>';
+                        echo '<div class="alert alert-success mt-2 p-2 text-left" style="background-color: #80cd92;" role="alert">
+                        <b>Informe Final enviado correctamente</b>
+                      </div>';
                     } elseif (isset($_GET['d']) == 1) {
-                        echo '<p><span style="color: #ff0000;">No se puedo enviar el informe, intente de nuevo mas tarde.</span></p>';
+                        echo '<div class="alert alert-danger mt-2 p-2 text-left" role="alert">
+                        <b>No se puedo enviar el informe, intente de nuevo mas tarde.</b>
+                      </div>';
                     } elseif (isset($_GET['s']) == 1) {
-                        echo '<p><span style="color: #ff0000;">Espere que sus seguimientos sean calificados.</span></p>';
+                        echo '<div class="alert alert-danger mt-2 p-2 text-left" role="alert">
+                        <b>Espere que sus seguimientos sean calificados.</b>
+                      </div>';
                     }
                     ?>
                 </div>

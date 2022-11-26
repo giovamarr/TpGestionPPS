@@ -1,7 +1,7 @@
 <?php
-if (isset($_REQUEST['m'])) {
+if (isset($_GET['m'])) {
     $usercontroller = new UsuarioController();
-    $a = $_REQUEST['m'];
+    $a = $_GET['m'];
     $usercontroller->$a();
 } elseif (isset($_GET['i']) == 1) {
     $controlador = new UsuarioController();
@@ -37,14 +37,18 @@ class UsuarioController
 
 
             if ($infoUsuario['tipo'] == 1) {
-                header('location:../views/AlumnoHome.php');
+                header('Location: ../views/AlumnoHome.php');
+                exit();
             } elseif ($infoUsuario['tipo'] == 2) {
-                header('location:../views/DocenteHome.php');
+                header('Location: ../views/DocenteHome.php');
+                exit();
             } elseif ($infoUsuario['tipo'] == 3) {
-                header('location:../views/ResponsableHome.php');
+                header('Location: ../views/ResponsableHome.php');
+                exit();
             }
         } else {
-            header('location:../../index.php?e=1');
+            header('Location: ../../index.php?e=1');
+            exit();
         }
     }
 
@@ -52,6 +56,12 @@ class UsuarioController
     {
         $user = new UsuarioModel();
         $profesores = $user->getProfesores();
+        return $profesores;
+    }
+    public function getInfoProfesores()
+    {
+        $user = new UsuarioModel();
+        $profesores = $user->getInfoProfesores();
         return $profesores;
     }
 
@@ -75,36 +85,42 @@ class UsuarioController
         $infoUsuario = $user->getUsuario($email);
         if ($tipo == 1) {
             if ($infoUsuario) {
-                header('location:../views/PublicRegister.php?r=1');
+                header('Location: ../views/PublicRegister.php?r=1');
+                exit();
             } else {
                 if (strcmp($password, $password2) == 0) {
                     $passHash = password_hash($password, PASSWORD_DEFAULT);
                     $insertado = $user->insertUsuario($name, $surname, $email, $passHash, $tipo);
                     if ($insertado) {
-                        header('location:../views/PublicRegister.php?a=1');
+                        header('Location: ../views/PublicRegister.php?a=1');
+                        exit();
                     } else {
                         echo "<div class='alert alert-success mt-4' role='alert'><h3>No se pudo Insertar el Usuario</h3>
                                         <a class='btn btn-outline-primary' href='../views/login.php' role='button'>Login</a></div>";
                     }
                 } else {
-                    header('location:../views/PublicRegister.php?e=1');
+                    header('Location: ../views/PublicRegister.php?e=1');
+                    exit();
                 }
             }
         } else {
             if ($infoUsuario) {
-                header('location:../views/ResponsableRegistrationDocente.php?r=1');
+                header('Location: ../views/ResponsableRegistrationDocente.php?r=1');
+                exit();
             } else {
                 if (strcmp($password, $password2) == 0) {
                     $passHash = password_hash($password, PASSWORD_DEFAULT);
                     $insertado = $user->insertUsuario($name, $surname, $email, $passHash, $tipo);
                     if ($insertado) {
-                        header('location:../views/ResponsableRegistrationDocente.php?a=1');
+                        header('Location: ../views/ResponsableRegistrationDocente.php');
+                        exit();
                     } else {
                         echo "<div class='alert alert-success mt-4' role='alert'><h3>No se pudo Insertar el Usuario</h3>
                                         <a class='btn btn-outline-primary' href='../views/login.php' role='button'>Login</a></div>";
                     }
                 } else {
-                    header('location:../views/ResponsableRegistrationDocente.php?e=1');
+                    header('Location: ../views/ResponsableRegistrationDocente.php?e=1');
+                    exit();
                 }
             }
         }

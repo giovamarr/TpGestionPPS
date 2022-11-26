@@ -1,12 +1,14 @@
-
 <?php
 session_start();
 if ($_SESSION['type'] == 1) {
-	header('location: AlumnoHome.php');
+	header('Location: AlumnoHome.php');
+	exit();
 } elseif ($_SESSION['type'] == 2) {
-	header('location:DocenteHome.php');
+	header('Location: DocenteHome.php');
+	exit();
 } elseif ($_SESSION['type'] == 3) {
 } else {
-	header('location:../../index.php');
+	header('Location: ../../index.php');
+	exit();
 }
 ?>

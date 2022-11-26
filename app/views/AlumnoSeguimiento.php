@@ -40,7 +40,7 @@ include 'inc/headerv2.php';
             <?php
                         } else {
                         ?>
-            <form class="p-4 grey" method="post" action="../controllers/SeguimientosController.php?m=insertarSeguim">
+            <form class="p-4 grey" method="POST" action="../controllers/SeguimientosController.php?m=insertarSeguim">
                 <h2 class="pb-1 text-center" alt="Formulario de Seguimiento de PPS"> <b>Formulario de Seguimiento de
                         PPS</b> </h2>
                 <hr>
@@ -90,11 +90,19 @@ include 'inc/headerv2.php';
 
                 <div class="row d-flex justify-content-center">
                     <?php if (isset($_GET['e']) == 1) {
-                        echo '<p><span style="color: #ff0000;">No tiene una PPS en curso o todavia no se le ha asignado un Profesor.</span></p>';
+                        echo '<div class="alert alert-danger mt-2 p-2 text-left" role="alert">
+                        <b>No tiene una PPS en curso o todavia no se le ha asignado un Profesor.</b>
+                      </div>';
                     } elseif (isset($_GET['a']) == 1) {
-                        echo '<p><span style="color: #00ff00;">Seguimiento enviado correctamente</span></p>';
+                        echo '
+                        <div class="alert alert-success mt-2 p-2 text-left" style="background-color: #80cd92;" role="alert">
+                        <b>Seguimiento enviado correctamente</b>
+                      </div>
+                     ';
                     } elseif (isset($_GET['s']) == 1) {
-                        echo '<p><span style="color: #ff0000;">Usted Tiene un Informe final con la correccion pendiente</span></p>';
+                        echo '<div class="alert alert-danger mt-2 p-2 text-left" role="alert">
+                        <b>Usted Tiene un Informe final con la correccion pendiente</b>
+                      </div>';
                     }
                     ?>
                 </div>
