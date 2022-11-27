@@ -29,8 +29,6 @@ class UsuarioModel{
         $ob = new Conexion();
         $con=$ob->conectar();
         $result = mysqli_query($con, "SELECT id,email, password, nombre,tipo,apellido,idPPS FROM users left join solicitudes on id=id_user WHERE email = '$email'");
-        
-        // Variable $row hold the result of the query
         $row = mysqli_fetch_assoc($result);
 			
         return $row;
