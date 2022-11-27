@@ -13,7 +13,7 @@ class ReporteFinalModel{
         $ob = new Conexion();
         $con=$ob->conectar();
         $date=date('Y-m-d');
-        $query = "INSERT INTO finalReport (conclusiones, idPPS_FP,date ) VALUES ('$conclusiones',$idPPS,'$date')";
+        $query = "INSERT INTO finalreport (conclusiones, idPPS_FP,date ) VALUES ('$conclusiones',$idPPS,'$date')";
         $result = mysqli_query($con, $query);
         return $result;
 
@@ -30,7 +30,7 @@ class ReporteFinalModel{
     public function chequearsiYaenvioFR($idPPS){
         $ob = new Conexion();
         $con=$ob->conectar();        
-        $checksiYaenvioFR = "SELECT * FROM finalReport WHERE idPPS_FP = '$idPPS' ";				
+        $checksiYaenvioFR = "SELECT * FROM finalreport WHERE idPPS_FP = '$idPPS' ";				
         $vResultado = mysqli_query($con, $checksiYaenvioFR);
         return $countsiYaenvioFR = mysqli_num_rows($vResultado);
     }
@@ -53,7 +53,7 @@ class ReporteFinalModel{
     public function getReportesFinalesDocente($idProfe){
         $ob = new Conexion();
         $con=$ob->conectar();
-        $vSql = "SELECT * FROM finalReport f inner join solicitudes s on f.idPPS_FP=s.idPPS 
+        $vSql = "SELECT * FROM finalreport f inner join solicitudes s on f.idPPS_FP=s.idPPS 
                 inner join users u on u.id=s.id_user where s.id_Profe='$idProfe' and (f.aprobadaFR is null)";
         $vResultado = mysqli_query($con, $vSql);
         return $vResultado;  
@@ -77,14 +77,14 @@ class ReporteFinalModel{
     public function aprobarRF($idPPS,$idFR){
         $ob = new Conexion();
         $con=$ob->conectar();
-        $query = "UPDATE finalReport SET aprobadaFR=1 where idPPS_FP='$idPPS' and idFR='$idFR'";
+        $query = "UPDATE finalreport SET aprobadaFR=1 where idPPS_FP='$idPPS' and idFR='$idFR'";
         $result = mysqli_query($con, $query);
         return $result;
     }
     public function desaprobarRF($idPPS,$idFR){
         $ob = new Conexion();
         $con=$ob->conectar();
-        $query = "UPDATE finalReport SET aprobadaFR=2 , comentario='$comentario' where idPPS_FP='$idPPS' and idFR='$idFR'";
+        $query = "UPDATE finalreport SET aprobadaFR=2 , comentario='$comentario' where idPPS_FP='$idPPS' and idFR='$idFR'";
         $result = mysqli_query($con, $query);
         return $result;
     }

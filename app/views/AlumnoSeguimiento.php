@@ -28,7 +28,9 @@ include 'inc/headerv2.php';
                 <h2 class="pb-1 text-center" alt="Formulario de Seguimiento de PPS"> <b>Formulario de Seguimiento de
                         PPS</b> </h2>
                 <hr>
-                <p style='text-align: center;'>No tienes una PPS en curso, envía una solicitud inicial.<br /> </p>
+                <p style='text-align: center;'>No tienes una PPS en curso, envía una solicitud inicial,o en caso de
+                    haber
+                    enviado la solicitud inicial, espera que se te asigne un profesor.<br /> </p>
                 <hr>
                 <div class="col-md-6 m-1 mx-auto">
                     <form action="mainAlumno.php">

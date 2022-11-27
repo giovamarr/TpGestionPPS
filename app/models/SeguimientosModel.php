@@ -37,7 +37,7 @@ class SeguimientosModel{
     public function chequearsitieneIF($idPPS){
         $ob = new Conexion();
         $con=$ob->conectar();
-        $checkID = "SELECT * FROM finalReport WHERE idPPS_FP = '$idPPS'";
+        $checkID = "SELECT * FROM finalreport WHERE idPPS_FP = '$idPPS'";
 	    $result = $con-> query($checkID);
         return $count = mysqli_num_rows($result);
     }

@@ -51,11 +51,11 @@ include 'inc/headerv2.php';
                                 <?php
                                     }
                                     mysqli_free_result($result);
-                                }
+                                
                                 ?>
 
                             </table>
-                        </div>
+                        </div><?php } ?>
                     </div>
                     <hr>
                     <div class="col-md-12">
@@ -65,12 +65,12 @@ include 'inc/headerv2.php';
 
                             <div class="col-md-12">
                                 <?php
-    $rf = new ReporteFinalController();
-    $result = $rf->getReportesDocente();
-    if (!$result || mysqli_num_rows($result) == 0) {
-        echo ("<p style='text-align: center;'>No hay Informes Finales para corregir.<br> </p>");
-    } else {
-    ?>
+                                    $rf = new ReporteFinalController();
+                                    $result = $rf->getReportesDocente();
+                                    if (!$result || mysqli_num_rows($result) == 0) {
+                                        echo ("<p style='text-align: center;'>No hay Informes Finales para corregir.<br> </p>");
+                                    } else {
+                                    ?>
                                 <div class="table-responsive pl-md-2 pr-md-2">
 
                                     <table class="table table-dark table-hover table-bordered table-sm">
@@ -81,8 +81,8 @@ include 'inc/headerv2.php';
                                                     style="max-width: 10%;">Ver Informe</b></td>
                                         </thead>
                                         <?php
-                while ($fila = mysqli_fetch_array($result)) {
-                ?>
+                                        while ($fila = mysqli_fetch_array($result)) {
+                                        ?>
                                         <tr>
                                             <td class="align-middle"><?php echo ($fila['idFR']); ?></td>
                                             <td class="align-middle pl-2">
@@ -99,11 +99,11 @@ include 'inc/headerv2.php';
                 }
                 // Liberar conjunto de resultados
                 mysqli_free_result($result);
-            }
+            
             ?>
-
                                     </table>
-                                </div>
+
+                                </div><?php } ?>
                             </div>
                         </div>
                         <hr>

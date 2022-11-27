@@ -91,7 +91,7 @@ include 'inc/headerv2.php';
                 <div class="row d-flex justify-content-center">
                     <?php if (isset($_GET['e']) == 1) {
                         echo '<div class="alert alert-danger mt-2 p-2 text-left" role="alert">
-                        <b>Usted ya tiene una solicitud PPS en curso</b>
+                        <b>Usted ha enviado una solicitud de PPS, por favor espere que se le asigne un profesor.</b>
                       </div>';
                     } elseif (isset($_GET['a']) == 1) {
                         echo '<div class="alert alert-success mt-2 p-2 text-left" style="background-color: #80cd92;" role="alert">

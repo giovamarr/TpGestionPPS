@@ -59,12 +59,14 @@ include 'inc/headerv2.php';
                                         </button>
                                     </td>
                                 </tr>
-                            </table>
-                        </div>
-                        <?php
+
+                                <?php
                                     }
                                     // Liberar conjunto de resultados
                                     mysqli_free_result($result);
+                                ?>
+                            </table>
+                        </div> <?php
                                 }
                                 ?>
 
@@ -112,16 +114,17 @@ include 'inc/headerv2.php';
                                         </button>
                                     </td>
                                 </tr>
-                            </table>
-                        </div>
-                        <?php
+                                <?php
                                     }
                                     // Liberar conjunto de resultados
                                     mysqli_free_result($result);
                                     // Cerrar la conexion;
+                                ?>
+                            </table>
+                        </div>
+                        <?php
                                 }
                                 ?>
-
                     </div>
                 </div><!-- row 3 -->
                 <hr>
