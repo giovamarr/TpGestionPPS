@@ -63,6 +63,16 @@ class SeguimientosController
         $seguimientos = $segui->getSeguiDocente($idProf);
         return $seguimientos;
     }
+    public function getSeguimientosDocenteAll()
+    {
+
+        $segui = new SeguimientosModel();
+        $idProf = $_SESSION['id'];
+        $seguimientos = $segui->getSeguiDocenteAll($idProf);
+        return $seguimientos;
+    }
+
+
     public function getOne($idSeguimientos)
     {
         $segui = new SeguimientosModel();
@@ -77,7 +87,12 @@ class SeguimientosController
         $seguimientos = $segui->getOne($idPPS, $idSeguimientos);
         return mysqli_fetch_array($seguimientos);
     }
-
+    public function getSeguiDocenteAll($idSeguimientos, $idPPS)
+    {
+        $segui = new SeguimientosModel();
+        $seguimientos = $segui->getOne($idPPS, $idSeguimientos);
+        return mysqli_fetch_array($seguimientos);
+    }
 
     public function aprobarSegui()
     {

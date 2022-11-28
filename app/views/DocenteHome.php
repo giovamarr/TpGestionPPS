@@ -23,7 +23,9 @@ include 'inc/topScripts.php';
             <div class="card col-md m-2 menu">
                 <div class="card-body" style="justify-content: space-between;flex-direction: column; display: flex;">
                     <h3 class="card-title text-center" alt="Corregir Informes">Corregir Informes</h3>
-                    <p class="card-text"></p>
+                    <p class="card-text">
+                        En esta seccion se puede aprobar o desaprobar seguimiento e informes finales.
+                    </p>
                     <div class="text-center">
                         <button type="submit" class="btn btn-primary " onclick="location.href='DocenteViewReport.php';" alt="ir a Corregir Informes">
                             <svg width="20" height="20" fill="currentColor" class="bi bi-arrow-right-circle-fill d-flex align-items-center justify-content-center">
@@ -37,7 +39,9 @@ include 'inc/topScripts.php';
             <div class="card col-md m-2 menu">
                 <div class="card-body" style="justify-content: space-between;flex-direction: column; display: flex;">
                     <h3 class="card-title text-center" alt="ver pps">Ver PPS</h3>
-                    <p class="card-text"></p>
+                    <p class="card-text">
+                    En esta seccion se puede ver los estados de las PPS de sus alumnos.       
+                    </p>
                     <div class="text-center">
                         <button type="submit" class="btn btn-primary " onclick="location.href='DocenteViewMyPPS.php';" alt="ir a ver pps">
                             <svg width="20" height="20" fill="currentColor" class="bi bi-arrow-right-circle-fill d-flex align-items-center justify-content-center">

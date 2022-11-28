@@ -45,6 +45,7 @@ include 'inc/headerv2.php';
                                     <td class="text-center  fit p-2" alt="Tipo de PPS"><b style="max-width: 10%;">Tipo de PPS</b></td>
                                     <td class="text-center  p-2" alt="Entidad"><b style="max-width: 10%;">Entidad</b></td>
                                     <td class="text-center  p-2" alt="Estado"><b style="max-width: 10%;">Estado</b></td>
+                                    <td class="text-center fit p-2" alt="Ver"><b style="max-width: 10%;"></b></td>
                                 </thead>
                                 <?php
                                 while ($fila = mysqli_fetch_array($vResultado)) {
@@ -65,14 +66,21 @@ include 'inc/headerv2.php';
                                                                     }
                                                                     ?>
                                                                     </td>
-                                    </tr>
-                                <?php
+                                        <td class="text-center align-middle">
+                                                <button class="btn btn-warning" alt="ir a informe">
+                                                    <strong><a
+                                                            href='DocenteViewDetailPPS.php'
+                                                            style='color: black'>Ver</a></strong>
+                                                </button>
+                                            </td>
+                                                                </tr>
+                                                                <?php
                                 }
                                 mysqli_free_result($vResultado);
-
+                                
                                 ?>
 
-                            </table>
+</table>
 
                         </div>
                         <span style='text-align: center;'>

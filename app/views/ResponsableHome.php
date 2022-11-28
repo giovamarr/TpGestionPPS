@@ -24,7 +24,7 @@ include 'inc/topScripts.php';
                 <div class="card-body" style="justify-content: space-between;flex-direction: column; display: flex;"
                     style="justify-content: space-between;flex-direction: column; display: flex;">
                     <h3 class="card-title text-center" alt="Definir Tutores de PPS">Definir Tutores de PPS</h3>
-                    <p class="card-text"></p>
+                    <p class="card-text">En esta seccion se puede designar un docente a PPSs que no tienen Tutor.</p>
                     <div class="text-center">
                         <button type="submit" class="btn btn-primary " onclick="location.href='ResponsableViewPPS.php';"
                             alt="ir a Definir Tutores de PPS">
@@ -39,7 +39,7 @@ include 'inc/topScripts.php';
             <div class="card col-md m-2 menu">
                 <div class="card-body" style="justify-content: space-between;flex-direction: column; display: flex;">
                     <h3 class="card-title text-center" alt="Registrar Aprobacion PPS">Registrar Aprobacion PPS</h3>
-                    <p class="card-text"></p>
+                    <p class="card-text">En esta seccion se registra la aprobación de PPS luego que el profesor ya haya aprobado todos sus respectivos informes.</p>
                     <div class="text-center">
                         <button type="submit" class="btn btn-primary "
                             onclick="location.href='ResponsableRegisterAprovedPPS.php';"
@@ -55,7 +55,7 @@ include 'inc/topScripts.php';
             <div class="card col-md m-2 menu">
                 <div class="card-body" style="justify-content: space-between;flex-direction: column; display: flex;">
                     <h3 class="card-title text-center" alt="Registrar Docentes">Docentes Registrados</h3>
-                    <p class="card-text"></p>
+                    <p class="card-text">En esta seccion se puede realizar el alta de docentes.</p>
                     <div class="text-center">
                         <button type="submit" class="btn btn-primary "
                             onclick="location.href='ResponsableRegistrationDocente.php';" alt="ir a Registrar Docentes">
@@ -70,7 +70,7 @@ include 'inc/topScripts.php';
             <div class="card col-md m-2 menu">
                 <div class="card-body" style="justify-content: space-between;flex-direction: column; display: flex;">
                     <h3 class="card-title text-center" alt="Registrar Docentes">PPS Aprobadas</h3>
-                    <p class="card-text"></p>
+                    <p class="card-text">En esta seccion se puede ver listado de PPSs Completadas y sus respectivos informes.</p>
                     <div class="text-center">
                         <button type="submit" class="btn btn-primary "
                             onclick="location.href='ResponsableViewAprovedPPS.php';" alt="ir a Registrar Docentes">

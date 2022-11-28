@@ -21,7 +21,7 @@ include 'inc/headerv2.php';
         <div class="card col-md m-2 menu">
             <div class="card-body" style="justify-content: space-between;flex-direction: column; display: flex;" alt="Solicitud de Inicio de PPS">
                 <h3 class="card-title text-center">Solicitud de Inicio de PPS</h3>
-                <p class="card-text"></p>
+                <p class="card-text">En esta seccion se puede completar y enviar una solicitud de inicio  de PPS, la cual completará con los datos solicitados.</p>
                 <div class="text-center">
                     <button type="submit" class="btn btn-primary " onclick="location.href='AlumnoRequestPPS.php';" alt="ir a Solicitud de Inicio">
                         <svg width="20" height="20" fill="currentColor" class="bi bi-arrow-right-circle-fill d-flex align-items-center justify-content-center">
@@ -35,7 +35,7 @@ include 'inc/headerv2.php';
         <div class="card col-md m-2 menu">
             <div class="card-body" style="justify-content: space-between;flex-direction: column; display: flex;">
                 <h3 class="card-title text-center" alt="Seguimiento de PPS">Seguimiento de PPS</h3>
-                <p class="card-text"></p>
+                <p class="card-text">En esta seccion se puede completar y enviar un seguimiento de PPS.</p>
                 <div class="text-center">
                     <button type="submit" class="btn btn-primary " onclick="location.href='AlumnoSeguimiento.php';" alt="ir a Seguimiento de PPS">
                         <svg width="20" height="20" fill="currentColor" class="bi bi-arrow-right-circle-fill d-flex align-items-center justify-content-center">
@@ -50,7 +50,7 @@ include 'inc/headerv2.php';
         <div class="card col-md m-2 menu">
             <div class="card-body" style="justify-content: space-between;flex-direction: column; display: flex;">
                 <h3 class="card-title text-center" alt="Infome Final PPS">Infome Final PPS</h3>
-                <p class="card-text"></p>
+                <p class="card-text">En esta seccion se puede completar y enviar un Informe Final.</p>
                 <div class="text-center">
                     <button type="submit" class="btn btn-primary " onclick="location.href='AlumnoFinalReport.php';" alt="ir a Infome Final">
                         <svg width="20" height="20" fill="currentColor" class="bi bi-arrow-right-circle-fill d-flex align-items-center justify-content-center">
@@ -64,7 +64,7 @@ include 'inc/headerv2.php';
         <div class="card col-md m-2 menu">
             <div class="card-body" style="justify-content: space-between;flex-direction: column; display: flex;">
                 <h3 class="card-title text-center" alt="Estado de Mis PPS">Estado de Mis PPS</h3>
-                <p class="card-text"></p>
+                <p class="card-text">En esta seccion se puede ver el estado de los informes enviados.</p>
                 <div class="text-center">
                     <button type="submit" class="btn btn-primary " onclick="location.href='AlumnoMyReports.php';" alt="ir a Estado de Mis PPS">
                         <svg width="20" height="20" fill="currentColor" class="bi bi-arrow-right-circle-fill d-flex align-items-center justify-content-center">
