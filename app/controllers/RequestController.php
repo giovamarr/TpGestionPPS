@@ -56,6 +56,19 @@ class RequestController
 		return $vResultado;
 	}
 
+	public function chequearHoras(){
+        $rf = new SolicitudesModel();
+        $idPPS = $_SESSION['idPPS'];
+        $horas = $rf->chequearHoras($idPPS);
+        if (mysqli_num_rows($horas) == 0){ return false;}
+        else{
+        $var =mysqli_fetch_array($horas);
+        if ($var['Horas']<200) {
+            return false;
+        }else return true;
+        }      
+    }
+
 	public function getPPSPaginadosinProfe($inicio, $Cant_por_Pag)
 	{
 		$soli = new SolicitudesModel();

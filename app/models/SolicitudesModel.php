@@ -46,7 +46,14 @@ class SolicitudesModel
         $result = $con->query($checkID);
         return $count = mysqli_num_rows($result);
     }
-
+    public function chequearHoras($idPPS){
+        $ob = new Conexion();
+        $con=$ob->conectar();        
+        $countHoras = "SELECT s.idPPS,SUM(e.hsTrabajadas) as Horas FROM solicitudes s LEFT JOIN seguimientos e ON e.id_PPS=s.idPPS WHERE s.idPPS = '$idPPS' and s.id_Profe is not null and e.aprobadoSeg=1 GROUP BY s.idPPS";				
+        $vResultado = mysqli_query($con, $countHoras);
+        return $vResultado;
+    }
+    
     public function TotaldePPSsinDocente()
     {
         $ob = new Conexion();

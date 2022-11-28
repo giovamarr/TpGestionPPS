@@ -14,7 +14,7 @@ include 'inc/headerv2.php';
     <div class="row align-items-center ">
         <div class="col d-block align-items-center justify-content-center col-md-11 mx-auto">
             <div class="p-2 grey">
-                <h2 class="p-2 text-center" alt="Definir Tutores de PPS"> <b>Definir Tutores de PPS</b> </h2>
+                <h2 class="p-2 text-center" alt="PPS Aprobadas"> <b>PPS Aprobadas</b> </h2>
 
                 <hr>
                 <?php

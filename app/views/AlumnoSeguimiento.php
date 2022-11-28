@@ -41,7 +41,26 @@ include 'inc/headerv2.php';
             </div>
             <?php
                         } else {
-                        ?>
+                            $result = $soli->chequearHoras();                       
+                            if($result){                        
+                            ?>
+            <div class='p-4 grey'>
+                <h2 class="pb-1 text-center" alt="Formulario de Informe Final"> <b>Formulario de Seguimiento de
+                        PPS</b> </h2>
+                <hr>
+                <p style='text-align: center;'>Ya has completado las 200 horas necesarias para enviar el Informe
+                    Final.<br /> </p>
+                <hr>
+                <div class="col-md-6 m-1 mx-auto">
+                    <form action="mainAlumno.php">
+                        <input type="button" class="btn btn-secondary btn-block"
+                            onclick="location.href='AlumnoHome.php';" value="Volver" alt="Volver" />
+                    </form>
+                </div>
+            </div>
+            <?php
+                            } else{
+                            ?>
             <form class="p-4 grey" method="POST" action="../controllers/SeguimientosController.php?m=insertarSeguim">
                 <h2 class="pb-1 text-center" alt="Formulario de Seguimiento de PPS"> <b>Formulario de Seguimiento de
                         PPS</b> </h2>
@@ -92,21 +111,21 @@ include 'inc/headerv2.php';
 
                 <div class="row d-flex justify-content-center">
                     <?php if (isset($_GET['e']) == 1) {
-                        echo '<div class="alert alert-danger mt-2 p-2 text-left" role="alert">
-                        <b>No tiene una PPS en curso o todavia no se le ha asignado un Profesor.</b>
-                      </div>';
-                    } elseif (isset($_GET['a']) == 1) {
-                        echo '
-                        <div class="alert alert-success mt-2 p-2 text-left" style="background-color: #80cd92;" role="alert">
-                        <b>Seguimiento enviado correctamente</b>
-                      </div>
-                     ';
-                    } elseif (isset($_GET['s']) == 1) {
-                        echo '<div class="alert alert-danger mt-2 p-2 text-left" role="alert">
-                        <b>Usted Tiene un Informe final con la correccion pendiente</b>
-                      </div>';
-                    }
-                    ?>
+                            echo '<div class="alert alert-danger mt-2 p-2 text-left" role="alert">
+                            <b>No tiene una PPS en curso o todavia no se le ha asignado un Profesor.</b>
+                          </div>';
+                        } elseif (isset($_GET['a']) == 1) {
+                            echo '
+                            <div class="alert alert-success mt-2 p-2 text-left" style="background-color: #80cd92;" role="alert">
+                            <b>Seguimiento enviado correctamente</b>
+                          </div>
+                         ';
+                        } elseif (isset($_GET['s']) == 1) {
+                            echo '<div class="alert alert-danger mt-2 p-2 text-left" role="alert">
+                            <b>Usted Tiene un Informe final con la correccion pendiente</b>
+                          </div>';
+                        }
+                        ?>
                 </div>
                 <div class="row">
                     <div class="col-md-6 m-1 mx-auto">
@@ -122,8 +141,8 @@ include 'inc/headerv2.php';
 
 
             </form>
-            <?php
-                        }                         ?>
+            <?php 
+                            } }                         ?>
         </div>
     </div>
 </div>

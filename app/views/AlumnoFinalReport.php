@@ -41,6 +41,25 @@ include 'inc/headerv2.php';
             </div>
             <?php
                         } else {
+                        $result = $soli->chequearHoras();                       
+                        if(!$result){                        
+                        ?>
+            <div class='p-4 grey'>
+                <h2 class="pb-1 text-center" alt="Formulario de Informe Final"> <b>Formulario de Informe Final de
+                        PPS</b> </h2>
+                <hr>
+                <p style='text-align: center;'>Todavia no has completado las 200 horas necesarias para enviar el Informe
+                    Final.<br /> </p>
+                <hr>
+                <div class="col-md-6 m-1 mx-auto">
+                    <form action="mainAlumno.php">
+                        <input type="button" class="btn btn-secondary btn-block"
+                            onclick="location.href='AlumnoHome.php';" value="Volver" alt="Volver" />
+                    </form>
+                </div>
+            </div>
+            <?php
+                        } else{
                         ?>
             <form class="p-4 grey" method="POST" action="../controllers/ReporteFinalController.php?m=insertarReporte">
                 <h2 class="pb-1 text-center" alt="Formulario de Informe Final"> <b>Formulario de Informe Final de
@@ -59,27 +78,27 @@ include 'inc/headerv2.php';
 
                 <div class="row d-flex justify-content-center">
                     <?php if (isset($_GET['e']) == 1) {
-                        echo '<div class="alert alert-danger mt-2 p-2 text-left" role="alert">
-                        <b>No tiene una PPS en curso o todavia no se le ha asignado un Profesor</b>
-                      </div>';
-                    } elseif (isset($_GET['r']) == 1) {
-                        echo '<div class="alert alert-danger mt-2 p-2 text-left" role="alert">
-                        <b>Usted ya ha enviado un Informe Final.</b>
-                      </div>';
-                    } elseif (isset($_GET['a']) == 1) {
-                        echo '<div class="alert alert-success mt-2 p-2 text-left" style="background-color: #80cd92;" role="alert">
-                        <b>Informe Final enviado correctamente</b>
-                      </div>';
-                    } elseif (isset($_GET['d']) == 1) {
-                        echo '<div class="alert alert-danger mt-2 p-2 text-left" role="alert">
-                        <b>No se puedo enviar el informe, intente de nuevo mas tarde.</b>
-                      </div>';
-                    } elseif (isset($_GET['s']) == 1) {
-                        echo '<div class="alert alert-danger mt-2 p-2 text-left" role="alert">
-                        <b>Espere que sus seguimientos sean calificados.</b>
-                      </div>';
-                    }
-                    ?>
+                                echo '<div class="alert alert-danger mt-2 p-2 text-left" role="alert">
+                                <b>No tiene una PPS en curso o todavia no se le ha asignado un Profesor</b>
+                            </div>';
+                            } elseif (isset($_GET['r']) == 1) {
+                                echo '<div class="alert alert-danger mt-2 p-2 text-left" role="alert">
+                                <b>Usted ya ha enviado un Informe Final.</b>
+                            </div>';
+                            } elseif (isset($_GET['a']) == 1) {
+                                echo '<div class="alert alert-success mt-2 p-2 text-left" style="background-color: #80cd92;" role="alert">
+                                <b>Informe Final enviado correctamente</b>
+                            </div>';
+                            } elseif (isset($_GET['d']) == 1) {
+                                echo '<div class="alert alert-danger mt-2 p-2 text-left" role="alert">
+                                <b>No se puedo enviar el informe, intente de nuevo mas tarde.</b>
+                            </div>';
+                            } elseif (isset($_GET['s']) == 1) {
+                                echo '<div class="alert alert-danger mt-2 p-2 text-left" role="alert">
+                                <b>Espere que sus seguimientos sean calificados.</b>
+                            </div>';
+                            }
+                            ?>
                 </div>
                 <div class="row">
                     <div class="col-md-6 m-1 mx-auto">
@@ -95,8 +114,8 @@ include 'inc/headerv2.php';
 
 
             </form>
-            <?php
-                        } 
+            <?php 
+                        } }
                         ?>
         </div>
     </div>
