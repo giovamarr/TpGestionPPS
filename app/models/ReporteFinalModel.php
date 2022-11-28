@@ -10,7 +10,7 @@ class ReporteFinalModel{
     }
 
     public function insertarReporte($conclusiones,$idPPS){
-        if (is_numeric($conclusiones) and is_numeric($idPPS)){
+        if (is_numeric($idPPS)){
             $ob = new Conexion();
             $con=$ob->conectar();
             $date=date('Y-m-d');

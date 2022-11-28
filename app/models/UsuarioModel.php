@@ -49,7 +49,7 @@ class UsuarioModel{
             }
 
         public function insertUsuario($name,$surname,$email,$password,$tipo){
-            if (strlen($name) >= 5 and strlen($surname) >= 5 and strlen($email) >= 5 and strlen($password) >= 5 and is_numeric(tipo)){
+            if (strlen($name) >= 5 and strlen($surname) >= 5 and strlen($email) >= 5 and strlen($password) >= 5 and is_numeric($tipo)){
                 $ob = new Conexion();
                 $con=$ob->conectar();
                 $result = mysqli_query($con, "INSERT INTO users (nombre, apellido, password,email,tipo) VALUES ('$name', '$surname', '$password','$email','$tipo')");
@@ -58,7 +58,7 @@ class UsuarioModel{
             }
         
         public function getById($id){
-            if (is_numeric($idProfe)){
+            if (is_numeric($id)){
                 $ob = new Conexion();
                 $con=$ob->conectar();
                 $result = mysqli_query($con, "SELECT u.id, u.nombre, u.apellido FROM users u where u.id = $id");
