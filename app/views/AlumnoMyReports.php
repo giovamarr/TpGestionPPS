@@ -24,9 +24,10 @@ include 'inc/headerv2.php';
                         <?php
                         $seguimientos = new SeguimientosController();
                         $result = $seguimientos->getSeguimientos();
+                        if (!is_null($result)){
                         if (mysqli_num_rows($result) == 0) {
-                            echo ("<p style='text-align: center;'>No hay Seguimientos enviados.<br /> </p>");
-                        } else {
+                                echo ("<p style='text-align: center;'>No hay Seguimientos enviados.<br /> </p>");
+                            } else {
                         ?>
                         <div class="table-responsive pl-md-2 pr-md-2">
 
@@ -68,6 +69,7 @@ include 'inc/headerv2.php';
                             </table>
                         </div> <?php
                                 }
+                        }
                                 ?>
 
                     </div>
@@ -81,6 +83,7 @@ include 'inc/headerv2.php';
                         <?php
                         $rf = new ReporteFinalController();
                         $result = $rf->getReportes();
+                        if (!is_null($result)){
                         if (mysqli_num_rows($result) == 0) {
                             echo ("<p style='text-align: center;'>No hay Informes Finales Enviados.<br />");
                         } else {
@@ -123,6 +126,7 @@ include 'inc/headerv2.php';
                             </table>
                         </div>
                         <?php
+                                }
                                 }
                                 ?>
                     </div>

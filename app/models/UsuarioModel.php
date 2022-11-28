@@ -26,12 +26,13 @@ class UsuarioModel{
     
        //Metodos de consulta
     public function getUsuario($email){
-        $ob = new Conexion();
-        $con=$ob->conectar();
-        $result = mysqli_query($con, "SELECT id,email, password, nombre,tipo,apellido,idPPS FROM users left join solicitudes on id=id_user WHERE email = '$email'");
-        $row = mysqli_fetch_assoc($result);
-			
-        return $row;
+        if (strlen($email) >= 5){
+            $ob = new Conexion();
+            $con=$ob->conectar();
+            $result = mysqli_query($con, "SELECT id,email, password, nombre,tipo,apellido,idPPS FROM users left join solicitudes on id=id_user WHERE email = '$email'");
+            $row = mysqli_fetch_assoc($result);
+            return $row;
+        }
         }
 
         public function getProfesores(){
@@ -48,18 +49,20 @@ class UsuarioModel{
             }
 
         public function insertUsuario($name,$surname,$email,$password,$tipo){
-            $ob = new Conexion();
-            $con=$ob->conectar();
-            $result = mysqli_query($con, "INSERT INTO users (nombre, apellido, password,email,tipo) VALUES ('$name', '$surname', '$password','$email','$tipo')");
-            return $result;
+            if (strlen($name) >= 5 and strlen($surname) >= 5 and strlen($email) >= 5 and strlen($password) >= 5 and is_numeric(tipo)){
+                $ob = new Conexion();
+                $con=$ob->conectar();
+                $result = mysqli_query($con, "INSERT INTO users (nombre, apellido, password,email,tipo) VALUES ('$name', '$surname', '$password','$email','$tipo')");
+                return $result;
+                }
             }
         
         public function getById($id){
-            $ob = new Conexion();
-            $con=$ob->conectar();
-            $result = mysqli_query($con, "SELECT u.id, u.nombre, u.apellido FROM users u where u.id = $id");
-            return $result;
+            if (is_numeric($idProfe)){
+                $ob = new Conexion();
+                $con=$ob->conectar();
+                $result = mysqli_query($con, "SELECT u.id, u.nombre, u.apellido FROM users u where u.id = $id");
+                return $result;
+                }
             }
-    
-        
     }

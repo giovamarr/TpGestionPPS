@@ -47,22 +47,22 @@ include 'inc/headerv2.php';
                     <div class="col-md-6">
                         <div class="form-group">
                             <input type="text" class="form-control" name="caractPPS" alt="Característica PPS"
-                                placeholder="Característica PPS" minlength="1" maxlength="60"
+                                placeholder="Característica PPS" minlength="5" maxlength="60"
                                 pattern="[A-Za-z0-9_-\s]{1,60}" required>
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-control" name="nombreEntidad" alt="Nombre de la Entidad"
-                                placeholder="Nombre de la Entidad" minlength="1" maxlength="60"
+                                placeholder="Nombre de la Entidad" minlength="5" maxlength="60"
                                 pattern="[A-Za-z0-9_-\s]{1,60}" required>
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-control" name="direccion" alt="direccion"
-                                placeholder="Dirección" minlength="1" maxlength="50" pattern="[A-Za-z0-9_-\s]{1,50}"
+                                placeholder="Dirección" minlength="5" maxlength="50" pattern="[A-Za-z0-9_-\s]{1,50}"
                                 required>
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-control" name="cp" alt="correo postal"
-                                placeholder="Correo Postal" minlength="1" maxlength="32" pattern="[A-Za-z0-9_-\s]{1,32}"
+                                placeholder="Correo Postal" minlength="4" maxlength="32" pattern="[A-Za-z0-9_-\s]{1,32}"
                                 required>
                         </div>
 
@@ -70,20 +70,20 @@ include 'inc/headerv2.php';
                     <div class="col-md-6">
                         <div class="form-group">
                             <input type="text" class="form-control" name="localidad" alt="localidad"
-                                placeholder="Localidad" minlength="1" maxlength="50" pattern="[A-Za-z0-9_-\s]{1,50}"
+                                placeholder="Localidad" minlength="4" maxlength="50" pattern="[A-Za-z0-9_-\s]{1,50}"
                                 required>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" name="telefono" alt="telefono"
-                                placeholder="Teléfono" minlength="1" maxlength="32" pattern="[0-9]{1,32}" required>
+                            <input type="number" class="form-control" name="telefono" alt="telefono"
+                                placeholder="Teléfono" minlength="7" maxlength="32" pattern="[0-9]{1,32}" required>
                         </div>
                         <div class="form-group">
                             <input type="email" class="form-control" name="email" aria-describedby="emailHelp"
-                                alt="email" placeholder="Mail del contacto" minlength="1" maxlength="40" required>
+                                alt="email" placeholder="Mail del contacto" minlength="5" maxlength="40" required>
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-control" name="contacto" alt="persona de contacto"
-                                placeholder="Persona de contacto de la Entidad" minlength="1" maxlength="50"
+                                placeholder="Persona de contacto de la Entidad" minlength="4" maxlength="50"
                                 pattern="[A-Za-z0-9_-\s]{1,50}" required>
                         </div>
                     </div>

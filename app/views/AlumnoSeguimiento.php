@@ -70,23 +70,23 @@ include 'inc/headerv2.php';
                     <div class="col-lg-6">
                         <div class="form-group">
                             <input type="text" class="form-control" name="actividadesRealizadas"
-                                alt="Actividades Realizadas" placeholder="Actividades Realizadas" minlength="1"
+                                alt="Actividades Realizadas" placeholder="Actividades Realizadas" minlength="5"
                                 maxlength="100" pattern="[A-Za-z0-9_-\s]{1,100}" required>
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-control" name="actividadesProximas"
-                                alt="Proximas Actividades" placeholder="Proximas Actividades" minlength="1"
+                                alt="Proximas Actividades" placeholder="Proximas Actividades" minlength="5"
                                 maxlength="100" pattern="[A-Za-z0-9_-\s]{1,100}" required>
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-control" name="cuestionesPendientes"
-                                alt="Cuestines Pendientes" placeholder="Cuestines Pendientes" minlength="1"
+                                alt="Cuestines Pendientes" placeholder="Cuestines Pendientes" minlength="5"
                                 maxlength="100" pattern="[A-Za-z0-9_-\s]{1,100}" required>
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-control" name="experiencias"
                                 alt="Experiencias, Compliciones y Obstáculos"
-                                placeholder="Experiencias, Compliciones y Obstáculos" minlength="1" maxlength="100"
+                                placeholder="Experiencias, Compliciones y Obstáculos" minlength="5" maxlength="100"
                                 pattern="[A-Za-z0-9_-\s]{1,100}" required>
                         </div>
 
@@ -94,7 +94,7 @@ include 'inc/headerv2.php';
                     <div class="col-lg-6">
                         <div class="form-group">
                             <input type="text" class="form-control" name="desvioCronograma" alt="Desvios de Cronograma"
-                                placeholder="Desvios de Cronograma" minlength="1" maxlength="100"
+                                placeholder="Desvios de Cronograma" minlength="5" maxlength="100"
                                 pattern="[A-Za-z0-9_-\s]{1,100}" required>
                         </div>
                         <div class="form-group">
