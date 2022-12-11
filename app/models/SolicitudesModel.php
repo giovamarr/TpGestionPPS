@@ -111,7 +111,7 @@ class SolicitudesModel
         if (is_numeric($inicio) and is_numeric($month) and is_numeric($year) and is_numeric($Cant_por_Pag)){
             $ob = new Conexion();
             $con = $ob->conectar();
-            $vSql = "SELECT u.nombre,u.apellido,sol.*,up.nombre as nombreP,up.apellido as apellidoP FROM solicitudes sol INNER join finalreport fr on sol.idPPS=fr.idPPS_FP inner join users u on sol.id_user=u.id inner join users up on sol.id_Profe=up.id where fr.aprobadaFR is not null and sol.PPSTerminada is not null and month(fr.date)='$month' and year(fr.date)" . " limit " . $inicio . "," . $Cant_por_Pag;
+            $vSql = "SELECT u.nombre,u.apellido,sol.*,up.nombre as nombreP,up.apellido as apellidoP FROM solicitudes sol INNER join finalreport fr on sol.idPPS=fr.idPPS_FP inner join users u on sol.id_user=u.id inner join users up on sol.id_Profe=up.id where fr.aprobadaFR =1 and sol.PPSTerminada is not null and month(fr.date)='$month' and year(fr.date)" . " limit " . $inicio . "," . $Cant_por_Pag;
             $vResultado = $con->query($vSql);
             return $vResultado;
         }
