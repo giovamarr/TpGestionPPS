@@ -61,6 +61,7 @@ include 'inc/headerv2.php';
                                 while ($fila = mysqli_fetch_array($vResultado)) {
                                 ?>
                             <tr>
+
                                 <td class="align-middle"><?php echo ($fila['apellido'] . ', ' . $fila['nombre']); ?>
                                 </td>
                                 <td class="align-middle"><?php echo ($fila['apellidoP'] . ', ' . $fila['nombreP']); ?>
@@ -83,13 +84,49 @@ include 'inc/headerv2.php';
                                     </form>
                                 </td>
                                 <td class="align-middle">
-                                    <form action="../controllers/RequestController.php?m=evaluarPPS" method="POST">
-                                        <input type="hidden" name="idPPS" value="<?php echo $fila['idPPS']; ?>">
-                                        <input type="hidden" name="valor" value=2>
-                                        <button type="submit" class="btn btn-danger btn-block"
-                                            alt="desaprobar boton">Desaprobar</button>
-                                    </form>
+
+                                    <button type="button" class="btn btn-danger btn-block" data-toggle="modal"
+                                        data-target=<?php echo "#desaprobarModal".$fila['idPPS']; ?>
+                                        alt="desaprobar conclusion">Desaprobar</button>
+
                                 </td>
+                                <div class="modal" id=<?php echo "desaprobarModal".$fila['idPPS']; ?> tabindex="-1"
+                                    role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel"
+                                                    alt="Agregue un comentario">
+                                                    Agregue un comentario</h5>
+                                            </div>
+                                            <form action="../controllers/RequestController.php?m=evaluarPPS"
+                                                method="POST">
+                                                <div class="modal-body">
+
+                                                    <div class="form-group">
+                                                        <label for="message-text" class="col-form-label"
+                                                            alt="comentario">Comentario</label>
+                                                        <textarea class=" form-control" name="comentario"
+                                                            alt="area para comentario" minlength="1" maxlength="300"
+                                                            pattern="[A-Za-z0-9_-\s]{1,300}"></textarea>
+                                                    </div>
+                                                </div>
+
+                                                <div class="modal-footer">
+                                                    <input type="button" class="btn btn-secondary btn-block"
+                                                        data-dismiss='modal' value="Cancelar" alt="cancelar" />
+                                                    <input type="hidden" name="idPPS"
+                                                        value="<?php echo $fila['idPPS']; ?>">
+                                                    <input type="hidden" name="valor" value=2>
+                                                    <button type="submit" class="btn btn-primary"
+                                                        alt="Enviar Comentario">Enviar
+                                                        Comentario</button>
+                                                </div>
+                                            </form>
+
+                                        </div>
+                                    </div>
+                                </div>
                             </tr>
                             <?php
                                 }
@@ -121,6 +158,7 @@ include 'inc/headerv2.php';
                             onclick="location.href='ResponsableHome.php';" value="Volver" alt="volver" />
                     </div>
                 </div>
+
 
 
             </div>

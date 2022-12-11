@@ -4,9 +4,9 @@ class Conexion{
     
 
     public static function Conectar(){
-        $dbhost	= "containers-us-west-97.railway.app:7959";
+        $dbhost	= "containers-us-west-148.railway.app:6548";
         $dbuser	= "root";		  // database username
-        $dbpass	= "IMEc8SeZle1Xfqxx2wip";		     // database password
+        $dbpass	= "JN561mjP5of8A1VkVz6J";		     // database password
         $dbname	= "railway";    // database name
 
         // $dbhost	= "localhost:8111";	   // localhost or IP

@@ -34,7 +34,7 @@ class ReporteFinalModel{
         if (is_numeric($idPPS)){
             $ob = new Conexion();
             $con=$ob->conectar();        
-            $checksiYaenvioFR = "SELECT * FROM finalreport WHERE idPPS_FP = '$idPPS' ";				
+            $checksiYaenvioFR = "SELECT * FROM finalreport WHERE idPPS_FP = '$idPPS' and aprobadaFR!=2";				
             $vResultado = mysqli_query($con, $checksiYaenvioFR);
             return $countsiYaenvioFR = mysqli_num_rows($vResultado);
         }
@@ -83,7 +83,7 @@ class ReporteFinalModel{
         if (is_numeric($idPPS)){
             $ob = new Conexion();
             $con=$ob->conectar();
-            $vSql = "SELECT * FROM finalreport where idPPS_FP='$idPPS'";
+            $vSql = "SELECT * FROM finalreport where idPPS_FP='$idPPS' and aprobadaFR=1";
             $vResultado = mysqli_query($con, $vSql);
             return $vResultado;  
         }

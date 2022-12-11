@@ -60,13 +60,18 @@ class RequestController
         $rf = new SolicitudesModel();
         $idPPS = $_SESSION['idPPS'];
         $horas = $rf->chequearHoras($idPPS);
-        if (mysqli_num_rows($horas) == 0){ return false;}
-        else{
-        $var =mysqli_fetch_array($horas);
-        if ($var['Horas']<200) {
+		if($horas){
+			if (mysqli_num_rows($horas) == 0){ return false;}
+			else{
+			$var =mysqli_fetch_array($horas);
+			if ($var['Horas']<200) {
+				return false;
+			}else return true;
+			}   
+		}else{
             return false;
-        }else return true;
-        }      
+		}
+          
     }
 
 	public function getPPSPaginadosinProfe($inicio, $Cant_por_Pag)
@@ -103,7 +108,8 @@ class RequestController
 		$soli = new SolicitudesModel();
 		$idPPS = $_POST['idPPS'];
 		$valor = $_POST['valor'];
-		$req = $soli->evaluarPPS($idPPS, $valor);
+		$comentario = $_POST['comentario'];
+		$req = $soli->evaluarPPS($idPPS, $valor,$comentario);
 		if ($valor == 1) {
 			$header = "From: Pagina de Gestion de PPS"  . "\r\n";
 			$header .= "X-Mailer: PHP/" . phpversion();
@@ -130,7 +136,7 @@ class RequestController
 			mail($emailProfe, $asunto, $mensaje, $header);
 		}
 
-		header('Location: ../views/PublicViewSuccess.php');
+		header('Location: ../views/ResponsableRegisterAprovedPPS.php');
         exit();
 	}
 

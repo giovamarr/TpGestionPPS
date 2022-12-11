@@ -100,7 +100,7 @@ class SolicitudesModel
         if (is_numeric($inicio) and is_numeric($Cant_por_Pag)){
             $ob = new Conexion();
             $con = $ob->conectar();
-            $vSql = "SELECT u.nombre,u.apellido,sol.*,up.nombre as nombreP,up.apellido as apellidoP, u.id as IdUser, up.id as IdProf FROM solicitudes sol INNER join finalreport fr on sol.idPPS=fr.idPPS_FP inner join users u on sol.id_user=u.id inner join users up on sol.id_Profe=up.id where fr.aprobadaFR is not null and sol.PPSTerminada is null" . " limit " . $inicio . "," . $Cant_por_Pag;
+            $vSql = "SELECT u.nombre,u.apellido,sol.*,up.nombre as nombreP,up.apellido as apellidoP, u.id as IdUser, up.id as IdProf FROM solicitudes sol INNER join finalreport fr on sol.idPPS=fr.idPPS_FP inner join users u on sol.id_user=u.id inner join users up on sol.id_Profe=up.id where fr.aprobadaFR =1 and sol.PPSTerminada is null" . " limit " . $inicio . "," . $Cant_por_Pag;
             $vResultado = $con->query($vSql);
             return $vResultado;
         }
@@ -117,12 +117,18 @@ class SolicitudesModel
         }
     }
 
-    public function evaluarPPS($idPPS, $valor)
+    public function evaluarPPS($idPPS, $valor,$comentario)
     {
         if (is_numeric($idPPS) and is_numeric($valor)){
             $ob = new Conexion();
             $con = $ob->conectar();
-            $query = "UPDATE solicitudes SET PPSTerminada='$valor' where idPPS='$idPPS'";
+            if($valor==1){
+                $query = "UPDATE solicitudes SET PPSTerminada='$valor' where idPPS='$idPPS'";
+            }else{
+                $comentario = "Comentario del Responsable: ". $comentario;
+                $query = "UPDATE finalreport SET aprobadaFR=2 , comentario='$comentario' where idPPS_FP='$idPPS' and aprobadaFR=1";
+            }
+            
             $result = mysqli_query($con, $query);
             return $result;
         }

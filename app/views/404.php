@@ -24,7 +24,7 @@ include 'inc/headerv2.php';
         </div>
         <div class="col-12 d-flex justify-content-center">
 
-            <a href="https://tpgestion-pps.herokuapp.com/index.php">Ir al Inicio</a>
+            <a href="http://localhost:3000/index.php">Ir al Inicio</a>
         </div>
     </div>
 </div>

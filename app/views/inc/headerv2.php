@@ -18,7 +18,7 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav  m-auto text-primary">
-                <li><a href="../../index.php" class="nav-link px-2  text-primary">Home</a></li>
+                <li><a href="../../index.php" class="nav-link px-2  text-primary">Inicio</a></li>
                 <li><a href="../views/PublicFAQs.php" class="nav-link px-2  text-primary">Preguntas Frecuentes</a></li>
                 <li><a href="../views/PublicContact.php" class="nav-link px-2  text-primary">Contacto</a></li>
             </ul>
