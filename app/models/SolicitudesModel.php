@@ -90,7 +90,7 @@ class SolicitudesModel
     {
         $ob = new Conexion();
         $con = $ob->conectar();
-        $vSql = "SELECT * FROM solicitudes sol INNER join finalreport fr on sol.idPPS=fr.idPPS_FP inner join users u on sol.id_user=u.id inner join users up on sol.id_Profe=up.id where fr.aprobadaFR is not null";
+        $vSql = "SELECT * FROM solicitudes sol INNER join finalreport fr on sol.idPPS=fr.idPPS_FP inner join users u on sol.id_user=u.id inner join users up on sol.id_Profe=up.id where fr.aprobadaFR =1";
         $vResultado = $con->query($vSql);
         return $total_registros = mysqli_num_rows($vResultado);
     }
